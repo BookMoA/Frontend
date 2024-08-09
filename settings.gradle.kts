@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BookMoA"
+rootProject.name = "and"
 include(":app")
- 

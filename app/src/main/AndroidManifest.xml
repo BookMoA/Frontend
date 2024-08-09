@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BookMoA"
+        android:theme="@style/Theme.And"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.bookmoa.bookmoa.GroupActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +21,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".group.CommunityActivity"/>
+        <activity android:name=".group.SearchActivity"/>
+        <activity android:name=".group.InSearchActivity"/>
+        <activity android:name=".group.NextLeaderActivity"/>
+        <activity
+            android:name=".group.MakeActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".group.ProfileActivity"/>
+        <activity android:name=".group.WriteActivity"/>
+        <activity
+            android:name=".group.DialogJoinActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name=".group.DialogQuitActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name=".group.DialogExpelActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
     </application>
 
 </manifest>

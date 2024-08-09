@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="main">#95E6E7</color>
+    <color name="main70">#B5EDEE</color>
+    <color name="main30">#DFF7F8</color>
+    <color name="sub1">#1D003A</color>
+    <color name="sub2">#24DEE0</color>
+    <color name="sub3">#4FE1E2</color>
+    <color name="grey1">#EDEDED</color>
+    <color name="grey2">#E2E2E2</color>
+    <color name="grey3">#B6B6B6</color>
+    <color name="grey4">#999999</color>
+    <color name="grey5">#767676</color>
+    <color name="grey6">#424242</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <style name="tabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <dimen name="card_space">2dp</dimen>
+    <style name="dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
 </resources>

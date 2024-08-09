@@ -1,4 +1,4 @@
-package com.bookmoa.android
+package com.bookmoa.and
 
 import org.junit.Test
 

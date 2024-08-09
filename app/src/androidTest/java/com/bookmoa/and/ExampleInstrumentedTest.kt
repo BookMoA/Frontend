@@ -1,4 +1,4 @@
-package com.bookmoa.android
+package com.bookmoa.and
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.bookmoa.android", appContext.packageName)
+        assertEquals("com.bookmoa.and", appContext.packageName)
     }
 }
