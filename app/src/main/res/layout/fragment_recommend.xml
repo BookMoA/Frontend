@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/recommend_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="이런 책은 어때요?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/recommend_back_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+        android:padding="0dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/recommend_title_tv" />
+
+    <View
+        android:id="@+id/recommend_header_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/grey5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recommend_title_tv" />
+
+    <RelativeLayout
+        android:layout_width="57dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/recommend_title_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/recommend_title_tv">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/recommend_firstList_img_carview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/recommend_book_store_btn"
+                android:layout_width="57dp"
+                android:layout_height="35dp"
+                android:background="#88DED3" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/recommend_book_store_btn_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="저장"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recommend_header_line">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/recommend_book_img"
+                android:layout_width="190dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="40dp"
+                android:background="#D9D9D9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/recommend_book_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:text="책 제목"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_img" />
+
+            <TextView
+                android:id="@+id/recommend_book_author_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="저자"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_title_tv" />
+
+            <View
+                android:id="@+id/recommend_line"
+                android:layout_width="315dp"
+                android:layout_height="5px"
+                android:layout_marginTop="20dp"
+
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_author_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_introduce_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="책 소개"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_line" />
+
+            <TextView
+                android:id="@+id/recommend_book_introduce_content_tv"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="책소개 돈이 행복의 필수 조건이라고 여기면서도, 막상 돈을 잘 모르는 사람들, 사요앚드렝게 자주 받아온 질문에 토스가 내놓는 답이자, 누구나 편리하고 평등하게 금융하는 세상 만들기라는 진심을 말하는 시작점이다."
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_introduce_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_publisher_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="출판사"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_introduce_content_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_publisher_content_tv"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="출판사 이름"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_publisher_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_ISBN_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="ISBN"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_publisher_content_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_ISBN_content_tv"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="kk479243719356102597"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_ISBN_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_page_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="페이지"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_ISBN_content_tv" />
+
+            <TextView
+                android:id="@+id/recommend_book_page_content_tv"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="345p"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/recommend_line"
+                app:layout_constraintTop_toBottomOf="@id/recommend_book_page_tv" />
+
+
+            <TextView
+                android:id="@+id/recommend_go_to_aladdin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="알라딘에서 자세히 보기"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
