@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BookMoA</string>
+    <string name="app_name">and</string>
+    <string name="quit"><u>탈퇴하기</u></string>
 </resources>

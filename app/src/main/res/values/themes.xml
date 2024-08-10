@@ -3,8 +3,14 @@
     <style name="Theme.Moa" parent="Theme.AppCompat.Light.NoActionBar"></style>
 
 
-    <style name="Base.Theme.BookMoA" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.BookMoA" parent="Theme.AppCompat.Light.NoActionBar"></style>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Base application theme -->
+    <style name="Theme.And" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Add other style attributes as needed -->
     </style>
 </resources>

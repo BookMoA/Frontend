@@ -106,7 +106,6 @@
         android:id="@+id/id_check_btn"
         android:layout_width="66dp"
         android:layout_height="24dp"
-        android:layout_marginStart="52dp"
         android:background="@drawable/bg_button_color_r20"
         android:text="중복확인"
         android:textSize="11sp"

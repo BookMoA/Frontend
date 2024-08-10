@@ -36,17 +36,37 @@
         <activity
             android:name=".auth.SplashActivity"
             android:exported="true"
-            android:label="@string/app_name">
-        <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+        </activity>
+        <activity android:name="com.bookmoa.bookmoa.GroupActivity" />
+        <activity android:name=".group.CommunityActivity"/>
+        <activity android:name=".group.SearchActivity"/>
+        <activity android:name=".group.InSearchActivity"/>
+        <activity android:name=".group.NextLeaderActivity"/>
+        <activity
+            android:name=".group.MakeActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".group.ProfileActivity"/>
+        <activity android:name=".group.WriteActivity"/>
+        <activity
+            android:name=".group.DialogJoinActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name=".group.DialogQuitActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name=".group.DialogExpelActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
     </application>
 
 </manifest>

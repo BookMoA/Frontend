@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.databinding.ActivityMainBinding
 import com.bookmoa.android.home.HomeFragment
+import com.bookmoa.android.memo.BookMemoFragment
+import com.bookmoa.android.mypage.MypageFragment
 import com.bookmoa.android.study.StudyFragment
 
 class MainActivity : AppCompatActivity() {
@@ -54,9 +56,23 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.studyFragment -> {
+                R.id.memoFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, StudyFragment())
+                        .replace(R.id.main_frm, BookMemoFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+
+                R.id.studyFragment -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_frm, StudyFragment())
+                            .commitAllowingStateLoss()
+                        return@setOnItemSelectedListener true
+                }
+
+                R.id.setupFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, MypageFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
