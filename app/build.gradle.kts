@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.bookmoa.and"
+    namespace = "com.bookmoa.android"
     compileSdk = 34
 
     defaultConfig {
@@ -32,6 +32,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
