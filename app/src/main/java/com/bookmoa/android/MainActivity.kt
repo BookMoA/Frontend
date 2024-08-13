@@ -12,6 +12,7 @@ import com.bookmoa.android.study.StudyFragment
 
 class MainActivity : AppCompatActivity() {
 
+    //test
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
