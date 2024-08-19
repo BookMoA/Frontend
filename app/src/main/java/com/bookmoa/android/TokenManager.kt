@@ -12,8 +12,7 @@ class TokenManager(context: Context) {
         editor.apply()
     }
 
-    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzIzOTc4MTcyfQ.jepnDUXrXiWPcL5wfK3ekdZ2SfXFxYlDCYKd5GN8yvc"
-
+    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzI0MDY4MTQ2fQ.khokkwxicNsiWXrJLsnTet8fsqJGbCOsNCEEI3zBTY8"
     fun getToken(): String? {
 
         return hardcodedToken

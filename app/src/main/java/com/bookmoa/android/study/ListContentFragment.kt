@@ -126,6 +126,7 @@ class ListContentFragment : Fragment() {
             binding.listContentIntroduceTitleTv.text = it.title
             binding.listContentLikeNumTv.text = "${it.likeCnt}"
             binding.listContentNumTv.text = "총 ${it.bookCnt}권"
+            itemListContentAdapter?.updateItems(it.books)
         }
     }
 

@@ -5,12 +5,11 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
-interface ListTop10Api {
-    @GET("library/list/top")
-    suspend fun getTop10List(
+interface StorageListApi {
+
+    @GET("library/list")
+    suspend fun getStorageList(
         @Header("Authorization") auth: String,
         @Query("page") page: Int = 1
-    ): Response<ListTop10Response>
+    ): Response<StorageListResponse>
 }
-
-

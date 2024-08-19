@@ -21,7 +21,7 @@ data class ListContentData(
     @SerializedName("listStatus") val listStatus: String,
     @SerializedName("nickname") val nickname: String,
     @SerializedName("likeStatus") val likeStatus: Boolean,
-    @SerializedName("book")val books: List<ListContentBook> = emptyList() // 책 목록은 현재 비어 있음
+    @SerializedName("books")val books: List<ListContentBook> = emptyList() // 책 목록은 현재 비어 있음
 )
 
 data class ListContentBook(

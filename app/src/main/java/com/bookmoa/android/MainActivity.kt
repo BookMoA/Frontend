@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+
         setContentView(binding.root)
         initBottomNavigation()
 
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.addToBackStack(null) // 뒤로 가기 버튼으로 이전 Fragment로 돌아가기 가능
         fragmentTransaction.commit()
     }
+
 
     override fun onBackPressed() {
         val fragmentManager = supportFragmentManager

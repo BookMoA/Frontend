@@ -1,6 +1,7 @@
 package com.bookmoa.android.study
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,8 +41,6 @@ class ListTop10Fragment : Fragment() {
         tokenManager = TokenManager(requireContext())
 
         // 임시로 토큰 설정 (여기에서 직접 토큰을 설정)
-        tokenManager.saveToken("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzIzOTcwOTA2fQ.FVtSxnnejch66_3Pn7wI_AG5rCHNAJNkCaJAiUOOJHY")
-
         // RecyclerView 설정
         listTop10Adapter = ListTop10Adapter()
         binding.listTop10Rv.layoutManager = LinearLayoutManager(context)
@@ -53,6 +52,8 @@ class ListTop10Fragment : Fragment() {
         listTop10Adapter?.setOnItemClickListener(object : ListTop10Adapter.OnItemClickListener {
             override fun onItemClick(view: View, position: Int, data: ListTop10Data) {
                 val fragment = ListContentFragment.newInstance(data.bookListId) // ID만 전달
+                Log.d("FragmentTransaction", "Navigating to ListDetailFragment with ID: ${data.bookListId}")
+
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.main_frm, fragment)  // fragment_container는 MainActivity의 FrameLayout ID입니다.
                     .addToBackStack(null)
@@ -75,12 +76,9 @@ class ListTop10Fragment : Fragment() {
         if (token != null) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    // API 호출
                     val response = RetrofitInstance.listTop10api.getTop10List("Bearer $token")
-
                     withContext(Dispatchers.Main) {
                         if (response.isSuccessful) {
-                            // 응답이 성공적일 경우
                             val apiResponse = response.body()
                             if (apiResponse != null && apiResponse.result) {
                                 binding.listTop10DataAndtimeTv.text = apiResponse.data?.updatedAt
@@ -88,21 +86,20 @@ class ListTop10Fragment : Fragment() {
                                 if (top10List != null) {
                                     listTop10Adapter?.updateItems(top10List)
                                 } else {
-                                    // 데이터가 없는 경우
                                     Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
                                 }
                             } else {
-                                // 응답이 성공적이지만 `result`가 false인 경우
                                 Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
                             }
                         } else {
-                            // 응답이 실패한 경우
                             Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                            Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
                         }
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        Log.e("Network Error", "Exception during API call", e)
                     }
                 }
             }

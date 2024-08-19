@@ -3,36 +3,48 @@ package com.bookmoa.android.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bookmoa.android.study.ItemListContentDao
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.ItemBookListBinding
+import com.bookmoa.android.study.ListContentBook
+import com.bumptech.glide.Glide
 
-class ListContentAdapter: RecyclerView.Adapter<ListContentAdapter.ViewHolder>() {
+class ListContentAdapter : RecyclerView.Adapter<ListContentAdapter.ViewHolder>() {
 
-    private val listData: ArrayList<ItemListContentDao> = ArrayList()
+    private val listData: ArrayList<ListContentBook> = ArrayList()
 
+    // ViewHolder 생성
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val binding : ItemBookListBinding = ItemBookListBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
-
+        val binding = ItemBookListBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 
+    // ViewHolder에 데이터 바인딩
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        holder.onBind(listData[position])
+        holder.bind(listData[position])
     }
 
+    // 아이템 수
     override fun getItemCount(): Int = listData.size
 
-    fun addItem(data: ItemListContentDao) {
-        listData.add(data)
+    // 데이터 업데이트
+    fun updateItems(newItems: List<ListContentBook>) {
+        listData.clear()
+        listData.addAll(newItems)
+        notifyDataSetChanged()
     }
-    class ViewHolder(val binding: ItemBookListBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(data: ItemListContentDao){
-            binding.itemBookListCoverIv.setImageResource(data.img)
-            binding.itemBookListTitleTv.text=data.title
-            binding.itemBookListAuthorTv.text=data.author
+    // ViewHolder 정의
+    class ViewHolder(private val binding: ItemBookListBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(book: ListContentBook) {
+            // 이미지 설정 (이미지가 URL인 경우 Glide나 Picasso 사용)
+            Glide.with(binding.root.context)
+                .load(book.coverImg)  // 이미지 URL
+                .placeholder(R.drawable.placeholder) // 로딩 중에 표시할 이미지
+                .error(R.drawable.error) // 로딩 실패 시 표시할 이미지
+                .into(binding.itemBookListCoverIv)
+            binding.itemBookListTitleTv.text = book.title
+            binding.itemBookListAuthorTv.text = book.writer
         }
-
     }
 }

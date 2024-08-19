@@ -1,11 +1,14 @@
 package com.bookmoa.android
 
+
 import com.bookmoa.android.study.ListContentApi
 import com.bookmoa.android.study.ListTop10Api
+import com.bookmoa.android.study.StorageListApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
+
     private const val BASE_URL = "https://bookmoa.shop/"
 
     private val retrofit by lazy {
@@ -22,4 +25,10 @@ object RetrofitInstance {
     val listcontentapi: ListContentApi by lazy {
         retrofit.create(ListContentApi::class.java)
     }
+
+    val storageListapi: StorageListApi by lazy {
+        retrofit.create(StorageListApi::class.java)
+    }
 }
+
+

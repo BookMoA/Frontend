@@ -66,12 +66,13 @@
         android:id="@+id/list_content_introduce_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+
         android:layout_marginTop="30dp"
-        android:text="날씨 좋은 요즘, 한강에서 읽기 좋은 책"
+        android:text="리스트 제목"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/list_content_img_cardview" />
 
     <TextView
@@ -81,9 +82,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:text="소개글소개글소개글소개글소개글소개글소개글
-소개글소개글소개글소개글소개글소개글소개글
-소개글소개글소개글소개글소개글소개글소개글 "
+        android:text="소개글"
         android:textColor="#6D6D6D"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/list_content_introduce_title_tv"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/list_content_introduce_detail_tv">
 
         <TextView
