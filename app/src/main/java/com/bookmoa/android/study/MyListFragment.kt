@@ -55,6 +55,10 @@ class MyListFragment : Fragment() {
         })
 
         loadMyListData()
+
+
+
+
     }
 
     private fun loadMyListData() {
@@ -70,9 +74,9 @@ class MyListFragment : Fragment() {
                             // 응답이 성공적일 경우
                             val apiResponse = response.body()
                             if (apiResponse != null ) {
-                                val top10List = apiResponse.data
-                                if (top10List != null) {
-                                    storageRVAdapter?.updateItems(top10List)
+                                val list = apiResponse.data
+                                if (list != null) {
+                                    storageRVAdapter?.updateItems(list)
                                 } else {
                                     // 데이터가 없는 경우
                                     Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
