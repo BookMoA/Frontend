@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@id/login_ic" >
 
         <TextView
-            android:id="@+id/email_guide_tv"
+            android:id="@+id/email_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
@@ -70,7 +70,29 @@
             android:layout_marginEnd="47dp" />
 
         <TextView
-            android:id="@+id/password_guide_tv"
+            android:id="@+id/email_guide_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="2dp"
+            android:text="이메일을 입력해주세요"
+            android:textSize="11sp"
+            android:textColor="@color/red"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/email_error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="2dp"
+            android:text="이메일이 옳지 않습니다"
+            android:textSize="11sp"
+            android:textColor="@color/red"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/password_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
@@ -92,6 +114,30 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/password_guide_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="비밀번호를 입력해주세요"
+                android:textSize="11sp"
+                android:textColor="@color/red"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/password_tv"
+                app:layout_constraintTop_toBottomOf="@id/password_tv" />
+
+            <TextView
+                android:id="@+id/password_error_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="비밀번호가 옳지 않습니다"
+                android:textSize="11sp"
+                android:textColor="@color/red"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/password_tv"
+                app:layout_constraintTop_toBottomOf="@id/password_tv" />
 
 
             <ImageView
