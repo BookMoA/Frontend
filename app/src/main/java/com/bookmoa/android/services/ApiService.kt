@@ -41,7 +41,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 import java.io.IOException
 
-interface ApiService {
+interface ApiService: StorageListApi, ListTop10Api, StorageBookApi {
 
     @POST("/users/auth/sign-up")
     fun SignUp(

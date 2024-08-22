@@ -46,7 +46,7 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
 
         initRecyclerView()
         val userInfoManager = UserInfoManager(requireContext())
-        tokenManager = TokenManager(requireContext())
+        // tokenManager = TokenManager(requireContext())
 
         adapter= BookMemoAdapter(mutableListOf(), isDeleteMode, selectedItems, this)
         binding.memeoRv.adapter= adapter

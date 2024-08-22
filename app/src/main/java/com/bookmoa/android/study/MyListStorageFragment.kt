@@ -12,11 +12,14 @@ import com.bookmoa.android.MainActivity
 import com.bookmoa.android.adapter.StorageListAddAdapter
 import com.bookmoa.android.databinding.FragmentMyListStorageBinding
 import com.bookmoa.android.models.StorageListData
+import com.bookmoa.android.models.StorageListResponse
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.BooksRequest
 import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
@@ -31,6 +34,8 @@ class MyListStorageFragment : Fragment() {
     private lateinit var tokenManager: TokenManager
     private var selectedBookIds: MutableList<Int> = mutableListOf() // 선택된 ID 리스트
     private var selectedId: Int? =null
+
+    private lateinit var api: ApiService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -77,6 +82,45 @@ class MyListStorageFragment : Fragment() {
     }
 
     private fun loadMyListData() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getStorageList().enqueue(object: Callback<StorageListResponse> {
+                override fun onResponse(
+                    call: Call<StorageListResponse>,
+                    response: Response<StorageListResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        // 응답이 성공적일 경우
+                        val apiResponse = response.body()
+                        if (apiResponse != null) {
+                            val list = apiResponse.data
+                            if (list != null) {
+                                storageRVAdapter?.updateItems(list)
+                            } else {
+                                // 데이터가 없는 경우
+                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            // 응답이 성공적이지만 `result`가 false인 경우
+                            Log.d("[LIST]", "${response.errorBody()?.string()}")
+                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // 응답이 실패한 경우
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<StorageListResponse>, t: Throwable) {
+                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+
+        /*
         val token = tokenManager.getToken()
         if (token != null) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -114,6 +158,8 @@ class MyListStorageFragment : Fragment() {
         } else {
             handleNoToken()
         }
+
+         */
     }
 
     private fun handleNoToken() {

@@ -14,10 +14,16 @@ import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentListTop10Binding
 import com.bookmoa.android.models.ListTop10Data
+import com.bookmoa.android.models.ListTop10Response
+import com.bookmoa.android.services.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ListTop10Fragment : Fragment() {
 
@@ -25,6 +31,8 @@ class ListTop10Fragment : Fragment() {
     private val binding get() = _binding!!
     private var listTop10Adapter: ListTop10Adapter? = null
     private lateinit var tokenManager: TokenManager
+
+    private lateinit var api: ApiService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,6 +81,74 @@ class ListTop10Fragment : Fragment() {
     }
 
     private fun loadTop10Data() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getTop10List().enqueue(object: Callback<ListTop10Response> {
+                override fun onResponse(
+                    call: Call<ListTop10Response>,
+                    response: Response<ListTop10Response>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            binding.listTop10DataAndtimeTv.text = apiResponse.data?.updatedAt
+                            val top10List = apiResponse.data?.bookLists
+                            if (top10List != null) {
+                                listTop10Adapter?.updateItems(top10List)
+                            } else {
+                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        Log.d("[LIST]", "Top List 오류 발생: ${response.code()}, message: ${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ListTop10Response>, t: Throwable) {
+                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    Log.d("[LIST]", "Top List - 통신 실패")
+                }
+
+            })
+
+            /*
+            try {
+                val response = RetrofitInstance.listTop10api.getTop10List()
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            binding.listTop10DataAndtimeTv.text = apiResponse.data?.updatedAt
+                            val top10List = apiResponse.data?.bookLists
+                            if (top10List != null) {
+                                listTop10Adapter?.updateItems(top10List)
+                            } else {
+                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    Log.e("Network Error", "Exception during API call", e)
+                }
+            }
+
+             */
+        }
+
+                /*
         val token = tokenManager.getToken()
         if (token != null) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -107,6 +183,8 @@ class ListTop10Fragment : Fragment() {
         } else {
             handleNoToken()
         }
+
+                 */
     }
 
     private fun handleNoToken() {
