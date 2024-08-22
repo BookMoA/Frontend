@@ -15,6 +15,7 @@ import com.bookmoa.android.adapter.ListDetailAdapter
 
 import com.bookmoa.android.databinding.FragmentListDetailBinding
 import com.bookmoa.android.models.ListContentData
+import com.bookmoa.android.services.ApiService
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 
@@ -22,6 +23,8 @@ class ListDetailFragment : Fragment() {
     lateinit var binding: FragmentListDetailBinding
     private var itemListDetailAdapter: ListDetailAdapter? = null
     private lateinit var tokenManager: TokenManager
+
+    private lateinit var api: ApiService
 
     companion object {
         private const val ARG_ID = "id"
@@ -56,6 +59,7 @@ class ListDetailFragment : Fragment() {
     }
 
     private suspend fun fetchDataById(id: Int): ListContentData? {
+
         return try {
             val token = tokenManager.getToken()
 

@@ -13,10 +13,16 @@ import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.StorageBookAdapter
 import com.bookmoa.android.databinding.FragmentFinishedBooksBinding
+import com.bookmoa.android.models.StorageBookResponse
+import com.bookmoa.android.services.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FinishedBooksFragment : Fragment() {
 
@@ -24,6 +30,8 @@ class FinishedBooksFragment : Fragment() {
     private val binding get() = _binding!!
     private var storageRVAdapter: StorageBookAdapter? = null
     private lateinit var tokenManager: TokenManager
+
+    private lateinit var api: ApiService
 
 
     override fun onCreateView(
@@ -50,6 +58,72 @@ class FinishedBooksFragment : Fragment() {
     }
 
     private fun loadBookData() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getBooks("finished").enqueue(object: Callback<StorageBookResponse> {
+                override fun onResponse(
+                    call: Call<StorageBookResponse>,
+                    response: Response<StorageBookResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            val books= apiResponse.data?.books
+                            if (books != null) {
+                                storageRVAdapter?.updateItems(books)
+                            } else {
+                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<StorageBookResponse>, t: Throwable) {
+                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    Log.e("Network Error", "Exception during API call")
+                }
+
+            })
+
+            /*
+            try {
+                val response = RetrofitInstance.storageBookapi.getBooks("finished")
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            val books= apiResponse.data?.books
+                            if (books != null) {
+                                storageRVAdapter?.updateItems(books)
+                            } else {
+                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    Log.e("Network Error", "Exception during API call", e)
+                }
+            }
+
+             */
+        }
+
+        /*
         val token = tokenManager.getToken()
         if (token != null) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -83,6 +157,8 @@ class FinishedBooksFragment : Fragment() {
         } else {
             handleNoToken()
         }
+
+         */
     }
 
     private fun handleNoToken() {

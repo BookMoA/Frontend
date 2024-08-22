@@ -144,6 +144,7 @@ class MypageFragment : Fragment() {
     private fun logout() {
         GlobalScope.launch {
             userInfoManager.updateTokens("", "", "", "")
+            userInfoManager.saveProfileImageUri("")
             val intent = Intent(requireContext(), OnboardingActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
