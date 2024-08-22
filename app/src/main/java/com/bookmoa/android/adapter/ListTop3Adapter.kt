@@ -1,16 +1,16 @@
-package com.bookmoa.android.study
+package com.bookmoa.android.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bookmoa.android.R
-import com.bookmoa.android.databinding.ItemListTop10Binding
+import com.bookmoa.android.databinding.ItemStudyListTop3Binding
 import com.bookmoa.android.models.ListTop10Data
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ListTop10Adapter : RecyclerView.Adapter<ListTop10Adapter.ViewHolder>() {
+class ListTop3Adapter : RecyclerView.Adapter<ListTop3Adapter.ViewHolder>() {
 
     private val listData: ArrayList<ListTop10Data> = ArrayList()
 
@@ -31,7 +31,7 @@ class ListTop10Adapter : RecyclerView.Adapter<ListTop10Adapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemListTop10Binding = ItemListTop10Binding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        val binding: ItemStudyListTop3Binding = ItemStudyListTop3Binding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 
@@ -46,21 +46,21 @@ class ListTop10Adapter : RecyclerView.Adapter<ListTop10Adapter.ViewHolder>() {
 
     override fun getItemCount(): Int = listData.size
 
-    class ViewHolder(val binding: ItemListTop10Binding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemStudyListTop3Binding) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: ListTop10Data) {
             Glide.with(binding.root.context)
                 .load(data.img)
                 .centerCrop()
-                .apply(RequestOptions()
+                .apply(
+                    RequestOptions()
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)
                 )
-                .into(binding.itemListTop10ImgIv)
+                .into(binding.itemListTop3ImgIv)
 
-            binding.itemListTop10TitleTv.text = data.title
-            binding.itemListTop10NumTv.text = "${data.bookCnt}개"
-            binding.itemListTop10LikeTv.text = "${data.likeCnt}"
+            binding.itemListTop3Tv.text = data.title
+
         }
     }
 }

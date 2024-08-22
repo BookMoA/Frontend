@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 val properties = Properties().apply {
@@ -25,6 +26,7 @@ android {
         buildConfigField("String", "BASE_URL", properties["BASE_URL"].toString())
 
         vectorDrawables.useSupportLibrary = true
+
     }
 
     buildTypes {

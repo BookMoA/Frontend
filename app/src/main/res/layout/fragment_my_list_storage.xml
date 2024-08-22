@@ -35,11 +35,57 @@
         android:background="@color/grey5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myListStorage_title_tv" />
+    <LinearLayout
+        android:id="@+id/myListStorage_addList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myListStorage_line">
 
-    <FrameLayout
-        android:id="@+id/child_fragment_container"
+        <ImageView
+            android:id="@+id/myListStorage__addList_ic"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/plus" />
+
+        <TextView
+            android:id="@+id/myListStorage__addList_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트 추가하기"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/myListStorage_line" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myListStorage_addList">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wantToRead_addList"
+            />
+    </ScrollView>
+    <Button
+        android:id="@+id/myListStorage_submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="선택 완료"
+        android:textSize="16sp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

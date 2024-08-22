@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+
         setContentView(binding.root)
 
         // 로그인으로 이동
@@ -60,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+
     override fun onBackPressed() {
         val fragmentManager = supportFragmentManager
         if (fragmentManager.backStackEntryCount > 0) {
@@ -68,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
 
     private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()
