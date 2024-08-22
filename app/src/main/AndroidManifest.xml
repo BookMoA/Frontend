@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,16 +16,7 @@
         android:theme="@style/Theme.Moa"
         tools:targetApi="31">
         <activity
-            android:name=".mypage.IntroMoaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.MypageActivity"
-            android:exported="false" />
-        <activity
             android:name=".mypage.FAQActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.ChangeProfileActivity"
             android:exported="false" />
         <activity
             android:name=".auth.SignUpActivity"

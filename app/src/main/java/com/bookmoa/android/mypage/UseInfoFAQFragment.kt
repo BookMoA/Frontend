@@ -6,55 +6,67 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bookmoa.android.R
+import com.bookmoa.android.databinding.FragmentUseInfoFAQBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [UseInfoFAQFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UseInfoFAQFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var binding: FragmentUseInfoFAQBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_use_info_f_a_q, container, false)
+        binding = FragmentUseInfoFAQBinding.inflate(layoutInflater, container, false)
+
+        binding.questionLayout1.setOnClickListener {
+            if (binding.answerTv1.visibility == View.GONE) {
+                binding.answerTv1.visibility = View.VISIBLE
+                binding.question1Guideline.visibility = View.VISIBLE
+                binding.bookRegisterGuideIc.visibility = View.VISIBLE
+                binding.bookRegisterGuideTv.visibility = View.VISIBLE
+                binding.arrowIcon1.setImageResource(R.drawable.ic_up_arrow)
+            } else {
+                binding.answerTv1.visibility = View.GONE
+                binding.question1Guideline.visibility = View.GONE
+                binding.bookRegisterGuideIc.visibility = View.GONE
+                binding.bookRegisterGuideTv.visibility = View.GONE
+                binding.arrowIcon1.setImageResource(R.drawable.ic_down_arrow)
+            }
+        }
+
+        binding.questionLayout2.setOnClickListener {
+            if (binding.answerTv2.visibility == View.GONE) {
+                binding.answerTv2.visibility = View.VISIBLE
+                binding.question2Guideline.visibility = View.VISIBLE
+                binding.arrowIcon2.setImageResource(R.drawable.ic_up_arrow)
+            } else {
+                binding.answerTv2.visibility = View.GONE
+                binding.question2Guideline.visibility = View.GONE
+                binding.arrowIcon2.setImageResource(R.drawable.ic_down_arrow)
+            }
+        }
+
+        binding.questionLayout3.setOnClickListener {
+            if (binding.answerTv3.visibility == View.GONE) {
+                binding.answerTv3.visibility = View.VISIBLE
+                binding.question3Guideline.visibility = View.VISIBLE
+                binding.bookRegisterGuideIc.visibility = View.VISIBLE
+                binding.bookRegisterGuideTv.visibility = View.VISIBLE
+                binding.arrowIcon3.setImageResource(R.drawable.ic_up_arrow)
+            } else {
+                binding.answerTv3.visibility = View.GONE
+                binding.question3Guideline.visibility = View.GONE
+                binding.bookRegisterGuideIc.visibility = View.GONE
+                binding.bookRegisterGuideTv.visibility = View.GONE
+                binding.arrowIcon3.setImageResource(R.drawable.ic_down_arrow)
+            }
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment UseInfoFAQFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            UseInfoFAQFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".mypage.MypageFragment">
 
+    <ImageView
+        android:id="@+id/top_bar_back_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20.15dp"
+        android:src="@drawable/ic_topbar_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mypage_tv"
+        app:layout_constraintBottom_toBottomOf="@id/mypage_tv"/>
+
     <TextView
         android:id="@+id/mypage_tv"
         android:layout_width="wrap_content"
@@ -40,7 +50,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="48dp"
         android:layout_marginStart="48dp"
-        android:background="@drawable/bg_profile"
+        android:src="@drawable/ic_profile_unfilled"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mypage_tv" />
 

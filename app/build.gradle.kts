@@ -6,26 +6,27 @@ plugins {
     id("kotlin-parcelize")
 }
 
+val properties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
+
 android {
     namespace = "com.bookmoa.android"
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.bookmoa.and"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        val localProperties = Properties()
-        val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localProperties.load(localPropertiesFile.inputStream())
-        }
+        buildConfigField("String", "BASE_URL", properties["BASE_URL"].toString())
 
-        buildConfigField("String", "BASE_URL", localProperties.getProperty("BASE_URL", localProperties["BASE_URL"].toString()))
+        vectorDrawables.useSupportLibrary = true
+
     }
 
     buildTypes {
@@ -63,9 +64,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("me.relex:circleindicator:2.1.6")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.google.code.gson:gson:2.9.0")
-    implementation ("com.github.bumptech.glide:glide:4.11.0")
-
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") //converter
+    implementation("com.google.code.gson:gson:2.11.0") // Gson
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 }

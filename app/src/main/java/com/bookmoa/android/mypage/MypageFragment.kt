@@ -2,24 +2,30 @@ package com.bookmoa.android.mypage
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.bookmoa.android.R
+import com.bookmoa.android.auth.LoginActivity
+import com.bookmoa.android.auth.OnboardingActivity
 import com.bookmoa.android.databinding.FragmentMypageBinding
-import com.bookmoa.android.mypage.ChangeProfileActivity
-import com.bookmoa.android.mypage.FAQActivity
-import com.bookmoa.android.mypage.IntroMoaActivity
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.bookmoa.android.services.UserInfoManager
+import com.bumptech.glide.Glide
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.reflect.Member
 
 class MypageFragment : Fragment() {
 
     lateinit var binding: FragmentMypageBinding
+    private lateinit var userInfoManager: UserInfoManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +33,51 @@ class MypageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
+        userInfoManager = UserInfoManager(requireContext())
+
+        GlobalScope.launch {
+            val email = userInfoManager.getEmail()
+            val nickname = userInfoManager.getNickname()
+
+            Log.d("[MYPAGE]", "Email: $email, Nickname: $nickname")
+
+            binding.nicknameTv.text = nickname
+        }
+
+        // 프로필 이미지 로드
+        GlobalScope.launch {
+            val profileImageUri = userInfoManager.getProfileImageUri()
+            withContext(Dispatchers.Main) {
+                if (profileImageUri != null && profileImageUri.isNotEmpty()) {
+                    // Glide를 사용하여 URL에서 이미지 로드
+                    Glide.with(requireContext())
+                        .load(profileImageUri)
+                        .placeholder(R.drawable.ic_profile_unfilled) // 기본 이미지
+                        .error(R.drawable.ic_profile_unfilled) // 에러 시 기본 이미지
+                        .into(binding.profileIv)
+                } else {
+                    // URI가 null이거나 비어있으면 기본 이미지로 설정
+                    binding.profileIv.setImageResource(R.drawable.ic_profile_unfilled)
+                }
+            }
+        }
+
         // 프로필 변경
         binding.changeProfileBtn.setOnClickListener {
-            val intent = Intent(requireContext(), ChangeProfileActivity::class.java)
-            startActivity(intent)
+            val changeProfileFragment = ChangeProfileFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, changeProfileFragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         // 알림 설정
         binding.noticeSettingBtn.setOnClickListener {
-            // 알림 설정 페이지 이동
+            val notificationFragment = NotificationFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, notificationFragment)
+                .addToBackStack(null) // 뒤로 가기 버튼을 누르면 MypageFragment로 돌아오도록 함
+                .commit()
         }
 
         // 로그아웃
@@ -59,8 +101,12 @@ class MypageFragment : Fragment() {
         }
 
         binding.introMoaBtn.setOnClickListener {
-            val intent = Intent(requireContext(), IntroMoaActivity::class.java)
-            startActivity(intent)
+
+            val MemberInfoFragment = MemberInfoFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, MemberInfoFragment)
+                .addToBackStack(null) // 뒤로 가기 버튼을 누르면 MypageFragment로 돌아오도록 함
+                .commit()
         }
 
         binding.serviceTermsBtn.setOnClickListener {
@@ -75,22 +121,32 @@ class MypageFragment : Fragment() {
     }
 
     private fun showLogoutDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.logout_alert_dialog, null)
-        val dialogBuilder = AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .create()
+        if (isAdded) {
+            val dialogView = layoutInflater.inflate(R.layout.logout_alert_dialog, null)
+            val dialogBuilder = AlertDialog.Builder(requireContext())
+                .setView(dialogView)
+                .create()
 
-        val cancelButton = dialogView.findViewById<Button>(R.id.cancel_btn)
-        val confirmButton = dialogView.findViewById<Button>(R.id.confirm_btn)
+            val cancelButton = dialogView.findViewById<Button>(R.id.cancel_btn)
+            val confirmButton = dialogView.findViewById<Button>(R.id.confirm_btn)
 
-        cancelButton.setOnClickListener {
-            dialogBuilder.dismiss()
+            cancelButton.setOnClickListener {
+                dialogBuilder.dismiss()
+            }
+            confirmButton.setOnClickListener {
+                logout()
+            }
+
+            dialogBuilder.show()
         }
-        confirmButton.setOnClickListener {
-            //로그아웃 처리
-            dialogBuilder.dismiss()
-        }
+    }
 
-        dialogBuilder.show()
+    private fun logout() {
+        GlobalScope.launch {
+            userInfoManager.updateTokens("", "", "", "")
+            val intent = Intent(requireContext(), OnboardingActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
     }
 }
