@@ -58,7 +58,7 @@
                 android:id="@+id/search_sv"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/grey6"
+                android:background="@color/grey2"
                 android:focusable="true"
                 android:padding="10dp"
                 app:iconifiedByDefault="false"

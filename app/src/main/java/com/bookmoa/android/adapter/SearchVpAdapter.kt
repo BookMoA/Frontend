@@ -18,7 +18,15 @@ class SearchVpAdapter (fragment: Fragment): FragmentStateAdapter(fragment) {
             1 -> SearchTitleFragment()
             2 -> SearchAuthorFragment()
             3 -> SearchBookListFragment()
-            else -> SearchMemoFragment()
+            4 -> SearchMemoFragment()
+            else -> throw IllegalArgumentException("Invalid position $position")
         }
+    }
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun containsItem(itemId: Long): Boolean {
+        return itemId in 0 until itemCount
     }
 }
