@@ -1,33 +1,31 @@
-package com.bookmoa.android.study
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bookmoa.android.MainActivity
-import com.bookmoa.android.adapter.ListContentAdapter
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentListContentBinding
 import com.bookmoa.android.models.ListContentData
 import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
+import com.bookmoa.android.study.MyListStorageFragment
 import com.bumptech.glide.Glide
-
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class ListContentFragment : Fragment() {
 
-    lateinit var binding: FragmentListContentBinding
-    private var itemListContentAdapter: ListContentAdapter? = null
+    private lateinit var binding: FragmentListContentBinding
+    private lateinit var itemListContentAdapter: ListContentAdapter
     private lateinit var tokenManager: TokenManager
+    private val selectedIds = mutableSetOf<Int>()
 
     companion object {
         private const val ARG_ID = "id"
@@ -49,9 +47,6 @@ class ListContentFragment : Fragment() {
             val id = it.getInt(ARG_ID)
             tokenManager = TokenManager()
 
-
-            Log.d("ListContentFragment", "Received id: $id")
-
             lifecycleScope.launch {
                 val fetchedItem = fetchDataById(id)
                 if (fetchedItem != null) {
@@ -67,14 +62,11 @@ class ListContentFragment : Fragment() {
             val token = tokenManager.getToken()
 
             if (token != null) {
-                Log.d("ListContentFragment", "Token found: $token")
                 val response = RetrofitInstance.listcontentapi.getBookListById(id, "Bearer $token")
 
                 if (response.isSuccessful) {
-                    Log.d("ListContentFragment", "API call successful")
                     val apiResponse = response.body()
                     apiResponse?.data?.let { data ->
-                        Log.d("ListContentFragment", "Data received: $data")
                         return ListContentData(
                             bookListId = data.bookListId,
                             img = data.img ?: "",
@@ -85,25 +77,35 @@ class ListContentFragment : Fragment() {
                             likeCnt = data.likeCnt,
                             bookCnt = data.bookCnt,
                             likeStatus = data.likeStatus,
-                            books = data.books ?: emptyList() // 기본값 처리
-                        ).also {
-                            Log.d("ListContentFragment", "ListContentData created: $it")
-                        }
+                            books = data.books ?: emptyList()
+                        )
                     }
-                } else {
-                    Log.e("ListContentFragment", "API call failed: ${response.errorBody()?.string()}")
                 }
-            } else {
-                Log.e("ListContentFragment", "Token not found")
             }
             null
         } catch (e: Exception) {
-            Log.e("ListContentFragment", "Network error", e)
             null
         }
     }
+
+    private fun updateUI(item: ListContentData?) {
+        item?.let {
+            Glide.with(this)
+                .load(it.img)
+                .into(binding.listContentImgIv)
+
+            binding.listContentIntroduceTitleTv.text = it.title
+            binding.listContentLikeNumTv.text = "${it.likeCnt}"
+            binding.listContentNumTv.text = "총 ${it.bookCnt}권"
+            binding.listContentIntroduceDetailTv.text = it.spec
+            itemListContentAdapter = ListContentAdapter(selectedIds)
+            binding.listContentRvList.layoutManager = LinearLayoutManager(context)
+            binding.listContentRvList.adapter = itemListContentAdapter
+            itemListContentAdapter.updateItems(it.books)
+        }
+    }
     fun postBookId(bookListId: Int, callback: (Boolean, String?) -> Unit) {
-       val token = tokenManager.getToken()
+        val token = tokenManager.getToken()
         val call: Call<ResponseBody> = RetrofitInstance.postAnotherBookIdapi.postBookId(
             token = "Bearer $token",
             bookListId = bookListId
@@ -127,6 +129,7 @@ class ListContentFragment : Fragment() {
             }
         })
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -136,10 +139,6 @@ class ListContentFragment : Fragment() {
         binding.listContentBackIcon.setOnClickListener {
             activity?.supportFragmentManager?.popBackStack()
         }
-
-        itemListContentAdapter = ListContentAdapter()
-        binding.listContentRvList.layoutManager = LinearLayoutManager(context)
-        binding.listContentRvList.adapter = itemListContentAdapter
 
         binding.listContentStorageStoreIv.setOnClickListener{
             Log.d("test","${item!!.bookListId}")
@@ -152,23 +151,21 @@ class ListContentFragment : Fragment() {
             }
         }
 
+        binding.listContentSubmitBtn.setOnClickListener {
+            val bundle = Bundle().apply {
+                putIntegerArrayList("selected_ids", ArrayList(selectedIds))
+            }
+
+            val nextFragment = MyListStorageFragment().apply {
+                arguments = bundle
+            }
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, nextFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         return binding.root
     }
-
-    private fun updateUI(item: ListContentData?) {
-        item?.let {
-            Glide.with(this)
-                .load(it.img) // 실제 이미지 URL 사용
-                .into(binding.listContentImgIv)
-
-            binding.listContentIntroduceTitleTv.text = it.title
-            binding.listContentLikeNumTv.text = "${it.likeCnt}"
-            binding.listContentNumTv.text = "총 ${it.bookCnt}권"
-            binding.listContentIntroduceDetailTv.text=it.spec
-            itemListContentAdapter?.updateItems(it.books)
-
-        }
-    }
-
-
 }

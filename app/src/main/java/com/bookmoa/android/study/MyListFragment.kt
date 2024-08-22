@@ -58,8 +58,6 @@ class MyListFragment : Fragment() {
         loadMyListData()
 
 
-
-
     }
 
     private fun loadMyListData() {

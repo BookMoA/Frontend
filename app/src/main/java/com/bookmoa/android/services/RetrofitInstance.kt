@@ -33,6 +33,10 @@ object RetrofitInstance {
     val postAnotherBookIdapi: addBookListAnother by lazy {
         retrofit.create(addBookListAnother::class.java)
     }
+
+    val postAnotherBookselectapi: AddBookListSelectAnotherService by lazy {
+        retrofit.create(AddBookListSelectAnotherService::class.java)
+    }
 }
 
 

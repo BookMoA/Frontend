@@ -14,6 +14,10 @@ interface AddBookListSelectAnotherService {
     fun postBookIds(
     @Header("Authorization") token: String,
     @Path("bookListId") bookListId: Int,
-    @Body bookListIds: List<Int> // 선택된 ID 리스트를 전송
+    @Body requestBody: BooksRequest
     ): Call<ResponseBody>
 }
+
+data class BooksRequest(
+    val booksId: List<Int>
+)

@@ -25,7 +25,7 @@ data class ListContentData(
 )
 
 data class ListContentBook(
-    @SerializedName("bookId") val bookListId: Int,
+    @SerializedName("bookId") val bookId: Int,
     @SerializedName("title") val title: String,
     @SerializedName("coverImg") val coverImg: String,
     @SerializedName("writer") val writer: String,
