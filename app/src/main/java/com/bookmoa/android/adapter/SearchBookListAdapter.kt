@@ -1,24 +1,25 @@
-package com.bookmoa.android
+package com.bookmoa.android.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.ItemListTop10Binding
 import com.bookmoa.android.models.SearchBookListData
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class SearchBookListAdapter(private val itemClickedListener: (SearchBookListData) -> Unit) :
-    ListAdapter<SearchBookListData,SearchBookListAdapter.ListItemViewHolder>(ListDiffCallback()){
+class SearchBookListAdapter(
+    private val itemClickedListener: (SearchBookListData) -> Unit
+) : ListAdapter<SearchBookListData, SearchBookListAdapter.ListItemViewHolder>(ListDiffCallback()) {
 
-
-    inner class ListItemViewHolder(private val binding:ItemListTop10Binding) :
+    inner class ListItemViewHolder(private val binding: ItemListTop10Binding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: SearchBookListData) {
-
+            // 이미지 로딩
             Glide.with(binding.root.context)
                 .load(data.img)
                 .apply(
@@ -28,16 +29,17 @@ class SearchBookListAdapter(private val itemClickedListener: (SearchBookListData
                 )
                 .into(binding.itemListTop10ImgIv)
 
+            // 데이터 바인딩
             binding.itemListTop10TitleTv.text = data.title
             binding.itemListTop10NumTv.text = "${data.bookCnt}개"
             binding.itemListTop10LikeTv.text = "${data.likeCnt}"
 
+            // 클릭 리스너 설정
             binding.root.setOnClickListener {
                 itemClickedListener(data)
             }
         }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         val binding = ItemListTop10Binding.inflate(LayoutInflater.from(parent.context), parent, false)

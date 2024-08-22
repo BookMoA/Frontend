@@ -25,4 +25,5 @@ object RetrofitInstance {
         retrofit.create(SearchListMemoService::class.java)
     }
 
+
 }

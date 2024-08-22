@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bookmoa.android.databinding.ItemBookListBinding
-import com.bookmoa.android.models.SearchBook
+import com.bookmoa.android.models.SearchBookData
 import com.bumptech.glide.Glide
 
 
-class SearchBookAdapter(private val itemClickedListener: (SearchBook) -> Unit) :
-    ListAdapter<SearchBook, SearchBookAdapter.BookItemViewHolder>(BookDiffCallback()) {
+class SearchBookAdapter(private val itemClickedListener: (SearchBookData) -> Unit) :
+    ListAdapter<SearchBookData, SearchBookAdapter.BookItemViewHolder>(BookDiffCallback()) {
 
     inner class BookItemViewHolder(private val binding: ItemBookListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(bookModel: SearchBook) {
+        fun bind(bookModel: SearchBookData) {
             binding.itemBookListTitleTv.text = bookModel.title
             binding.itemBookListAuthorTv.text = bookModel.author
 
@@ -44,12 +44,12 @@ class SearchBookAdapter(private val itemClickedListener: (SearchBook) -> Unit) :
     }
 
     // DiffUtil을 위한 콜백
-    class BookDiffCallback : DiffUtil.ItemCallback<SearchBook>() {
-        override fun areItemsTheSame(oldItem: SearchBook, newItem: SearchBook): Boolean {
+    class BookDiffCallback : DiffUtil.ItemCallback<SearchBookData>() {
+        override fun areItemsTheSame(oldItem: SearchBookData, newItem: SearchBookData): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: SearchBook, newItem: SearchBook): Boolean {
+        override fun areContentsTheSame(oldItem: SearchBookData, newItem: SearchBookData): Boolean {
             return oldItem == newItem
         }
     }

@@ -7,11 +7,11 @@ import kotlinx.parcelize.Parcelize
 data class SearchBookResponse(
 
     @SerializedName("title") val title: String,
-    @SerializedName("item") val books: List<SearchBook>,
+    @SerializedName("item") val books: List<SearchBookData>,
 
 )
 @Parcelize
-data class SearchBook(
+data class SearchBookData(
 
     @SerializedName("itemId") val id: Long=0,
     @SerializedName("title") val title: String="",
