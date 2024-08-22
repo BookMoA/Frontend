@@ -67,6 +67,9 @@
         <activity
             android:name=".group.DialogExpelActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+
+        <activity android:name=".home.PassbookActivity"/>
+        <activity android:name=".home.FocusmodeActivity"/>
     </application>
 
 </manifest>
