@@ -10,9 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.R
-import com.bookmoa.android.RetrofitInstance
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.RetrofitInstance
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentListTop10Binding
+import com.bookmoa.android.models.ListTop10Data
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,7 +39,7 @@ class ListTop10Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TokenManager 초기화
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         // 임시로 토큰 설정 (여기에서 직접 토큰을 설정)
         // RecyclerView 설정

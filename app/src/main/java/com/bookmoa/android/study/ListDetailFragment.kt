@@ -9,14 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.R
-import com.bookmoa.android.RetrofitInstance
-import com.bookmoa.android.TokenManager
-import com.bookmoa.android.adapter.ListContentAdapter
+import com.bookmoa.android.services.RetrofitInstance
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.ListDetailAdapter
-import com.bookmoa.android.databinding.FragmentListContentBinding
 
 import com.bookmoa.android.databinding.FragmentListDetailBinding
+import com.bookmoa.android.models.ListContentData
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 
@@ -43,9 +41,8 @@ class ListDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             val id = it.getInt(ARG_ID)
-            tokenManager = TokenManager(requireContext())
+            tokenManager = TokenManager()
 
-            // 로그 출력 (여기서 id 값을 확인)
             Log.d("ListContentFragment", "Received id: $id")
 
             lifecycleScope.launch {
@@ -110,7 +107,7 @@ class ListDetailFragment : Fragment() {
         binding = FragmentListDetailBinding.inflate(inflater, container, false)
 
         binding.listDetailBackIcon.setOnClickListener {
-            (activity as MainActivity).switchFragment(StudyFragment())
+            activity?.supportFragmentManager?.popBackStack()
 
         }
         binding.listDetailEditBtn.setOnClickListener {
@@ -119,10 +116,8 @@ class ListDetailFragment : Fragment() {
 
         itemListDetailAdapter = ListDetailAdapter()
 
-        // RecyclerView에 레이아웃 매니저 설정
         binding.listDetailRv.layoutManager = LinearLayoutManager(context)
 
-        // RecyclerView에 어댑터 설정
         binding.listDetailRv.adapter = itemListDetailAdapter
 
 
@@ -133,7 +128,8 @@ class ListDetailFragment : Fragment() {
     private fun updateUI(item: ListContentData?) {
         item?.let {
             Glide.with(this)
-                .load(it.img) // 실제 이미지 URL 사용
+                .load(it.img)
+                .centerCrop()
                 .into(binding.listDetailImgIv)
 
             binding.listDetailTitleTv.text = it.title

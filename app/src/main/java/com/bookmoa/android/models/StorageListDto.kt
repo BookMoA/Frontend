@@ -1,4 +1,4 @@
-package com.bookmoa.android.study
+package com.bookmoa.android.models
 
 import com.google.gson.annotations.SerializedName
 

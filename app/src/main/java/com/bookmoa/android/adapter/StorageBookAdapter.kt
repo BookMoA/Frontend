@@ -5,8 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bookmoa.android.R
 import com.bookmoa.android.databinding.ItemStorageBooksBinding
-import com.bookmoa.android.study.StorageBookData
-import com.bookmoa.android.study.StorageListData
+import com.bookmoa.android.models.StorageBookData
 import com.bumptech.glide.Glide
 
 class StorageBookAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -35,6 +34,7 @@ class StorageBookAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             Glide.with(binding.root.context)
                 .load(data.coverImage)  // 이미지 URL
+                .centerCrop()
                 .placeholder(R.drawable.placeholder) // 로딩 중에 표시할 이미지
                 .error(R.drawable.error) // 로딩 실패 시 표시할 이미지
                 .into(binding.itemStorageCoverImgIv)

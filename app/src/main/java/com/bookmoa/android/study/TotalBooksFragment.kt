@@ -9,11 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.R
-import com.bookmoa.android.RetrofitInstance
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.RetrofitInstance
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.StorageBookAdapter
-import com.bookmoa.android.databinding.FragmentCurrentlyReadingBinding
 import com.bookmoa.android.databinding.FragmentTotalBooksBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,7 +36,7 @@ class TotalBooksFragment : Fragment() {
         storageRVAdapter = StorageBookAdapter()
         binding.totalBookRvList.layoutManager = GridLayoutManager(context, 3)
         binding.totalBookRvList.adapter = storageRVAdapter
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         loadBookData()
 

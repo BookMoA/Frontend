@@ -10,10 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.R
-import com.bookmoa.android.RetrofitInstance
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.RetrofitInstance
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.StorageListAdapter
 import com.bookmoa.android.databinding.FragmentMyListBinding
+import com.bookmoa.android.models.StorageListData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,7 +37,7 @@ class MyListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         storageRVAdapter = StorageListAdapter()
         binding.myListRv.layoutManager = LinearLayoutManager(context)

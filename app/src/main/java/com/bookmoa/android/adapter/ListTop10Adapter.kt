@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bookmoa.android.R
 import com.bookmoa.android.databinding.ItemListTop10Binding
+import com.bookmoa.android.models.ListTop10Data
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -50,6 +51,7 @@ class ListTop10Adapter : RecyclerView.Adapter<ListTop10Adapter.ViewHolder>() {
         fun onBind(data: ListTop10Data) {
             Glide.with(binding.root.context)
                 .load(data.img)
+                .centerCrop()
                 .apply(RequestOptions()
                     .placeholder(R.drawable.placeholder)
                     .error(R.drawable.error)

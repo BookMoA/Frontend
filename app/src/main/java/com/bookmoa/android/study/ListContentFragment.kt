@@ -5,18 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.R
-import com.bookmoa.android.RetrofitInstance
-import com.bookmoa.android.TokenManager
 import com.bookmoa.android.adapter.ListContentAdapter
 import com.bookmoa.android.databinding.FragmentListContentBinding
+import com.bookmoa.android.models.ListContentData
+import com.bookmoa.android.services.RetrofitInstance
+import com.bookmoa.android.services.TokenManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ListContentFragment : Fragment() {
 
@@ -42,9 +47,9 @@ class ListContentFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             val id = it.getInt(ARG_ID)
-            tokenManager = TokenManager(requireContext())
+            tokenManager = TokenManager()
 
-            // 로그 출력 (여기서 id 값을 확인)
+
             Log.d("ListContentFragment", "Received id: $id")
 
             lifecycleScope.launch {
@@ -97,7 +102,31 @@ class ListContentFragment : Fragment() {
             null
         }
     }
+    fun postBookId(bookListId: Int, callback: (Boolean, String?) -> Unit) {
+       val token = tokenManager.getToken()
+        val call: Call<ResponseBody> = RetrofitInstance.postAnotherBookIdapi.postBookId(
+            token = "Bearer $token",
+            bookListId = bookListId
+        )
 
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    Log.d("ListContentFragment","post Success")
+                    callback(true, response.body()?.string())
+                } else {
+                    // 실패 시 콜백 호출
+                    Log.d("ListContentFragment","post miss${response.errorBody()?.string()}")
+                    callback(false, response.errorBody()?.string())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                // 요청 실패 시 콜백 호출
+                callback(false, t.message)
+            }
+        })
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -105,14 +134,23 @@ class ListContentFragment : Fragment() {
     ): View? {
         binding = FragmentListContentBinding.inflate(inflater, container, false)
         binding.listContentBackIcon.setOnClickListener {
-            (activity as MainActivity).switchFragment(StudyFragment())
+            activity?.supportFragmentManager?.popBackStack()
         }
-
-        // 임시로 토큰 설정 (여기에서 직접 토큰을 설정)
 
         itemListContentAdapter = ListContentAdapter()
         binding.listContentRvList.layoutManager = LinearLayoutManager(context)
         binding.listContentRvList.adapter = itemListContentAdapter
+
+        binding.listContentStorageStoreIv.setOnClickListener{
+            Log.d("test","${item!!.bookListId}")
+            postBookId(item!!.bookListId) { success, response ->
+                if (success) {
+                    println("Success: $response")
+                } else {
+                    println("Failed: $response")
+                }
+            }
+        }
 
         return binding.root
     }

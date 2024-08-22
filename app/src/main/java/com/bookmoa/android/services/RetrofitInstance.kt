@@ -1,10 +1,6 @@
-package com.bookmoa.android
+package com.bookmoa.android.services
 
 
-import com.bookmoa.android.study.ListContentApi
-import com.bookmoa.android.study.ListTop10Api
-import com.bookmoa.android.study.StorageBookApi
-import com.bookmoa.android.study.StorageListApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -32,6 +28,10 @@ object RetrofitInstance {
     }
     val storageBookapi: StorageBookApi by lazy {
         retrofit.create(StorageBookApi::class.java)
+    }
+
+    val postAnotherBookIdapi: addBookListAnother by lazy {
+        retrofit.create(addBookListAnother::class.java)
     }
 }
 

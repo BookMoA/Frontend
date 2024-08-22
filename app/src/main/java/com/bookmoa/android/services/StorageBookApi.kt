@@ -1,9 +1,9 @@
-package com.bookmoa.android.study
+package com.bookmoa.android.services
 
+import com.bookmoa.android.models.StorageBookResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface StorageBookApi {
