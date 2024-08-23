@@ -118,11 +118,13 @@ class UserInfoManager(context: Context) {
         }
     }
 
-    suspend fun saveGroupandTotalPage(group: String, totalPage: Int) {
+    suspend fun saveGroup(group: String) {
         dataStore.edit { prefs ->
             prefs[groupKey] = group
         }
+    }
 
+    suspend fun saveTotalPage(totalPage: Int) {
         dataStore.edit { prefs ->
             prefs[totalPageKey] = totalPage
         }

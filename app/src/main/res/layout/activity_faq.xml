@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mypage.FAQActivity"
+    android:background="@color/white"
     android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" >
 
     <ImageView
+        android:id="@+id/back_ic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginTop="16.75dp"
+        android:layout_marginStart="29.71dp"
         android:src="@drawable/ic_topbar_left_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,20 +24,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="자주 묻는 질문"
-        android:textSize="20sp"
-        android:layout_marginTop="61dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/back_ic"
+        app:layout_constraintBottom_toBottomOf="@id/back_ic" />
+
+    <View
+        android:id="@+id/topbar_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12.75dp"
+        android:background="@color/grey6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/FAQ_tv" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/FAQ_tl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/FAQ_tv" >
+        app:layout_constraintTop_toBottomOf="@id/topbar_guideline" >
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout
