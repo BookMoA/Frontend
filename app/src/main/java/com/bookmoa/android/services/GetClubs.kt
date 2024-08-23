@@ -7,7 +7,7 @@ import retrofit2.http.Header
 
 interface ClubApi {
     @GET("/clubs")
-    fun getClubs(@Header("Authorization") token: String): Call<GetClubs>
+    fun getClubs(): Call<GetClubs>
 }
 
 data class GetClubs(

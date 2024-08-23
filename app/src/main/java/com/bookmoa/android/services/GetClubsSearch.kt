@@ -1,6 +1,7 @@
 package com.bookmoa.android.services
 
 import com.google.gson.annotations.SerializedName
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -8,12 +9,12 @@ import retrofit2.http.Query
 
 interface GetClubsSearch {
     @GET("/clubs/search")
-    suspend fun searchClubs(
-        @Header("Authorization") token: String,
+    fun searchClubs(
+        // @Header("Authorization") token: String,
         @Query("category") category: String = "name",
         @Query("word") word: String,
         @Query("page") page: Int = 1
-    ): Response<GetClubsSearchResponse>
+    ): Call<GetClubsSearchResponse>
 }
 
 data class GetClubsSearchResponse(
