@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    //testtt
     private lateinit var binding: ActivityMainBinding
     private lateinit var userInfoManager: UserInfoManager
 
