@@ -162,21 +162,12 @@ class MyListStorageFragment : Fragment() {
          */
     }
 
-    private fun handleNoToken() {
-        Toast.makeText(context, "로그인이 필요합니다. 로그인 화면으로 이동합니다.", Toast.LENGTH_SHORT).show()
-        (activity as MainActivity).switchFragment(StudyFragment())
-    }
-
     private fun postBookIds(bookListId: Int, ids: List<Int>, callback: (Boolean, String?) -> Unit) {
-        val token = tokenManager.getToken()
         val request = BooksRequest(booksId = ids)
-        val call: Call<ResponseBody> = RetrofitInstance.postAnotherBookselectapi.postBookIds(
-            token = "Bearer $token",
+       api.postBookIds(
             bookListId = bookListId,
             request
-        )
-
-        call.enqueue(object : Callback<ResponseBody> {
+        ).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     Log.d("MyListStorageFragment", "POST Success: ${response.body()?.string()}")

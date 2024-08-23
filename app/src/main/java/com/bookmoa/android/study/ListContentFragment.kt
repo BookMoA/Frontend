@@ -3,17 +3,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentListContentBinding
 import com.bookmoa.android.models.ListContentData
+import com.bookmoa.android.models.ListContentResponse
+import com.bookmoa.android.models.StorageListResponse
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.study.MyListStorageFragment
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,6 +33,8 @@ class ListContentFragment : Fragment() {
     private lateinit var itemListContentAdapter: ListContentAdapter
     private lateinit var tokenManager: TokenManager
     private val selectedIds = mutableSetOf<Int>()
+
+    private lateinit var api: ApiService
 
     companion object {
         private const val ARG_ID = "id"
@@ -57,17 +66,46 @@ class ListContentFragment : Fragment() {
         }
     }
 
+//    private suspend fun fetchDataById(id: Int): ListContentData? {
+//        return try {
+//            val token = tokenManager.getToken()
+//
+//            if (token != null) {
+//                val response = RetrofitInstance.listcontentapi.getBookListById(id)
+//
+//                if (response.isSuccessful) {
+//                    val apiResponse = response.body()
+//                    apiResponse?.data?.let { data ->
+//                        return ListContentData(
+//                            bookListId = data.bookListId,
+//                            img = data.img ?: "",
+//                            title = data.title,
+//                            spec = data.spec,
+//                            listStatus = data.listStatus,
+//                            nickname = data.nickname,
+//                            likeCnt = data.likeCnt,
+//                            bookCnt = data.bookCnt,
+//                            likeStatus = data.likeStatus,
+//                            books = data.books ?: emptyList()
+//                        )
+//                    }
+//                }
+//            }
+//            null
+//        } catch (e: Exception) {
+//            null
+//        }
+//    }
+
+
     private suspend fun fetchDataById(id: Int): ListContentData? {
-        return try {
-            val token = tokenManager.getToken()
-
-            if (token != null) {
-                val response = RetrofitInstance.listcontentapi.getBookListById(id, "Bearer $token")
-
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = ApiService.createWithHeader(requireContext()).getBookListById(id)
                 if (response.isSuccessful) {
                     val apiResponse = response.body()
                     apiResponse?.data?.let { data ->
-                        return ListContentData(
+                        return@withContext ListContentData(
                             bookListId = data.bookListId,
                             img = data.img ?: "",
                             title = data.title,
@@ -80,13 +118,24 @@ class ListContentFragment : Fragment() {
                             books = data.books ?: emptyList()
                         )
                     }
+                } else {
+                    // Handle unsuccessful response
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                // Handle exception
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "서버 통신 실패: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
             null
-        } catch (e: Exception) {
-            null
         }
     }
+
+
+
 
     private fun updateUI(item: ListContentData?) {
         item?.let {
@@ -105,13 +154,9 @@ class ListContentFragment : Fragment() {
         }
     }
     fun postBookId(bookListId: Int, callback: (Boolean, String?) -> Unit) {
-        val token = tokenManager.getToken()
-        val call: Call<ResponseBody> = RetrofitInstance.postAnotherBookIdapi.postBookId(
-            token = "Bearer $token",
+        api.postBookId(
             bookListId = bookListId
-        )
-
-        call.enqueue(object : Callback<ResponseBody> {
+        ).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     Log.d("ListContentFragment","post Success")
