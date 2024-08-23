@@ -3,10 +3,10 @@ package com.bookmoa.android.group
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -14,14 +14,32 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentCommunitymanagevpBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
+import com.bookmoa.android.services.ApiService
+import com.bookmoa.android.services.ClubDetailData
+import com.bookmoa.android.services.ClubDetailResponse
+import com.bookmoa.android.services.GetClubsDetail
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.HttpException
+import retrofit2.Response
 
 class CommunityManageFragment : Fragment() {
     private var _binding: FragmentCommunitymanagevpBinding? = null
     private val binding get() = _binding!!
     private var isIntroduceEditMode = false
     private var isNoticeEditMode = false
+    private var clubId: Int? = null
+    private lateinit var tokenManager: TokenManager
+
+    private lateinit var api: ApiService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,10 +52,13 @@ class CommunityManageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tokenManager = TokenManager()
+
+        val clubId = arguments?.getInt("clubId", 0)
 
         binding.communitymanageQuitTv.setOnClickListener {
-            val intent = Intent(requireActivity(), DialogQuitActivity::class.java)
-            startActivity(intent)
+            val dialogQuitFragment = DialogQuitFragment()
+            dialogQuitFragment.show(parentFragmentManager, "DialogQuitFragment")
         }
 
         setupInitialState()
@@ -46,6 +67,79 @@ class CommunityManageFragment : Fragment() {
         setupEditModeToggles()
         setupTouchListener()
         setupCopyFeature()
+
+        fetchClubDetailM(clubId)
+    }
+
+    private fun fetchClubDetailM(clubId: Int?) {
+        if (clubId == null) return
+
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getClubDetail(clubId = clubId.toLong()).enqueue(object: Callback<ClubDetailResponse> {
+                override fun onResponse(
+                    call: Call<ClubDetailResponse>,
+                    response: Response<ClubDetailResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            updateUIWithClubDetails(apiResponse.data)
+                        } else {
+                            if (apiResponse != null) {
+                                Log.d("GroupFragment", "Failed to get club details: ${apiResponse.description}")
+                            }
+                        }
+                    } else {
+                        Log.d("GroupFragment", "${response.errorBody()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ClubDetailResponse>, t: Throwable) {
+                    Log.d("GroupFragment", "Error fetching club details")
+                }
+
+            })
+        }
+        /*
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bookmoa.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val clubApi = retrofit.create(GetClubsDetail::class.java)
+        val token = tokenManager.getToken()
+        val bearerToken = "Bearer $token"
+        if (token.isNullOrEmpty()) {
+            Log.d("GroupFragment", "Token is null or empty")
+            return
+        }
+
+        lifecycleScope.launch {
+            try {
+                val response = clubApi.getClubDetail(bearerToken, clubId.toLong())
+                if (response.result) {
+                    updateUIWithClubDetails(response.data)
+                } else {
+                    Log.d("GroupFragment", "Failed to get club details: ${response.description}")
+                }
+            } catch (e: HttpException) {
+                Log.e("GroupFragment", "Error fetching club details: ${e.message()}")
+            } catch (e: Exception) {
+                Log.e("GroupFragment", "Unexpected error: ${e.localizedMessage}")
+            }
+        }
+
+         */
+    }
+
+    private fun updateUIWithClubDetails(data: ClubDetailData) {
+        binding.communitymanagevpIntroduceEt.setText(data.intro)
+        binding.communitymanagevpNoticeEt.setText(data.notice)
+        binding.communitymanagevpCopyTv.text = data.code
+        binding.communitymanagevpMemberTv.text = "${data.memberCount} / 20"
     }
 
     private fun setupInitialState() {
@@ -201,3 +295,4 @@ class CommunityManageFragment : Fragment() {
         _binding = null
     }
 }
+

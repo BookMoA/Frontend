@@ -1,12 +1,13 @@
 package com.bookmoa.android.services
 
+import android.content.Context
+import android.content.SharedPreferences
 
 class TokenManager() {
 
-    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiLsjajri4giLCJhdXRoIjoiUk9MRV9VU0VSIiwibmlja25hbWUiOiLsjajri4giLCJleHAiOjE3MjQ0MTI5MDJ9.2VgbRYf1QTqLA1j-7A8eyRb_gpaRip19x6equzo21SE"
 
-    fun getToken(): String? {
-
+    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzI0Mzg1NjYyfQ.jIbMoTVOnhzR8O42Nu2fDbtWorhEiUVVNQwiZaDOs9E"
+    fun getToken(): String {
         return hardcodedToken
     }
 }

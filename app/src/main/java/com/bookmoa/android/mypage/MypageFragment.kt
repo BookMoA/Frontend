@@ -44,6 +44,16 @@ class MypageFragment : Fragment() {
             binding.nicknameTv.text = nickname
         }
 
+        GlobalScope.launch {
+            val group = userInfoManager.getGroup()
+
+            binding.bookGroupNameTv.text = if (group.isNullOrEmpty()) {
+                "독서그룹명"
+            } else {
+                group
+            }
+        }
+
         // 프로필 이미지 로드
         GlobalScope.launch {
             val profileImageUri = userInfoManager.getProfileImageUri()

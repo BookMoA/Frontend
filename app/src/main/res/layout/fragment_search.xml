@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:backgroundTint="@color/white"
         android:padding="0dp"
-        android:src="@drawable/back"
+        android:src="@drawable/icon_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/search_title_tv" />
 
@@ -58,7 +58,7 @@
                 android:id="@+id/search_sv"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/grey6"
+                android:background="@color/grey2"
                 android:focusable="true"
                 android:padding="10dp"
                 app:iconifiedByDefault="false"
@@ -103,4 +103,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_content_tb" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/loading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

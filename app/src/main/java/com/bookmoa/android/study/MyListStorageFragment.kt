@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.MainActivity
+import com.bookmoa.android.R
 import com.bookmoa.android.adapter.StorageListAddAdapter
 import com.bookmoa.android.databinding.FragmentMyListStorageBinding
 import com.bookmoa.android.models.StorageListData
@@ -31,7 +32,6 @@ class MyListStorageFragment : Fragment() {
 
     lateinit var binding: FragmentMyListStorageBinding
     private var storageRVAdapter: StorageListAddAdapter? = null
-    private lateinit var tokenManager: TokenManager
     private var selectedBookIds: MutableList<Int> = mutableListOf() // 선택된 ID 리스트
     private var selectedId: Int? =null
 
@@ -44,7 +44,7 @@ class MyListStorageFragment : Fragment() {
     ): View? {
         binding = FragmentMyListStorageBinding.inflate(inflater, container, false)
 
-        tokenManager = TokenManager()
+        val bookListId = arguments?.getInt("book_list_id", -1)
 
         storageRVAdapter = StorageListAddAdapter()
         binding.myListRv.layoutManager = LinearLayoutManager(context)
@@ -58,9 +58,17 @@ class MyListStorageFragment : Fragment() {
                     selectedId = data.bookListId // 새 항목 선택
                 }
                 storageRVAdapter?.notifyItemChanged(position) // 변경된 항목만 갱신
+                updateSubmitButtonState() // 버튼 상태 업데이트
             }
         })
 
+        binding.myListStorageBackIcon.setOnClickListener {
+            val fragment = ListContentFragment.newInstance(bookListId!!)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
         val receivedIds = arguments?.getIntegerArrayList("selected_ids") ?: arrayListOf()
         selectedBookIds.addAll(receivedIds) // 이전 프래그먼트에서 넘어온 선택된 ID들 추가
         Log.d("MyListStorageFragment", "Received selected IDs: $selectedBookIds")
@@ -68,14 +76,16 @@ class MyListStorageFragment : Fragment() {
         binding.myListStorageSubmitBtn.setOnClickListener {
             postBookIds(selectedId!!, selectedBookIds) { success, response ->
                 if (success) {
-                    Toast.makeText(context, "POST request successful!", Toast.LENGTH_SHORT).show()
-                    activity?.supportFragmentManager?.popBackStack()
+                    Toast.makeText(context, "리스트에 저장되었습니다", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, "POST request failed: $response", Toast.LENGTH_SHORT).show()
+                    Log.d("POST request failed","$response")
+
                 }
             }
         }
 
+        updateSubmitButtonState()
         loadMyListData()
 
         return binding.root
@@ -143,5 +153,8 @@ class MyListStorageFragment : Fragment() {
                 callback(false, t.message)
             }
         })
+    }
+    private fun updateSubmitButtonState() {
+        binding.myListStorageSubmitBtn.isEnabled = selectedId != null
     }
 }

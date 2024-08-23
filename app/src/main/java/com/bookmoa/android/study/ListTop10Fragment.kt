@@ -30,7 +30,6 @@ class ListTop10Fragment : Fragment() {
     private var _binding: FragmentListTop10Binding? = null
     private val binding get() = _binding!!
     private var listTop10Adapter: ListTop10Adapter? = null
-    private lateinit var tokenManager: TokenManager
 
     private lateinit var api: ApiService
 
@@ -47,7 +46,7 @@ class ListTop10Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TokenManager 초기화
-        tokenManager = TokenManager()
+
 
         // 임시로 토큰 설정 (여기에서 직접 토큰을 설정)
         // RecyclerView 설정
@@ -60,11 +59,11 @@ class ListTop10Fragment : Fragment() {
 
         listTop10Adapter?.setOnItemClickListener(object : ListTop10Adapter.OnItemClickListener {
             override fun onItemClick(view: View, position: Int, data: ListTop10Data) {
-                val fragment = ListContentFragment.newInstance(data.bookListId) // ID만 전달
-                Log.d("FragmentTransaction", "Navigating to ListDetailFragment with ID: ${data.bookListId}")
+                val fragment = ListContentFragment.newInstance(data.bookListId)
+                Log.d("FragmentTransaction", "Navigating to ListContentFragment with ID: ${data.bookListId}")
 
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.main_frm, fragment)  // fragment_container는 MainActivity의 FrameLayout ID입니다.
+                    .replace(R.id.main_frm, fragment)
                     .addToBackStack(null)
                     .commit()
             }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/img_bgr_focus" />
+        android:src="@drawable/img_bgr_focus" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -24,7 +23,7 @@
         android:layout_marginTop="250dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mainlogo" />
+        android:src="@drawable/mainlogo" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -35,7 +34,7 @@
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:srcCompat="@drawable/focusmode_bar" />
+        android:src="@drawable/focusmode_bar" />
 
     <ImageView
         android:id="@+id/imgTurnoffMode"
@@ -45,6 +44,6 @@
         android:layout_marginBottom="125dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/turnoff_txt" />
+        android:src="@drawable/turnoff_txt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

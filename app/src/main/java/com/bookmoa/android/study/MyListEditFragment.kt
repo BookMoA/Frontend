@@ -9,15 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bookmoa.android.R
-import com.bookmoa.android.adapter.StorageListAdapter
 import com.bookmoa.android.adapter.StorageListEditAdapter
 import com.bookmoa.android.databinding.FragmentMyListEditBinding
-import com.bookmoa.android.models.StorageListData
 import com.bookmoa.android.models.StorageListResponse
 import com.bookmoa.android.services.ApiService
-import com.bookmoa.android.services.BooksRequest
-import com.bookmoa.android.services.TokenManager
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
@@ -28,7 +23,6 @@ import retrofit2.Response
 class MyListEditFragment: Fragment() {
     lateinit var binding: FragmentMyListEditBinding
     private var storageRVAdapter: StorageListEditAdapter? = null
-    private lateinit var tokenManager: TokenManager
     private lateinit var api: ApiService
     private var listener: OnEditButtonClickListener? = null
     private val selectedIds = mutableSetOf<Int>()
@@ -44,8 +38,6 @@ class MyListEditFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        tokenManager = TokenManager()
 
         storageRVAdapter = StorageListEditAdapter(selectedIds)
         binding.myListEditRv.layoutManager = LinearLayoutManager(context)
@@ -65,7 +57,6 @@ class MyListEditFragment: Fragment() {
         }
 
         loadMyListData()
-
 
     }
 
@@ -109,23 +100,29 @@ class MyListEditFragment: Fragment() {
         }
     }
     private fun deletBookIds(ids: List<Int>, callback: (Boolean, String?) -> Unit) {
-        api.deleteBookListId(ids).enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.isSuccessful) {
-                    Log.d("My", "DELETE Success: ${response.body()?.string()}")
-                    callback(true, response.body()?.string())
-                } else {
-                    val errorBody = response.errorBody()?.string()
-                    Log.d("MyListStorageFragment", "DELETE failed: $errorBody")
-                    callback(false, errorBody)
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+            api.deleteBookListId(ids).enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.d("My", "DELETE Success: ${response.body()?.string()}")
+                        callback(true, response.body()?.string())
+                    } else {
+                        val errorBody = response.errorBody()?.string()
+                        Log.d("MyListStorageFragment", "DELETE failed: $errorBody")
+                        callback(false, errorBody)
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.d("MyListStorageFragment", "DELETE request failed: ${t.message}")
-                callback(false, t.message)
-            }
-        })
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.d("MyListStorageFragment", "DELETE request failed: ${t.message}")
+                    callback(false, t.message)
+                }
+            })
+        }
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)

@@ -18,12 +18,25 @@
             android:textColor="@color/black"
             android:textSize="14sp"/>
 
-        <Spinner
-            android:id="@+id/insearcharticle_spinner"
+        <RelativeLayout
+            android:id="@+id/insearcharticle_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/insearcharticle_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_spinner"
+                android:popupBackground="@drawable/background_spinnerdrop"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/icon_down" />
+        </RelativeLayout>
 
     </LinearLayout>
 

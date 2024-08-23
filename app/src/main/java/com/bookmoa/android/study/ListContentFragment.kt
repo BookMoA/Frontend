@@ -11,16 +11,10 @@ import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentListContentBinding
 import com.bookmoa.android.models.ErrorResponse
 import com.bookmoa.android.models.ListContentData
-import com.bookmoa.android.models.ListContentResponse
-import com.bookmoa.android.models.StorageListResponse
 import com.bookmoa.android.services.ApiService
-import com.bookmoa.android.services.BooksRequest
-import com.bookmoa.android.services.RetrofitInstance
-import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.study.MyListStorageFragment
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
@@ -53,9 +47,9 @@ class ListContentFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             val id = it.getInt(ARG_ID)
-
             lifecycleScope.launch {
                 val fetchedItem = fetchDataById(id)
                 if (fetchedItem != null) {
@@ -193,6 +187,7 @@ class ListContentFragment : Fragment() {
         binding.listContentSubmitBtn.setOnClickListener {
             val bundle = Bundle().apply {
                 putIntegerArrayList("selected_ids", ArrayList(selectedIds))
+                putInt("book_list_id", item!!.bookListId)  // bookListId 추가
             }
 
             val nextFragment = MyListStorageFragment().apply {
