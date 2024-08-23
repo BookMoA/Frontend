@@ -3,13 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:text="통계"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:src="@drawable/icon_update"/>
+
 </LinearLayout>

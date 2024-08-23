@@ -1,10 +1,10 @@
 package com.bookmoa.android
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.databinding.ActivityMainBinding
+import com.bookmoa.android.group.GroupFragment
 import com.bookmoa.android.home.HomeFragment
 import com.bookmoa.android.memo.BookMemoFragment
 import com.bookmoa.android.mypage.MypageFragment
@@ -68,6 +68,13 @@ class MainActivity : AppCompatActivity() {
                             .replace(R.id.main_frm, StudyFragment())
                             .commitAllowingStateLoss()
                         return@setOnItemSelectedListener true
+                }
+
+                R.id.bookClubFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, GroupFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
                 }
 
                 R.id.setupFragment -> {

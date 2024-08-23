@@ -8,6 +8,7 @@ import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentCommunitymemberrvBinding
 
 data class CommunityMemberItems(
+    val memberId: Int,
     val name: String,
     val floatmsg: String,
     val isLeader: Boolean,
@@ -21,7 +22,6 @@ class CommunityMemberFragmentAdapter(
 ) : RecyclerView.Adapter<CommunityMemberFragmentAdapter.BookClubCommunityMemberViewHolder>() {
 
     private var isManagementMode = false
-    private var lastClickedPosition: Int = -1
 
     class BookClubCommunityMemberViewHolder(
         val binding: FragmentCommunitymemberrvBinding
@@ -47,15 +47,17 @@ class CommunityMemberFragmentAdapter(
             communitymemberFloatTv.text = member.floatmsg
             communitymemberCrownIv.visibility = if (member.isLeader) View.VISIBLE else View.GONE
 
-            // Management mode specific UI updates
             communitymemberCloseIv.visibility = if (isManagementMode) View.VISIBLE else View.GONE
             communitymemberFloatFl.visibility = if (isManagementMode) View.INVISIBLE else View.VISIBLE
 
             communitymemberCloseIv.setOnClickListener {
-                lastClickedPosition = position
                 onCloseClick(member)
             }
-            root.setOnClickListener { onItemClick(member) }
+            if (!isManagementMode) {
+                root.setOnClickListener { onItemClick(member) }
+            } else {
+                root.setOnClickListener(null)
+            }
         }
     }
 
@@ -65,14 +67,6 @@ class CommunityMemberFragmentAdapter(
         if (isManagementMode != enabled) {
             isManagementMode = enabled
             notifyDataSetChanged()
-        }
-    }
-
-    fun removeLastClickedItem() {
-        if (lastClickedPosition != -1) {
-            members.removeAt(lastClickedPosition)
-            notifyItemRemoved(lastClickedPosition)
-            lastClickedPosition = -1
         }
     }
 }
