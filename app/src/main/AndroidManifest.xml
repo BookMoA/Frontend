@@ -64,6 +64,14 @@
 
         <activity android:name=".home.PassbookActivity"/>
         <activity android:name=".home.FocusmodeActivity"/>
+        <activity android:name=".home.RegisterbookActivity"/>
+        <activity android:name=".home.RegisteredBookActivity"/>
+        <activity android:name=".home.TurnoffActivity"/>
+        <activity android:name=".home.HomeMemoActivity"/>
+        <activity android:name=".home.ResultActivity"/>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
