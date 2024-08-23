@@ -46,14 +46,6 @@
         <activity
             android:name=".group.CommunityFeedWriteActivity"
             android:exported="false" />
-            android:name=".group.DialogJoinActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
-        <activity
-            android:name=".group.DialogQuitActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
-        <activity
-            android:name=".group.DialogExpelActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
 
         <activity android:name=".home.PassbookActivity"/>
         <activity android:name=".home.FocusmodeActivity"/>

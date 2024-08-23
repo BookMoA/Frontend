@@ -93,7 +93,6 @@ class BookMemoAdapter(
         if (position != -1) {
             bookList.removeAt(position)
             notifyItemRemoved(position)
-            notifyItemRemoved(position)
         }
     }
 }

@@ -9,10 +9,12 @@ import com.bookmoa.android.BuildConfig
 import com.bookmoa.android.models.BookMemoDeleteResponse
 import com.bookmoa.android.models.BookMemoResponse
 import com.bookmoa.android.models.LoginRequest
+import com.bookmoa.android.models.MemberInfoResponse
 import com.bookmoa.android.models.NickNameCheckResponse
 import com.bookmoa.android.models.ProfileUpdateResponse
 import com.bookmoa.android.models.RefreshTokenRequest
 import com.bookmoa.android.models.RefreshTokenResponse
+import com.bookmoa.android.models.SearchBookMemoResponse
 import com.bookmoa.android.models.SignUpRequest
 import com.bookmoa.android.models.SignUpResponse
 import com.google.gson.Gson
@@ -81,6 +83,11 @@ interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
         @Path("memberBookId") memberBookId: Int
     ): Call<BookMemoDeleteResponse>
 
+    @GET("/memberBooks/{memberBookId}")
+    fun SearchBookMemo(
+        @Path("memberBookId") memberBookId: Int
+    ): Call<SearchBookMemoResponse>
+
     @Multipart
     @PUT("/users/profileInfo")
     fun updateProfile(
@@ -88,6 +95,9 @@ interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
         @Query("nickname") nickname: String?,
         @Part profileImg: MultipartBody.Part?
     ): Call<ProfileUpdateResponse>
+
+    @GET("/users/adminInfo")
+    fun adminInfo(): Call<MemberInfoResponse>
 
     companion object {
         private const val BASE_URL = BuildConfig.BASE_URL

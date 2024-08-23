@@ -2,6 +2,8 @@ package com.bookmoa.android.memo
 
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +20,7 @@ import com.bookmoa.android.databinding.FragmentBookMemoBinding
 import com.bookmoa.android.models.BookMemoDTO
 import com.bookmoa.android.models.BookMemoDeleteResponse
 import com.bookmoa.android.models.BookMemoResponse
+import com.bookmoa.android.models.SearchBookMemoResponse
 import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.services.UserInfoManager
@@ -38,6 +41,8 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
     private val selectedItems = mutableListOf<BookMemoDTO>()
     private lateinit var adapter: BookMemoAdapter
 
+    private lateinit var allBooks: MutableList<BookMemoDTO>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +55,17 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
 
         adapter= BookMemoAdapter(mutableListOf(), isDeleteMode, selectedItems, this)
         binding.memeoRv.adapter= adapter
+
+        binding.searchTv.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString()
+                filterBooks(query)
+            }
+        })
 
         binding.memoEditBtn.setOnClickListener {
             showPopupMenu(it)
@@ -80,6 +96,7 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
                         response.body()?.let {bookMemoResponse ->
                             Log.d("[MEMO]", "BookMemoList: $bookMemoResponse")
                             Log.d("[MEMO]", "독서메모 전체 조회 성공")
+                            allBooks = bookMemoResponse.data.memberBookPreviewDTOList
                             adapter.updateData(bookMemoResponse.data.memberBookPreviewDTOList.toMutableList())
                         }
                     } else {
@@ -189,7 +206,13 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
                     ) {
                         if (response.isSuccessful) {
                             Log.d("[MEMO/DELETE]", "독서메모 책 삭제 성공 - $bookToDelete: ${bookToDelete.memberBookId}")
+                            // selectedItems에서 제거
                             selectedItems.remove(bookToDelete)
+
+                            // allBooks에서 제거
+                            allBooks.remove(bookToDelete)
+
+                            // adapter에서 제거
                             adapter.removeItem(bookToDelete)
 
                             if (selectedItems.isEmpty()) {
@@ -211,4 +234,15 @@ class BookMemoFragment : Fragment(), BookMemoAdapter.OnItemSelectedListener {
         }
     }
 
+    private fun filterBooks(query: String) {
+        if (::allBooks.isInitialized) {
+            val filteredBooks = allBooks.filter {
+                it.title.contains(query, ignoreCase = true) ||
+                        it.writer.contains(query, ignoreCase = true)
+            }
+            adapter.updateData(filteredBooks.toMutableList())
+        } else {
+            Log.d("[MEMO]", "전체 책 목록이 초기화되지 않았습니다.")
+        }
+    }
 }

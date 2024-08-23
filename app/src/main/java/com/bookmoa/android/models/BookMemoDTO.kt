@@ -13,6 +13,13 @@ data class BookMemoListPreviewDTO(
     @SerializedName("memberBookPreviewDTOList") val memberBookPreviewDTOList: MutableList<BookMemoDTO>
 )
 
+data class SearchBookMemoResponse(
+    @SerializedName("status") val status: String,
+    @SerializedName("code") val code: String,
+    @SerializedName("result") val result: String,
+    @SerializedName("data") val data: BookMemoDTO
+)
+
 data class BookMemoDTO(
     @SerializedName("title") val title: String,
     @SerializedName("writer") val writer: String,
