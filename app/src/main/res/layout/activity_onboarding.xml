@@ -24,13 +24,13 @@
         android:layout_marginBottom="42dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_btn"
+        app:layout_constraintBottom_toTopOf="@id/skip_btn"
         app:tabIndicatorHeight="0dp"
         app:tabGravity="center"
         app:tabMode="fixed"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_btn"
+        android:id="@+id/skip_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="건너뛰기"
@@ -40,13 +40,15 @@
         android:background="@drawable/border_main_color_r10"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="34dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="17dp"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="34dp"

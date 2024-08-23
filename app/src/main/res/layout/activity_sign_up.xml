@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@id/signup_tv" >
 
             <TextView
-                android:id="@+id/email_guide_tv"
+                android:id="@+id/email_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -65,7 +65,18 @@
                 android:layout_marginEnd="40dp" />
 
             <TextView
-                android:id="@+id/password_guide_tv"
+                android:id="@+id/email_guide_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="40dp"
+                android:text="이메일 형식을 확인해주세요."
+                android:textSize="10sp"
+                android:visibility="gone"
+                android:textColor="@color/red" />
+
+            <TextView
+                android:id="@+id/password_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -85,10 +96,12 @@
                     android:id="@+id/password_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/password_guide_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -104,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
-                    android:src="@drawable/ic_eye"
+                    android:src="@drawable/ic_eye_close"
                     app:layout_constraintEnd_toEndOf="@id/password_tv"
                     app:layout_constraintTop_toTopOf="@id/password_tv"
                     app:layout_constraintBottom_toBottomOf="@id/password_tv"/>
@@ -112,7 +125,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/password_check_guide_tv"
+                android:id="@+id/password_check_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -132,15 +145,29 @@
                     android:id="@+id/password_check_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/password_check_guide_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="2dp"
+                    android:text="비밀번호를 확인해주세요"
+                    android:textSize="10sp"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/password_check_tv"
+                    app:layout_constraintTop_toBottomOf="@id/password_check_tv" />
 
                 <ImageView
                     android:id="@+id/password_check_eye_ic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
-                    android:src="@drawable/ic_eye"
+                    android:src="@drawable/ic_eye_close"
                     app:layout_constraintEnd_toEndOf="@id/password_check_tv"
                     app:layout_constraintTop_toTopOf="@id/password_check_tv"
                     app:layout_constraintBottom_toBottomOf="@id/password_check_tv"/>
@@ -148,7 +175,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/nickname_guide_tv"
+                android:id="@+id/nickname_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -172,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="47dp"
-                    android:text="책모아"
+                    android:hint="책모아"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +223,7 @@
                 android:orientation="horizontal" >
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/id_check_btn"
+                    android:id="@+id/nickname_check_btn"
                     android:layout_width="66dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="40dp"
@@ -205,21 +232,35 @@
                     android:textSize="11sp" />
 
                 <TextView
+                    android:id="@+id/nickname_check_error_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="다른 닉네임을 입력해주세요"
                     android:textSize="11sp"
                     android:textColor="@color/red"
-                    android:visibility="invisible"
-                    app:layout_constraintStart_toEndOf="@id/id_check_btn"
-                    app:layout_constraintTop_toTopOf="@id/id_check_btn"
-                    app:layout_constraintBottom_toBottomOf="@id/id_check_btn" />
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/nickname_check_btn"
+                    app:layout_constraintTop_toTopOf="@id/nickname_check_btn"
+                    app:layout_constraintBottom_toBottomOf="@id/nickname_check_btn" />
+
+                <TextView
+                    android:id="@+id/nickname_check_done_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="사용가능한 닉네임입니다."
+                    android:textSize="11sp"
+                    android:textColor="@color/blue"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/nickname_check_btn"
+                    app:layout_constraintTop_toTopOf="@id/nickname_check_btn"
+                    app:layout_constraintBottom_toBottomOf="@id/nickname_check_btn" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/id_notice_tv"
+                android:id="@+id/nickname_guide_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="42dp"
@@ -273,10 +314,18 @@
                 android:layout_marginTop="24dp">
 
                 <ImageView
+                    android:id="@+id/no_all_agree_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:src="@drawable/ic_no_all_check" />
+
+                <ImageView
                     android:id="@+id/all_agree_ic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_no_all_check" />
+                    android:visibility="gone"
+                    android:src="@drawable/ic_all_check" />
 
                 <TextView
                     android:id="@+id/all_agree_tv"

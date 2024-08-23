@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
+import com.bookmoa.android.R
 import com.bookmoa.android.adapter.MyStorageVpAdapter
 import com.bookmoa.android.databinding.FragmentMyStorageBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -33,6 +34,11 @@ class MyStorageFragment : Fragment() {
             tab.text = information[position]
         }.attach()
 
+
+
         return binding.root
     }
+    // 프래그먼트 교체 함수
+
+
 }

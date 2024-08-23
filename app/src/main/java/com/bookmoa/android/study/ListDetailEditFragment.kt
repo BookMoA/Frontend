@@ -17,7 +17,10 @@ class ListDetailEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListDetailEditBinding.inflate(inflater, container, false)
+        binding.listDetailEditBackIcon.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack()
 
+        }
         return binding.root
     }
 }
