@@ -60,6 +60,15 @@ class SearchAuthorFragment : Fragment() {
         bookService = retrofitForBooks.create(AladinBookService::class.java)
     }
 
+//    fun loadAuthorData(query: String) {
+//        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
+//        searchBooksByName(query, "Author") { results ->
+//            // 결과를 UI에 반영
+//            updateBookList(results)
+//        }
+//    }
+
+
     fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
         bookService.getBooksByName(getString(R.string.ApiKey), query, queryType)
             .enqueue(object : Callback<SearchBookResponse> {

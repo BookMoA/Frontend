@@ -58,6 +58,14 @@ class SearchBookListFragment : Fragment() {
         }
     }
 
+    fun loadBookListData(query: String) {
+        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
+        searchBookLists(query, ) { results ->
+            // 결과를 UI에 반영
+            updateBookList(results)
+        }
+    }
+
     fun searchBookLists(query: String, callback: (List<SearchBookListData>) -> Unit) {
         val token = tokenManager.getToken()
         RetrofitInstance.searchListApi.getBookList("Bearer $token", query)

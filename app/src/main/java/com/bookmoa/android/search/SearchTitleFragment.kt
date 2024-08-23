@@ -20,7 +20,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 class SearchTitleFragment : Fragment() {
 
     private var _binding: FragmentSearchTitleBinding? = null
@@ -60,7 +59,15 @@ class SearchTitleFragment : Fragment() {
         bookService = retrofitForBooks.create(AladinBookService::class.java)
     }
 
-    fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
+//    fun loadTitleData(query: String) {
+//        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
+//        searchBooksByName(query, "Title") { results ->
+//            // 결과를 UI에 반영
+//            updateBookList(results)
+//        }
+//    }
+
+     fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
         bookService.getBooksByName(getString(R.string.ApiKey), query, queryType)
             .enqueue(object : Callback<SearchBookResponse> {
                 override fun onResponse(call: Call<SearchBookResponse>, response: Response<SearchBookResponse>) {
@@ -72,14 +79,17 @@ class SearchTitleFragment : Fragment() {
                         callback(books)  // 데이터를 콜백으로 전달
                     } else {
                         Log.e("SearchTitleFragment", "Error: ${response.errorBody()?.string()}")
+                        callback(emptyList())  // 오류 발생 시 빈 리스트 전달
                     }
                 }
 
                 override fun onFailure(call: Call<SearchBookResponse>, t: Throwable) {
                     Log.e("SearchTitleFragment", "Failure: ${t.message}")
+                    callback(emptyList())  // 실패 시 빈 리스트 전달
                 }
             })
     }
+
 
     fun updateBookList(books: List<SearchBookData>) {
         if (books.isNullOrEmpty()) {

@@ -49,6 +49,14 @@ class SearchMemoFragment : Fragment() {
         }
     }
 
+    fun loadMemoData(query: String) {
+        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
+       searchMemoLists(query) { results ->
+            // 결과를 UI에 반영
+           updateMemo(results)
+        }
+    }
+
     fun searchMemoLists(query: String, callback: (List<SearchMemoData>) -> Unit) {
         val token = tokenManager.getToken() ?: return
         RetrofitInstance.searchListApi.getBookMemos("Bearer $token", query)

@@ -7,25 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import com.bookmoa.android.R
+import androidx.viewpager2.widget.ViewPager2
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.SearchVpAdapter
 import com.bookmoa.android.databinding.FragmentSearchBinding
-import com.bookmoa.android.models.SearchBookData
-import com.bookmoa.android.models.SearchBookListData
-import com.bookmoa.android.models.SearchBookListResponse
-import com.bookmoa.android.models.SearchBookResponse
-import com.bookmoa.android.models.SearchMemoData
-import com.bookmoa.android.models.SearchMemoResponse
 import com.bookmoa.android.services.AladinBookService
-import com.bookmoa.android.services.RetrofitInstance
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class SearchFragment : Fragment() {
 
@@ -34,7 +24,6 @@ class SearchFragment : Fragment() {
     private lateinit var bookService: AladinBookService
     private lateinit var viewPagerAdapter: SearchVpAdapter
     private lateinit var tokenManager: TokenManager
-    private val searchViewModel: SearchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,11 +47,10 @@ class SearchFragment : Fragment() {
 
         TabLayoutMediator(binding.searchContentTb, binding.searchContentVp) { tab, position ->
             tab.text = when (position) {
-                0 -> "전체"
-                1 -> "제목"
-                2 -> "지은이"
-                3 -> "북 리스트"
-                4 -> "독서 메모"
+                0 -> "제목"
+                1 -> "지은이"
+                2 -> "북 리스트"
+                3 -> "독서 메모"
                 else -> "Unknown"
             }
         }.attach()
@@ -80,7 +68,7 @@ class SearchFragment : Fragment() {
         binding.searchSv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
-                    Log.d("SearchFragment", "Search query submitted: $query")
+                    showLoading(true) // Show progress bar
                     searchBooks(it)
                 }
                 return true
@@ -92,46 +80,49 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private var titleResults: List<SearchBookData> = emptyList()
-    private var authorResults: List<SearchBookData> = emptyList()
-    private var bookListResults: List<SearchBookListData> = emptyList()
-    private var memoResults: List<SearchMemoData> = emptyList()
-
     private fun searchBooks(query: String) {
+        Log.d("SearchFragment", "Searching with query: $query")
+
         val fragments = listOf(
-            childFragmentManager.findFragmentByTag("f0") as? SearchTotalFragment,
-            childFragmentManager.findFragmentByTag("f1") as? SearchTitleFragment,
-            childFragmentManager.findFragmentByTag("f2") as? SearchAuthorFragment,
-            childFragmentManager.findFragmentByTag("f3") as? SearchBookListFragment,
-            childFragmentManager.findFragmentByTag("f4") as? SearchMemoFragment
+            childFragmentManager.findFragmentByTag("f0") as? SearchTitleFragment,
+            childFragmentManager.findFragmentByTag("f1") as? SearchAuthorFragment,
+            childFragmentManager.findFragmentByTag("f2") as? SearchBookListFragment,
+            childFragmentManager.findFragmentByTag("f3") as? SearchMemoFragment
         )
 
         fragments.forEach { fragment ->
             when (fragment) {
                 is SearchTitleFragment -> {
-                    fragment.searchBooksByName(query, "Title") { titleResults ->
-                        searchViewModel.titleResults.value = titleResults
+                    fragment.searchBooksByName(query, "Title") { results ->
+                        showLoading(false) // Hide progress bar
                     }
                 }
                 is SearchAuthorFragment -> {
-                    fragment.searchBooksByName(query, "Author") { authorResults ->
-                        searchViewModel.authorResults.value = authorResults
+                    fragment.searchBooksByName(query, "Author") { results ->
+                        showLoading(false) // Hide progress bar
                     }
                 }
                 is SearchBookListFragment -> {
-                    fragment.searchBookLists(query) { bookListResults ->
-                        searchViewModel.bookListResults.value = bookListResults
+                    fragment.searchBookLists(query) { results ->
+                        showLoading(false) // Hide progress bar
                     }
                 }
                 is SearchMemoFragment -> {
-                    fragment.searchMemoLists(query) { memoResults ->
-                        searchViewModel.memoResults.value = memoResults
+                    fragment.searchMemoLists(query) { results ->
+                        showLoading(false) // Hide progress bar
                     }
                 }
             }
         }
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
