@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.datastore.preferences.protobuf.Api
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentCommunityBinding
+import com.bookmoa.android.services.ApiService
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CommunityFragment : Fragment() {
@@ -21,6 +23,8 @@ class CommunityFragment : Fragment() {
     private var clubId: Int? = null
     private var clubName: String? = null
     private var clubIntro: String? = null
+
+    private lateinit var api: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +42,7 @@ class CommunityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         binding.communityTitleTv.text = clubName
         binding.communityDescriptionTv.text = clubIntro

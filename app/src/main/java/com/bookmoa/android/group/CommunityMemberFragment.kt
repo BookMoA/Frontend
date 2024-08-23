@@ -17,9 +17,15 @@ import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.CommunityMemberFragmentAdapter
 import com.bookmoa.android.adapter.CommunityMemberItems
 import com.bookmoa.android.databinding.FragmentCommunitymembervpBinding
+import com.bookmoa.android.services.ApiService
+import com.bookmoa.android.services.ClubsMembersResponse
 import com.bookmoa.android.services.GetClubsMembers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.HttpException
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
@@ -32,6 +38,8 @@ class CommunityMemberFragment : Fragment() {
     private var isReader = false // 사용자가 리더인지 여부를 저장하는 변수
     private lateinit var tokenManager: TokenManager
     private var clubId: Int = 0
+
+    private lateinit var api: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +56,70 @@ class CommunityMemberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
         setupRecyclerView()
         setupToggleButton()
         checkLeaderStatus()
         fetchMembersData()
     }
     private fun fetchMembersData() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            Log.d("CommunityMemberFragment", "Fetching members data...")
+
+            api.getClubsMembers(clubId).enqueue(object: Callback<ClubsMembersResponse> {
+                override fun onResponse(
+                    call: Call<ClubsMembersResponse>,
+                    response: Response<ClubsMembersResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            memberList.clear()
+                            memberList.addAll(apiResponse.data.map { memberData ->
+                                CommunityMemberItems(
+                                    memberId = memberData.memberId,
+                                    name = memberData.nickname,
+                                    floatmsg = memberData.statusMessage ?: "",
+                                    isLeader = memberData.reader,
+                                    float = !memberData.statusMessage.isNullOrEmpty()
+                                )
+                            })
+                            Log.d("CommunityMemberFragment", "Members fetched successfully. Count: ${memberList.size}")
+                            adapter.notifyDataSetChanged()
+                            checkLeaderStatus()
+                        } else {
+                            Log.e("CommunityMemberFragment", "Failed to fetch members: ${apiResponse?.description}")
+                            showErrorMessage("Failed to fetch members: ${apiResponse?.description}")
+                        }
+                    } else {
+                        Log.e("CommunityMemberFragment", "Failed to fetch members: ${response.errorBody()}")
+                        showErrorMessage("Failed to fetch members: ${response.errorBody()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ClubsMembersResponse>, t: Throwable) {
+                    Log.e("CommunityMemberFragment", "Error fetching members")
+                    /*
+                    when (e) {
+                        is IOException -> showErrorMessage("Network error. Please check your internet connection.")
+                        is HttpException -> {
+                            val errorBody = e.response()?.errorBody()?.string()
+                            Log.e("CommunityMemberFragment", "HTTP Error: ${e.code()}, Error Body: $errorBody")
+                            showErrorMessage("Server error: ${e.code()}. Please try again later.")
+                        }
+                        else -> showErrorMessage("An unexpected error occurred. Please try again.")
+                    }
+
+                     */
+                }
+
+            })
+        }
+
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")
             .addConverterFactory(GsonConverterFactory.create())
@@ -107,6 +172,8 @@ class CommunityMemberFragment : Fragment() {
                 }
             }
         }
+
+         */
     }
 
     private fun showErrorMessage(message: String) {

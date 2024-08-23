@@ -15,9 +15,15 @@ import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentDialogjoinBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubDetailData
+import com.bookmoa.android.services.ClubDetailResponse
 import com.bookmoa.android.services.GetClubsDetail
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -30,6 +36,8 @@ class DialogJoinFragment : DialogFragment() {
     private var isClubJoined: Boolean = false
     private var clubName: String? = null
     private var clubIntro: String? = null
+
+    private lateinit var api: ApiService
 
     companion object {
         private const val ARG_CLUB_ID = "club_id"
@@ -61,7 +69,7 @@ class DialogJoinFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         dialog?.window?.apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -111,6 +119,37 @@ class DialogJoinFragment : DialogFragment() {
     }
 
     private fun fetchClubDetail(clubId: Int?){
+
+        if (clubId == null) return
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            if (clubId != null) {
+                api.getClubDetail(clubId = clubId.toLong()).enqueue(object: Callback<ClubDetailResponse> {
+                    override fun onResponse(
+                        call: Call<ClubDetailResponse>,
+                        response: Response<ClubDetailResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val getClubsDetailResponse = response.body()
+                            if (getClubsDetailResponse != null && getClubsDetailResponse.result) {
+                                updateUI(getClubsDetailResponse.data)
+                                clubPassword = getClubsDetailResponse.data.password
+                            }
+                        } else {
+                            Log.d("DialogJoinFragment", "Error: ${response.body()?.description}")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ClubDetailResponse>, t: Throwable) {
+                        Log.d("DialogJoinFragment", "Exception during network call")
+                    }
+                })
+            }
+        }
+
+        /*
         if (clubId == null) return
 
         val retrofit = Retrofit.Builder()
@@ -139,6 +178,8 @@ class DialogJoinFragment : DialogFragment() {
                 Log.e("DialogJoinFragment", "Exception during network call", e)
             }
         }
+
+         */
     }
 
     private fun updateUI(clubData: ClubDetailData?) {

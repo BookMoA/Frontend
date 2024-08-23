@@ -12,11 +12,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentGroupBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubApi
 import com.bookmoa.android.services.GetClubData
 import com.bookmoa.android.services.GetClubs
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +34,8 @@ class GroupFragment : Fragment() {
     private var isClubJoined: Boolean = false
     private var clubData: GetClubData? = null
 
+    private lateinit var api: ApiService
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentGroupBinding.inflate(inflater, container, false)
         return binding.root
@@ -39,7 +44,7 @@ class GroupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         binding.groupSearchIv.setOnClickListener {
             (activity as MainActivity).switchFragment(OutSearchFragment())
@@ -66,6 +71,35 @@ class GroupFragment : Fragment() {
     }
 
     private fun fetchClubData() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getClubs().enqueue(object : Callback<GetClubs> {
+                override fun onResponse(call: Call<GetClubs>, response: Response<GetClubs>) {
+                    Log.d("GroupFragment", "Clubs data fetched, Response code: ${response.code()}")
+                    if (response.isSuccessful) {
+                        val clubsResponse = response.body()
+                        clubsResponse?.let {
+                            updateUIWithClubData(it.data)
+                            isClubJoined = it.data?.clubId != null && it.data?.name != null && it.data?.intro != null
+                            Log.d("GroupFragment", "Clubs data fetched successfully")
+
+                            // Fetch complete, now update the ViewPager adapter with the new isClubJoined value
+                            setupViewPager()
+                        }
+                    } else {
+                        Log.d("GroupFragment", "Clubs data fetch failed: ${response.errorBody()?.string()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<GetClubs>, t: Throwable) {
+                    Log.d("GroupFragment", "Clubs data fetch failed with error: ${t.message}")
+                }
+            })
+        }
+
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")
             .addConverterFactory(GsonConverterFactory.create())
@@ -103,6 +137,8 @@ class GroupFragment : Fragment() {
                 Log.d("GroupFragment", "Clubs data fetch failed with error: ${t.message}")
             }
         })
+
+         */
     }
 
     private fun setupViewPager() {

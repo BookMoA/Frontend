@@ -15,11 +15,17 @@ import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.CommunityFeedFragmentAdapter
 import com.bookmoa.android.adapter.CommunityFeedItems
 import com.bookmoa.android.databinding.FragmentCommunityfeedvpBinding
+import com.bookmoa.android.services.ApiService
+import com.bookmoa.android.services.ClubsMembersResponse
 import com.bookmoa.android.services.CreatePostLikeRequest
 import com.bookmoa.android.services.GetClubsMembers
 import com.bookmoa.android.services.GetClubsPostsList
 import com.bookmoa.android.services.PostClubsPostsLikes
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalDate
@@ -35,6 +41,8 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
     private var clubName: String? = null
     private var clubIntro: String? = null
     private var membersMap: Map<Int, String> = emptyMap() // Map to hold memberId to nickname
+
+    private lateinit var api: ApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +60,7 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         Log.d("CommunityFeedFragment", "Club Name: $clubName, Club Intro: $clubIntro")
 
@@ -66,6 +74,36 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
     }
 
     private fun fetchMembersData() {
+
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getClubsMembers(clubId ?: 0).enqueue(object: Callback<ClubsMembersResponse> {
+                override fun onResponse(
+                    call: Call<ClubsMembersResponse>,
+                    response: Response<ClubsMembersResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            membersMap = apiResponse.data.associate { it.memberId to it.nickname }
+                            fetchFeedData() // Now fetch the feed data after members data is available
+                        } else {
+                            Log.d("CommunityFeedFragment", "API call failed: ${apiResponse?.description}")
+                            }
+                        } else {
+                        Log.d("CommunityFeedFragment", "API call failed: ${response.errorBody()}}")
+                        }
+                    }
+
+                override fun onFailure(call: Call<ClubsMembersResponse>, t: Throwable) {
+                    Log.d("CommunityFeedFragment", "Error fetching members data")
+                }
+
+            })
+        }
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")
             .addConverterFactory(GsonConverterFactory.create())
@@ -93,6 +131,8 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
                 Log.e("CommunityFeedFragment", "Error fetching members data", e)
             }
         }
+
+         */
     }
     private fun postLike(postId: Int) {
         val retrofit = Retrofit.Builder()
