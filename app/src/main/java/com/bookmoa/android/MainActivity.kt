@@ -17,6 +17,7 @@ import com.bookmoa.android.memo.BookMemoFragment
 import com.bookmoa.android.mypage.MypageFragment
 import com.bookmoa.android.study.RecommendFragment
 import com.bookmoa.android.services.UserInfoManager
+import com.bookmoa.android.study.BookResultFragment
 import com.bookmoa.android.study.StudyFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun showBookDetail(Isbn13: String) {
-        val detailFragment = RecommendFragment().apply {
+        val detailFragment = BookResultFragment().apply {
             arguments = Bundle().apply {
                 putString("isbn13", Isbn13)
             }

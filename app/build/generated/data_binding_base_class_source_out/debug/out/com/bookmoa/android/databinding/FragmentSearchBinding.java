@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -33,13 +32,7 @@ public final class FragmentSearchBinding implements ViewBinding {
   public final ImageButton searchBackIcon;
 
   @NonNull
-  public final ImageButton searchBarcodeIc;
-
-  @NonNull
   public final CardView searchCarview;
-
-  @NonNull
-  public final LinearLayout searchContainer;
 
   @NonNull
   public final TabLayout searchContentTb;
@@ -58,16 +51,13 @@ public final class FragmentSearchBinding implements ViewBinding {
 
   private FragmentSearchBinding(@NonNull ConstraintLayout rootView,
       @NonNull ProgressBar progressBar, @NonNull ImageButton searchBackIcon,
-      @NonNull ImageButton searchBarcodeIc, @NonNull CardView searchCarview,
-      @NonNull LinearLayout searchContainer, @NonNull TabLayout searchContentTb,
+      @NonNull CardView searchCarview, @NonNull TabLayout searchContentTb,
       @NonNull ViewPager2 searchContentVp, @NonNull View searchLine, @NonNull SearchView searchSv,
       @NonNull TextView searchTitleTv) {
     this.rootView = rootView;
     this.progressBar = progressBar;
     this.searchBackIcon = searchBackIcon;
-    this.searchBarcodeIc = searchBarcodeIc;
     this.searchCarview = searchCarview;
-    this.searchContainer = searchContainer;
     this.searchContentTb = searchContentTb;
     this.searchContentVp = searchContentVp;
     this.searchLine = searchLine;
@@ -114,21 +104,9 @@ public final class FragmentSearchBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.search_barcode_ic;
-      ImageButton searchBarcodeIc = ViewBindings.findChildViewById(rootView, id);
-      if (searchBarcodeIc == null) {
-        break missingId;
-      }
-
       id = R.id.search_carview;
       CardView searchCarview = ViewBindings.findChildViewById(rootView, id);
       if (searchCarview == null) {
-        break missingId;
-      }
-
-      id = R.id.search_container;
-      LinearLayout searchContainer = ViewBindings.findChildViewById(rootView, id);
-      if (searchContainer == null) {
         break missingId;
       }
 
@@ -163,8 +141,7 @@ public final class FragmentSearchBinding implements ViewBinding {
       }
 
       return new FragmentSearchBinding((ConstraintLayout) rootView, progressBar, searchBackIcon,
-          searchBarcodeIc, searchCarview, searchContainer, searchContentTb, searchContentVp,
-          searchLine, searchSv, searchTitleTv);
+          searchCarview, searchContentTb, searchContentVp, searchLine, searchSv, searchTitleTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

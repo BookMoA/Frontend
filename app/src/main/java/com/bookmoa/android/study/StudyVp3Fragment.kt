@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentStudyVp3Binding
 import com.bookmoa.android.models.RecommendBookResponse
 import com.bookmoa.android.services.ApiService
@@ -23,6 +24,7 @@ class StudyVp3Fragment : Fragment() {
 
     lateinit var binding: FragmentStudyVp3Binding
     private lateinit var api: ApiService
+    private var book3: Int=0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +34,11 @@ class StudyVp3Fragment : Fragment() {
         binding = FragmentStudyVp3Binding.inflate(inflater, container, false)
 
         binding.imgBanner3.setOnClickListener {
-            (activity as MainActivity).switchFragment(RecommendFragment())
+            val fragment = RecommendFragment.newInstance(book3)  // book1을 Int로 전달
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, fragment)  // Replace with the correct container ID
+                .addToBackStack(null)  // Optional
+                .commit()
         }
         loadRecommendata()
         return binding.root
@@ -55,6 +61,7 @@ class StudyVp3Fragment : Fragment() {
                             val books = apiResponse.data?.books
                             if (books != null && books.isNotEmpty()) {
                                 // Update UI on the main thread
+                                book3=books[2].bookId
                                 Glide.with(requireContext())
                                     .load(books[2].coverImage)
                                     .centerCrop()

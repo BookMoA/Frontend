@@ -13,7 +13,10 @@ import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.StorageBookAdapter
 import com.bookmoa.android.databinding.FragmentCurrentlyReadingBinding
+import com.bookmoa.android.models.SearchBookData
+import com.bookmoa.android.models.StorageBookData
 import com.bookmoa.android.models.StorageBookResponse
+import com.bookmoa.android.models.StorageListData
 import com.bookmoa.android.services.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -72,7 +75,7 @@ class CurrentlyReadingFragment : Fragment() {
                         if (apiResponse != null && apiResponse.result) {
                             val books= apiResponse.data?.books
                             if (books != null) {
-                                storageRVAdapter?.updateItems(books)
+                               updateBookList(books)
                             } else {
                                 Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
                             }
@@ -160,9 +163,15 @@ class CurrentlyReadingFragment : Fragment() {
          */
     }
 
-    private fun handleNoToken() {
-        Toast.makeText(context, "로그인이 필요합니다. 로그인 화면으로 이동합니다.", Toast.LENGTH_SHORT).show()
-        (activity as MainActivity).switchFragment(StudyFragment())
+    fun updateBookList(books: List<StorageBookData>) {
+        if (books.isNullOrEmpty()) {
+            binding.readingBooksRvList.visibility = View.GONE
+            binding.readingBooksNotAvailable.visibility = View.VISIBLE
+        } else {
+            binding.readingBooksRvList.visibility = View.VISIBLE
+            binding.readingBooksNotAvailable.visibility = View.GONE
+          storageRVAdapter?.updateItems(books)
+        }
     }
 
     override fun onDestroyView() {

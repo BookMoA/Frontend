@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentStudyVp1Binding
 import com.bookmoa.android.models.ListTop10Response
 import com.bookmoa.android.models.RecommendBookResponse
@@ -23,6 +24,7 @@ class StudyVp1Fragment : Fragment() {
 
     lateinit var binding: FragmentStudyVp1Binding
     private lateinit var api: ApiService
+    private var book1: Int=0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +34,13 @@ class StudyVp1Fragment : Fragment() {
         binding = FragmentStudyVp1Binding.inflate(inflater, container, false)
 
         binding.imgBanner1.setOnClickListener {
-            (activity as MainActivity).switchFragment(RecommendFragment())
+            // book1이 0이 아닌 경우 (책 ID가 유효한 경우)
+                val fragment = RecommendFragment.newInstance(book1)  // book1을 Int로 전달
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_frm, fragment)  // Replace with the correct container ID
+                    .addToBackStack(null)  // Optional
+                    .commit()
+
         }
 
         loadRecommendata()
@@ -42,7 +50,6 @@ class StudyVp1Fragment : Fragment() {
     private fun loadRecommendata() {
         // Initialize the API service
         GlobalScope.launch {
-
             api = ApiService.createWithHeader(requireContext())
 
             // Make the network request
@@ -56,6 +63,7 @@ class StudyVp1Fragment : Fragment() {
                         if (apiResponse != null) {
                             val books = apiResponse.data?.books
                             if (books != null && books.isNotEmpty()) {
+                                book1 = books[0].bookId
                                 // Update UI on the main thread
                                 Glide.with(requireContext())
                                     .load(books[0].coverImage)
@@ -86,5 +94,3 @@ class StudyVp1Fragment : Fragment() {
         }
     }
 }
-
-

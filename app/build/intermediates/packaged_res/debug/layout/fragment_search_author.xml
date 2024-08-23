@@ -77,6 +77,7 @@
                 android:layout_marginTop="25dp"
                 >
             <Button
+                android:id="@+id/search_author_btn"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:text="책 직접 등록하기"

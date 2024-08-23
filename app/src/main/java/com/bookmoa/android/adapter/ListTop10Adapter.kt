@@ -49,6 +49,7 @@ class ListTop10Adapter : RecyclerView.Adapter<ListTop10Adapter.ViewHolder>() {
     class ViewHolder(val binding: ItemListTop10Binding) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: ListTop10Data) {
+
             Glide.with(binding.root.context)
                 .load(data.img)
                 .centerCrop()

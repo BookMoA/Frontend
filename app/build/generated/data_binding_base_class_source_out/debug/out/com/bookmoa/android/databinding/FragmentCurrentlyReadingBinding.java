@@ -20,11 +20,16 @@ public final class FragmentCurrentlyReadingBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout readingBooksNotAvailable;
+
+  @NonNull
   public final RecyclerView readingBooksRvList;
 
   private FragmentCurrentlyReadingBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout readingBooksNotAvailable,
       @NonNull RecyclerView readingBooksRvList) {
     this.rootView = rootView;
+    this.readingBooksNotAvailable = readingBooksNotAvailable;
     this.readingBooksRvList = readingBooksRvList;
   }
 
@@ -55,13 +60,20 @@ public final class FragmentCurrentlyReadingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.reading_books_not_available;
+      ConstraintLayout readingBooksNotAvailable = ViewBindings.findChildViewById(rootView, id);
+      if (readingBooksNotAvailable == null) {
+        break missingId;
+      }
+
       id = R.id.reading_books_rv_list;
       RecyclerView readingBooksRvList = ViewBindings.findChildViewById(rootView, id);
       if (readingBooksRvList == null) {
         break missingId;
       }
 
-      return new FragmentCurrentlyReadingBinding((ConstraintLayout) rootView, readingBooksRvList);
+      return new FragmentCurrentlyReadingBinding((ConstraintLayout) rootView,
+          readingBooksNotAvailable, readingBooksRvList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

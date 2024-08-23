@@ -31,6 +31,10 @@ class SearchFragment : Fragment() {
     ): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         tokenManager = TokenManager()
+
+        binding.searchBackIcon.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack()
+        }
         return binding.root
     }
 

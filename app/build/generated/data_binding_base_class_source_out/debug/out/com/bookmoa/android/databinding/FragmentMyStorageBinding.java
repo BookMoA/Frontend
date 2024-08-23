@@ -32,20 +32,15 @@ public final class FragmentMyStorageBinding implements ViewBinding {
   public final ViewPager2 myStorageContentVp;
 
   @NonNull
-  public final ImageButton myStorageSearchIcon;
-
-  @NonNull
   public final TextView myStorageTitleTv;
 
   private FragmentMyStorageBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageButton myStorageBackIcon, @NonNull TabLayout myStorageContentTb,
-      @NonNull ViewPager2 myStorageContentVp, @NonNull ImageButton myStorageSearchIcon,
-      @NonNull TextView myStorageTitleTv) {
+      @NonNull ViewPager2 myStorageContentVp, @NonNull TextView myStorageTitleTv) {
     this.rootView = rootView;
     this.myStorageBackIcon = myStorageBackIcon;
     this.myStorageContentTb = myStorageContentTb;
     this.myStorageContentVp = myStorageContentVp;
-    this.myStorageSearchIcon = myStorageSearchIcon;
     this.myStorageTitleTv = myStorageTitleTv;
   }
 
@@ -94,12 +89,6 @@ public final class FragmentMyStorageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.myStorage_search_icon;
-      ImageButton myStorageSearchIcon = ViewBindings.findChildViewById(rootView, id);
-      if (myStorageSearchIcon == null) {
-        break missingId;
-      }
-
       id = R.id.myStorage_title_tv;
       TextView myStorageTitleTv = ViewBindings.findChildViewById(rootView, id);
       if (myStorageTitleTv == null) {
@@ -107,7 +96,7 @@ public final class FragmentMyStorageBinding implements ViewBinding {
       }
 
       return new FragmentMyStorageBinding((ConstraintLayout) rootView, myStorageBackIcon,
-          myStorageContentTb, myStorageContentVp, myStorageSearchIcon, myStorageTitleTv);
+          myStorageContentTb, myStorageContentVp, myStorageTitleTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -8,10 +8,6 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearch.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_my_list_storage.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_storage.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_onboarding_tab2.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab2.xml"
     },
@@ -68,6 +64,10 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_registerbook.xml"
     },
     {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_my_list_edit.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_list_edit.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_member_info.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_member_info.xml"
     },
@@ -80,16 +80,16 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communityfeedwriterv.xml"
     },
     {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_book_result.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_book_result.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_study_vp5.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp5.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_community.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_community.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_search.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\item_book_list.xml",
@@ -116,16 +116,8 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_detail.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_recommend.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_recommend.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_onboarding_tab4.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab4.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_list_detail_add.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_list_detail_add.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_onboarding_tab1.xml",
@@ -134,10 +126,6 @@
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\item_member.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_member.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_my_list_edit.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_edit.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_search_memo.xml",
@@ -152,24 +140,16 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_study_list_top_3.xml"
     },
     {
+        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_search_title.xml",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_title.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_service_terms.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_service_terms.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_study_vp3.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp3.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\activity_write.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_write.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_my_list_usual.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_usual.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_study_vp2.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp2.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_insearcharticlerv.xml",
@@ -268,16 +248,8 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_group.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_my_list.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_search_author.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_author.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_study_vp5.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp5.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_mypage.xml",
@@ -292,20 +264,28 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_alarmrv.xml"
     },
     {
+        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_search_author.xml",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_author.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\activity_home_memo.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_home_memo.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_list_detail_add_done.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_detail_add_done.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_recommend.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_recommend.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_list_detail_edit.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_list_detail_edit.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_grouprv.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_grouprv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_my_list_usual.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_list_usual.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_alarm.xml",
@@ -400,12 +380,12 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communityfeedrv.xml"
     },
     {
-        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\item_storage_books.xml",
-        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_storage_books.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_my_storage.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_storage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\item_storage_books.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_storage_books.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_insearchauthorrv.xml",
@@ -420,6 +400,10 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_dialogjoin.xml"
     },
     {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_list_detail_add.xml",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_detail_add.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_home.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_home.xml"
     },
@@ -432,16 +416,8 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_all_f_a_q.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_study_vp1.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp1.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_search_title.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_title.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_study_vp4.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp4.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\activity_passbook.xml",
