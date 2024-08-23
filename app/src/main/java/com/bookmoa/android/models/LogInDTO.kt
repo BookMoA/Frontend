@@ -27,7 +27,8 @@ data class SignUpDataDTO(
     @SerializedName("accessExpiredDateTime") val accessExpiredDateTime: String,
     @SerializedName("refreshExpiredDateTime") val refreshExpiredDateTime: String,
     @SerializedName("profileURL") val profileURL: String,
-    @SerializedName("pushNotification") val pushNotification: pushNotificationDTO
+    @SerializedName("pushNotification") val pushNotification: pushNotificationDTO,
+    @SerializedName("myClub") val myClub: String,
 )
 
 data class pushNotificationDTO(
