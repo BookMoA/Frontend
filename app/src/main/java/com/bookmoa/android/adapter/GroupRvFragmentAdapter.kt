@@ -6,20 +6,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bookmoa.android.databinding.FragmentGrouprvBinding
 
 data class GroupRvItems(
-    val title: String,
-    val count: String,
-    val description: String
+    val clubId: Int,
+    val name: String,
+    val intro: String,
+    val createAt: String,
+    val updateAt: String,
+    val memberCount: Int,
+    val postCount: Int
 )
 
-class GroupRvFragmentAdapter(
-    private val items: List<GroupRvItems>,
-    private val onItemClick: (GroupRvItems) -> Unit): RecyclerView.Adapter<GroupRvFragmentAdapter.ViewHolder>() {
+class GroupRvFragmentAdapter(private val items: List<GroupRvItems>, private val onItemClick: (Int) -> Unit): RecyclerView.Adapter<GroupRvFragmentAdapter.ViewHolder>() {
     class ViewHolder(private val binding: FragmentGrouprvBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bookclubRVbind(item: GroupRvItems, onItemClick: (GroupRvItems) -> Unit) {
-            binding.grouprvTitleTv.text = item.title
-            binding.grouprvCountTv.text = item.count
-            binding.grouprvDescriptionTv.text = item.description
-            itemView.setOnClickListener { onItemClick(item) }
+        fun bind(item: GroupRvItems, onItemClick: (Int) -> Unit) {
+            binding.grouprvTitleTv.text = item.name
+            binding.grouprvDescriptionTv.text = item.intro
+            binding.grouprvCountTv.text = "${item.memberCount}/20"
+            binding.root.setOnClickListener {
+                onItemClick(item.clubId)
+            }
         }
     }
 
@@ -29,8 +33,11 @@ class GroupRvFragmentAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bookclubRVbind(items[position], onItemClick)
+        val item = items[position]
+        holder.bind(item, onItemClick)
     }
 
     override fun getItemCount() = items.size
+
+
 }

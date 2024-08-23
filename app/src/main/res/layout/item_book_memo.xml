@@ -18,24 +18,41 @@
 
     <TextView
         android:id="@+id/bookName_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="책 제목"
         android:textSize="16sp"
         android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@id/book_iv"
         app:layout_constraintEnd_toEndOf="@id/book_iv"
         app:layout_constraintTop_toBottomOf="@id/book_iv" />
 
+    <ImageView
+        android:id="@+id/overlay_iv"
+        android:layout_width="81dp"
+        android:layout_height="118dp"
+        android:scaleType="center"
+        android:background="#4D000000"
+        android:src="@drawable/ic_bookmemo_delete_check"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/book_iv"
+        app:layout_constraintTop_toTopOf="@id/book_iv"
+        app:layout_constraintEnd_toEndOf="@id/book_iv"
+        app:layout_constraintBottom_toBottomOf="@id/book_iv" />
+
     <TextView
         android:id="@+id/bookAuthor_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:text="지은이"
         android:textSize="14sp"
         android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@id/book_iv"
         app:layout_constraintEnd_toEndOf="@id/book_iv"
         app:layout_constraintTop_toBottomOf="@id/bookName_tv" />

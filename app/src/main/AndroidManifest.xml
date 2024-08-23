@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,16 +16,7 @@
         android:theme="@style/Theme.Moa"
         tools:targetApi="31">
         <activity
-            android:name=".mypage.IntroMoaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.MypageActivity"
-            android:exported="false" />
-        <activity
             android:name=".mypage.FAQActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.ChangeProfileActivity"
             android:exported="false" />
         <activity
             android:name=".auth.SignUpActivity"
@@ -48,17 +42,10 @@
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
         </activity>
-        <activity android:name="com.bookmoa.bookmoa.GroupActivity" />
-        <activity android:name=".group.CommunityActivity"/>
-        <activity android:name=".group.SearchActivity"/>
-        <activity android:name=".group.InSearchActivity"/>
-        <activity android:name=".group.NextLeaderActivity"/>
-        <activity
-            android:name=".group.MakeActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".group.ProfileActivity"/>
         <activity android:name=".group.WriteActivity"/>
         <activity
+            android:name=".group.CommunityFeedWriteActivity"
+            android:exported="false" />
             android:name=".group.DialogJoinActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog"/>
         <activity
@@ -67,6 +54,17 @@
         <activity
             android:name=".group.DialogExpelActivity"
             android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+
+        <activity android:name=".home.PassbookActivity"/>
+        <activity android:name=".home.FocusmodeActivity"/>
+        <activity android:name=".home.RegisterbookActivity"/>
+        <activity android:name=".home.RegisteredBookActivity"/>
+        <activity android:name=".home.TurnoffActivity"/>
+        <activity android:name=".home.HomeMemoActivity"/>
+        <activity android:name=".home.ResultActivity"/>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
