@@ -27,8 +27,6 @@ object RetrofitInstance {
     }
 
 
-}
-
     val listTop10api: ListTop10Api by lazy {
         retrofit.create(ListTop10Api::class.java)
     }

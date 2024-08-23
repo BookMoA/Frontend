@@ -82,3 +82,18 @@ data class ProfileDTO(
     @SerializedName("nickname") val nickname: String,
     @SerializedName("profileURL") val profileURL: String
 )
+
+data class MemberInfoResponse(
+    @SerializedName("status") val status: String,
+    @SerializedName("code") val code: String,
+    @SerializedName("result") val result: Boolean,
+    @SerializedName("data") val data: List<MemberInfoDTO>
+)
+
+data class MemberInfoDTO(
+    @SerializedName("adminRole") val adminRole: String,
+    @SerializedName("nickName") val nickName: String,
+    @SerializedName("githubId") val githubId: String,
+    @SerializedName("snsAddress") val snsAddress: String,
+    @SerializedName("profileUrl") val profileUrl: String,
+)
