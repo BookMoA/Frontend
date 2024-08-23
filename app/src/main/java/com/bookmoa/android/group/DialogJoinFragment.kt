@@ -12,11 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentDialogjoinBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
-import com.bookmoa.android.interfaces.ClubDetailData
-import com.bookmoa.android.interfaces.GetClubsDetail
+import com.bookmoa.android.services.ClubDetailData
+import com.bookmoa.android.services.GetClubsDetail
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

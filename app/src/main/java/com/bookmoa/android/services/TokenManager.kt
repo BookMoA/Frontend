@@ -1,4 +1,4 @@
-package com.bookmoa.android
+package com.bookmoa.android.services
 
 import android.content.Context
 import android.content.SharedPreferences

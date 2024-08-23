@@ -16,12 +16,12 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bookmoa.android.R
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.SearchNameFragmentAdapter
 import com.bookmoa.android.adapter.SearchNameItems
 import com.bookmoa.android.databinding.FragmentOutsearchBinding
-import com.bookmoa.android.interfaces.GetClubsSearch
-import com.bookmoa.android.interfaces.GetClubsSearchClub
+import com.bookmoa.android.services.GetClubsSearch
+import com.bookmoa.android.services.GetClubsSearchClub
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

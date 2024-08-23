@@ -15,11 +15,11 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentCommunitymanagevpBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
-import com.bookmoa.android.interfaces.ClubDetailData
-import com.bookmoa.android.interfaces.GetClubsDetail
+import com.bookmoa.android.services.ClubDetailData
+import com.bookmoa.android.services.GetClubsDetail
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

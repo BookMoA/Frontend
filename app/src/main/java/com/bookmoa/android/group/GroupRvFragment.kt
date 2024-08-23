@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.GroupRvFragmentAdapter
 import com.bookmoa.android.adapter.GroupRvItems
 import com.bookmoa.android.databinding.FragmentGroupvpBinding
-import com.bookmoa.android.interfaces.GetClubsRecommend
+import com.bookmoa.android.services.GetClubsRecommend
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

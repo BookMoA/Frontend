@@ -1,4 +1,4 @@
-package com.bookmoa.android.interfaces
+package com.bookmoa.android.services
 
 import retrofit2.Call
 import retrofit2.http.Body
@@ -6,30 +6,28 @@ import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
-interface PostClubs {
-    @POST("/clubs")
+interface PostClubsMembers {
+    @POST("/clubs/members")
     @Headers("Content-Type: application/json")
-    fun createClub(
+    fun createClubMember(
         @Header("Authorization") token: String,  // Token parameter added here
-        @Body request: CreateClubRequest
-    ): Call<CreateClubResponse>
+        @Body request: CreateClubMemberRequest
+    ): Call<CreateClubMemberResponse>
 }
 
-data class CreateClubRequest(
-    val name: String,
-    val intro: String,
-    val notice: String,
+data class CreateClubMemberRequest(
+    val clubId: Int,
     val password: String
 )
 
-data class CreateClubResponse(
+data class CreateClubMemberResponse(
     val status: String,
     val code: String,
     val result: Boolean,
     val description: String,
-    val data: PostClubsData
+    val data: PostClubMemberData
 )
 
-data class PostClubsData(
-    val clubId: Int
+data class PostClubMemberData(
+    val clubMemberId: Int
 )

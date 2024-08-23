@@ -1,4 +1,4 @@
-package com.bookmoa.android.interfaces
+package com.bookmoa.android.services
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Response
@@ -6,35 +6,31 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
-interface GetClubsSearch {
-    @GET("/clubs/search")
-    suspend fun searchClubs(
+interface GetClubsRecommend {
+    @GET("/clubs/recommend")
+    suspend fun getRecommendedClubs(
         @Header("Authorization") token: String,
-        @Query("category") category: String = "name",
-        @Query("word") word: String,
+        @Query("category") category: String = "new",
         @Query("page") page: Int = 1
-    ): Response<GetClubsSearchResponse>
+    ): Response<GetClubsRecommendResponse>
 }
 
-data class GetClubsSearchResponse(
+data class GetClubsRecommendResponse(
     @SerializedName("status") val status: String,
     @SerializedName("code") val code: String,
     @SerializedName("result") val result: Boolean,
     @SerializedName("description") val description: String,
-    @SerializedName("data") val data: GetClubsSearchData
+    @SerializedName("data") val data: GetClubsRecommendData
 )
 
-data class GetClubsSearchData(
+data class GetClubsRecommendData(
     @SerializedName("category") val category: String,
-    @SerializedName("word") val word: String,
     @SerializedName("page") val page: Int,
-    @SerializedName("totalElements") val totalElements: Int,
-    @SerializedName("totalPages") val totalPages: Int,
     @SerializedName("size") val size: Int,
-    @SerializedName("clubList") val clubList: List<GetClubsSearchClub>
+    @SerializedName("clubList") val clubList: List<GetClubsRecommendClub>
 )
 
-data class GetClubsSearchClub(
+data class GetClubsRecommendClub(
     @SerializedName("clubId") val clubId: Int,
     @SerializedName("name") val name: String,
     @SerializedName("intro") val intro: String,

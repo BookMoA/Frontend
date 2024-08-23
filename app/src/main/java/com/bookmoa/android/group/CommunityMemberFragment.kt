@@ -11,14 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
-import androidx.viewpager2.widget.ViewPager2
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.R
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.CommunityMemberFragmentAdapter
 import com.bookmoa.android.adapter.CommunityMemberItems
 import com.bookmoa.android.databinding.FragmentCommunitymembervpBinding
-import com.bookmoa.android.interfaces.GetClubsMembers
+import com.bookmoa.android.services.GetClubsMembers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Retrofit

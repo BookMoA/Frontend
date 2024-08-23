@@ -11,11 +11,11 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentPasswordBinding
-import com.bookmoa.android.interfaces.CreateClubMemberRequest
-import com.bookmoa.android.interfaces.CreateClubMemberResponse
-import com.bookmoa.android.interfaces.PostClubsMembers
+import com.bookmoa.android.services.CreateClubMemberRequest
+import com.bookmoa.android.services.CreateClubMemberResponse
+import com.bookmoa.android.services.PostClubsMembers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

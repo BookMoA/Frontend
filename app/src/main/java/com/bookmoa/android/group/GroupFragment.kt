@@ -10,11 +10,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bookmoa.android.MainActivity
-import com.bookmoa.android.TokenManager
+import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentGroupBinding
-import com.bookmoa.android.interfaces.ClubApi
-import com.bookmoa.android.interfaces.GetClubData
-import com.bookmoa.android.interfaces.GetClubs
+import com.bookmoa.android.services.ClubApi
+import com.bookmoa.android.services.GetClubData
+import com.bookmoa.android.services.GetClubs
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
