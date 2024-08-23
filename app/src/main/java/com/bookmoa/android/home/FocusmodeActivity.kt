@@ -11,7 +11,7 @@ class FocusmodeActivity : AppCompatActivity() {
         val binding = ActivityFocusmodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.imgTurnoffMode.setOnClickListener{
+        binding.imageView12.setOnClickListener{
             val intent = Intent(this, TurnoffActivity::class.java)
             startActivity(intent)
         }
