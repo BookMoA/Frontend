@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">and</string>
     <string name="quit"><u>탈퇴하기</u></string>
+
     <string-array name="spinner_options">
         <item>최신순</item>
         <item>오래된순</item>
@@ -8,4 +9,8 @@
         <item>별점 높은순</item>
         <item>별점 낮은순</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
