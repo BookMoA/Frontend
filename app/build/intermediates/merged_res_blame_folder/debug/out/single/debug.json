@@ -1,0 +1,1130 @@
+[
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bg_button_color_r10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bg_button_color_r10.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_study_vp1.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp1.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_search.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_confirm_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_confirm_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_spinner_arrow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_spinner_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btm_home.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btm_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_toggle_notification.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\toggle_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_book_list.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_book_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_noticemain.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_noticemain.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding2_circle_2.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding2_circle_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_selectgrey.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_selectgrey.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_term_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_term_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_profile_unfilled.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_profile_unfilled.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search_title.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_title.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_bookmoa.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_bookmoa.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bg_onboarding.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bg_onboarding.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_megaphone.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_megaphone.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_add_book.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_add_book.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bottomnav_home.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bottomnav_home.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_study_vp2.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp2.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_groupvp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_groupvp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_tab_onboarding.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\tab_onboarding.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_list_detail_edit.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_detail_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_recmaincolor.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_recmaincolor.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_study_list_top_3.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_study_list_top_3.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_memo_list.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_memo_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_tv_border.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_tv_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_bgr_focus.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_bgr_focus.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btn_layout_profile.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btn_layout_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_user_info.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_user_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_registered_book.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_registered_book.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\color_bottom_nav_item_color.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\color\\bottom_nav_item_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_alarmrv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_alarmrv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_register_book.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_register_book.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_scr_memo.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_scr_memo.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_line.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_line.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bottomnav_group.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bottomnav_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_writemain.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_writemain.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_selectcheck.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_selectcheck.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_date_picker.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_date_picker.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_my_list_storage.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_storage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_login_moa.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_login_moa.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding_dot.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding_dot.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_recmain.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_recmain.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_forward.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\forward.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_refresh.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_refresh.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_onboarding_tab3.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab3.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_write.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_write.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding3_circles.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding3_circles.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_lock.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\lock.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_spinner_r10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_spinner_r10.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_eye_close.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_eye_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_baseline_search_24.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\baseline_search_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_down.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_no_all_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_no_all_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_book_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_book_memo.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlemain.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlemain.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_study_vp3.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp3.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_focusmode_bar.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\focusmode_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_eye.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_eye.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_no_data_found.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\no_data_found.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_storage_list.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_storage_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding2_circle_1.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding2_circle_1.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlesub.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlesub.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_profile.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_profile.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_camera.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_close.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btm_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btm_memo.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/drawable_trash.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/drawable/trash.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_liked.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_liked.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study_vp4.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp4.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_loading.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_crown.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_crown.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_communityfeedwrite.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_communityfeedwrite.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_list_detail_edit.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_list_detail_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_toggle_circle_notification.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\toggle_circle_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_outsearch.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_outsearch.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btm_mypage.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btm_mypage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_result.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_my_list.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_spinnerdrop.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_spinnerdrop.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_spinner.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_spinner.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_nextleaderrv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_nextleaderrv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search_book_list.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_book_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_all_f_a_q.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_all_f_a_q.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_list_top10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_top10.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_like.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_like.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_progress.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_progress.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_all_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_all_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding3_phone.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding3_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_grouprv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_grouprv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_member.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_member.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_search_barcode.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\search_barcode.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_finished_books.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_finished_books.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communityfeedrv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communityfeedrv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_select.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\select.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_switchthumb.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_switchthumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlegrey.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlegrey.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_memo_info.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_memo_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_service_terms.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_service_terms.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_search.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_camera.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_community.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_community.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_alert_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_alert_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_onboarding_tab4.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab4.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_searchnamerv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_searchnamerv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_nextleader.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_nextleader.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_write.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_write.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_btn_selector.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_btn_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_like.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\like.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_bookmemo_delete_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_bookmemo_delete_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_text.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_cancle_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_cancle_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_right.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearchauthorvp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearchauthorvp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_setting.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_logout_alert_dialog.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\logout_alert_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bg_black_border_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bg_black_border_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_profile.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_notification.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_notification.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_float.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_float.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_list_detail.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study_vp3.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp3.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearch.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearch.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_dialogexpel.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_dialogexpel.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_custom_date_picker.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\custom_date_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_toast.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_toast.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_comment.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_comment.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_draw.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_draw.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communitymanagevp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communitymanagevp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search_total.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_total.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_storage_books.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_storage_books.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_right_arrow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_right_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding_tab3.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding_tab3.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_currently_reading.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_currently_reading.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding1_phone.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding1_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_intro_moa.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_intro_moa.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_github.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_github.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_term_no_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_term_no_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_left.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_my_storage.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_storage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_focus_bar.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_focus_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_member_info.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_member_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_main_color_r10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_main_color_r10.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_total_books.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_total_books.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_copy.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_copy.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_google.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_google.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_turnoff.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_turnoff.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_home_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_home_memo.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_groupmainbig.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_groupmainbig.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communitymembervp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communitymembervp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_list_top10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_list_top10.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btm_group.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btm_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study_vp1.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp1.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bg_profile.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bg_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_lock.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_lock.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_mypage.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_mypage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_perpendicular.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_perpendicular.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_error.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\error.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_toast.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_toast.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_my_list_usual.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_usual.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearchauthorrv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearchauthorrv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_update.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_update.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_my_list_edit.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list_edit.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_recommend.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_recommend.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study_vp2.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp2.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communitymemberrv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communitymemberrv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_turnoff_txt.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\turnoff_txt.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_memo.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_my_list.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_my_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_faq_question.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_faq_question.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_array.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\array.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_item_book_list_edit.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_book_list_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_passbook.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_passbook.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearchtitlevp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearchtitlevp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlegreyline.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlegreyline.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_camera.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_btn_pressed.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_btn_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_recgrey.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_recgrey.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_btm_search.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\btm_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\menu_bookmemo_menu.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\menu\\bookmemo_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communityfeedwriterv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communityfeedwriterv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communityfeedvp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communityfeedvp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bottomnav_auth.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bottomnav_auth.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_closemain.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_closemain.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_search_author.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_search_author.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_down_arrow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_down_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_use_info_f_a_q.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_use_info_f_a_q.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlelightgrey.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlelightgrey.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_memo_read.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_memo_read.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_shadow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\shadow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_memo_edit.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_memo_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bottomnav_study.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bottomnav_study.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\color_selector_color.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\color\\selector_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_back.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\back.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_communitystatisticvp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_communitystatisticvp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_splash.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_edge.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_edge.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_focusmode.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_focusmode.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_make.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_make.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_plus.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\plus.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_faq.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_faq.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_onboarding_tab2.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab2.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_password.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_grey5_r10.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_grey5_r10.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_study_vp4.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp4.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_notification.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_dialogquit.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_dialogquit.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_list_detail_add.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_list_detail_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_privacy_terms.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_privacy_terms.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_email.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_book_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_book_memo.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearcharticlevp.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearcharticlevp.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_tab.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_study_vp5.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_study_vp5.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_onboarding_tab.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\onboarding_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_onboarding_tab1.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_onboarding_tab1.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_onboarding.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_onboarding.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_empty.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_empty.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_instagram.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_instagram.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_up_arrow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_up_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_select.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bg_button_color_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bg_button_color_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearchtitlerv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearchtitlerv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_list_content.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_list_content.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_out_focus.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_out_focus.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_my_list_storage.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_my_list_storage.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_sign_up.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_change_profile.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_change_profile.xml"
+    },
+    {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_study_vp5.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/fragment_study_vp5.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_alarm.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_alarm.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_placeholder.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\placeholder.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_move_book.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\move_book.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_recommend.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_recommend.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_mainlogo.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\mainlogo.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_brg_rounded.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_brg_rounded.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_sv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_sv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_topbar_left_arrow.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_topbar_left_arrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_notification_bar.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_notification_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlebrightengrey.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlebrightengrey.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_tab_onboarding_default.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\tab_onboarding_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_no_check.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_no_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_group.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_expanded_black_r20.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_expanded_black_r20.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_img_off_focus.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\img_off_focus.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_layout_btn_default.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\layout_btn_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_bottomnav_memo.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\bottomnav_memo.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_activity_registerbook.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\activity_registerbook.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_ic_onboarding2_phone.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\ic_onboarding2_phone.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_arrow.png.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_unlock.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\unlock.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_insearcharticlerv.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_insearcharticlerv.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_groupmainsmall.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_groupmainsmall.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_switchtrack.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\icon_switchtrack.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_background_circlegreylinebig.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\background_circlegreylinebig.xml"
+    },
+    {
+        "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_dialogjoin.xml.flat",
+        "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_dialogjoin.xml"
+    }
+]

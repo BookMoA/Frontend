@@ -120,11 +120,19 @@ class MypageFragment : Fragment() {
         }
 
         binding.serviceTermsBtn.setOnClickListener {
-            // 이용약관 연결
+            val ServiceTermsFragment = ServiceTermsFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, ServiceTermsFragment)
+                .addToBackStack(null) // 뒤로 가기 버튼을 누르면 MypageFragment로 돌아오도록 함
+                .commit()
         }
 
         binding.privacyPolicyBtn.setOnClickListener {
-            // 개인정보처리방침 연결
+            val PrivacyTermsFragment = PrivacyTermsFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, PrivacyTermsFragment)
+                .addToBackStack(null) // 뒤로 가기 버튼을 누르면 MypageFragment로 돌아오도록 함
+                .commit()
         }
 
         return binding.root

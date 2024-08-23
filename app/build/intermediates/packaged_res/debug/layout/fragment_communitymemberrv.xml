@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <FrameLayout
+        android:id="@+id/communitymember_content_fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <FrameLayout
+            android:id="@+id/communitymember_float_fl"
+            android:layout_width="69dp"
+            android:layout_height="58dp"
+            android:layout_gravity="top|center_horizontal">
+
+            <ImageView
+                android:id="@+id/communitymember_float_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_float" />
+
+            <TextView
+                android:id="@+id/communitymember_float_tv"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_gravity="top"
+                android:gravity="center"
+                android:text="gdgdgdgdgdgdgdgd"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:padding="4dp"/>
+        </FrameLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/communitymember_crown_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@id/communitymember_profile_iv"
+        android:layout_marginStart="-4dp"
+        android:layout_marginBottom="48dp"
+        android:layout_alignBottom="@id/communitymember_profile_iv"
+        android:src="@drawable/icon_crown" />
+
+    <ImageView
+        android:id="@+id/communitymember_profile_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/communitymember_content_fl"
+        android:src="@drawable/icon_profile" />
+
+    <TextView
+        android:id="@+id/communitymember_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/communitymember_profile_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="닉네임"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/communitymember_close_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignEnd="@id/communitymember_profile_iv"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="41dp"
+        android:layout_alignBottom="@id/communitymember_profile_iv"
+        android:src="@drawable/icon_closemain" />
+
+</RelativeLayout>

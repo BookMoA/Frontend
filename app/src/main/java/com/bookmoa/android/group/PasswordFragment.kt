@@ -17,6 +17,7 @@ import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.CreateClubMemberRequest
 import com.bookmoa.android.services.CreateClubMemberResponse
 import com.bookmoa.android.services.PostClubsMembers
+import com.bookmoa.android.services.UserInfoManager
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -29,6 +30,7 @@ class PasswordFragment : Fragment() {
     private var _binding: FragmentPasswordBinding? = null
     private val binding get() = _binding!!
     private lateinit var tokenManager: TokenManager
+    private lateinit var userInfoManager: UserInfoManager
 
     private var isInitialInput = true
     private var correctPassword: String? = null
@@ -73,12 +75,14 @@ class PasswordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tokenManager = TokenManager()
+        userInfoManager = UserInfoManager(requireContext())
 
 
         binding.passwordBackIv.setOnClickListener {
@@ -107,6 +111,12 @@ class PasswordFragment : Fragment() {
                     if (response.isSuccessful) {
                         Log.d("PasswordFragment", "Club member created successfully")
                         // Switch to CommunityFragment after successful API call
+
+                        GlobalScope.launch {
+                            clubName?.let { userInfoManager.saveGroup(it) }
+                        }
+
+                        // userInfoManager.saveGroup(response.body().)
                         activity?.runOnUiThread {
                             val communityFragment = CommunityFragment().apply {
                                 arguments = Bundle().apply {
