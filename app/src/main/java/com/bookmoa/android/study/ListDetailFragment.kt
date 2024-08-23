@@ -27,7 +27,6 @@ class ListDetailFragment : Fragment() {
     private var itemListDetailAdapter: ListDetailAdapter? = null
     private lateinit var tokenManager: TokenManager
 
-    private lateinit var api: ApiService
 
     companion object {
         private const val ARG_ID = "id"
@@ -132,6 +131,8 @@ class ListDetailFragment : Fragment() {
 
             binding.listDetailTitleTv.text = it.title
             binding.listDetailLikeTv.text = "${it.likeCnt}"
+            binding.listDetailOwnerTv.text= it.nickname
+            binding.listDetailIntroduce.text=it.spec
             itemListDetailAdapter?.updateItems(it.books)
         }
     }
