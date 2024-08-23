@@ -148,7 +148,7 @@
         android:orientation="horizontal"
         android:overScrollMode="never"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintBottom_toTopOf="@+id/cstFocus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         app:layout_constraintVertical_bias="0.0">
@@ -233,28 +233,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="300dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cstFocus"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="30dp"
-        android:max="100"
-        android:progressDrawable="@color/transparent"
-        android:thumb="@drawable/icon_arrow"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
-    <TextView
-        android:id="@+id/textView251"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginBottom="30dp"
-        android:text="밀어서 독서 집중 모드"
-        android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent" />
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:max="100"
+            android:progressDrawable="@color/transparent"
+            android:thumb="@drawable/icon_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="15dp"
+            android:text="밀어서 독서 집중 모드"
+            android:textSize="23sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
