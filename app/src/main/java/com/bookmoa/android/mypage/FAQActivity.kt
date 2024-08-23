@@ -17,6 +17,10 @@ class FAQActivity : AppCompatActivity() {
         binding = ActivityFaqBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backIc.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.FAQTl.addTab(binding.FAQTl.newTab().setText("전체"))
         binding.FAQTl.addTab(binding.FAQTl.newTab().setText("이용안내"))
         binding.FAQTl.addTab(binding.FAQTl.newTab().setText("회원정보"))
