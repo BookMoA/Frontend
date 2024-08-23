@@ -14,6 +14,7 @@ import com.bookmoa.android.group.GroupFragment
 import com.bookmoa.android.home.HomeFragment
 import com.bookmoa.android.memo.BookMemoFragment
 import com.bookmoa.android.mypage.MypageFragment
+import com.bookmoa.android.study.RecommendFragment
 import com.bookmoa.android.services.UserInfoManager
 import com.bookmoa.android.study.StudyFragment
 import kotlinx.coroutines.GlobalScope
@@ -74,7 +75,18 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+    fun showBookDetail(Isbn13: String) {
+        val detailFragment = RecommendFragment().apply {
+            arguments = Bundle().apply {
+                putString("isbn13", Isbn13)
+            }
+        }
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, detailFragment)
+            .addToBackStack(null)
+            .commit()
+    }
 
     private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()
