@@ -1,11 +1,14 @@
 package com.bookmoa.android.services
 
+import android.content.Context
+import android.content.SharedPreferences
 
-class TokenManager() {
+class TokenManager(context: Context) {
+    private val prefs: SharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
 
-    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiLsjajri4giLCJhdXRoIjoiUk9MRV9VU0VSIiwibmlja25hbWUiOiLsjajri4giLCJleHAiOjE3MjQzMzY5NDZ9.r2jsXjsYIi8jMVnmzj1Fjg00k_u3kMJgSb7c-1v71-I"
 
-    fun getToken(): String? {
+    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzI0Mzg1NjYyfQ.jIbMoTVOnhzR8O42Nu2fDbtWorhEiUVVNQwiZaDOs9E"
+    fun getToken(): String {
 
         return hardcodedToken
     }
