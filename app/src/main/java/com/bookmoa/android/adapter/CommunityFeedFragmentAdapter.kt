@@ -18,7 +18,8 @@ data class CommunityFeedItems(
 class CommunityFeedFragmentAdapter(
     private var feedItems: List<CommunityFeedItems>,
     private val listener: OnItemClickListener,
-    private val postLike: (Int) -> Unit
+    private val postLike: (Int) -> Unit,
+    private val deletePostLike: (Int) -> Unit
 
 ) : RecyclerView.Adapter<CommunityFeedFragmentAdapter.ViewHolder>() {
 
@@ -29,7 +30,7 @@ class CommunityFeedFragmentAdapter(
     class ViewHolder(private val binding: FragmentCommunityfeedrvBinding) : RecyclerView.ViewHolder(binding.root) {
         private var isLiked: Boolean = false
 
-        fun bind(item: CommunityFeedItems, listener: OnItemClickListener, postLike: (Int) -> Unit) {
+        fun bind(item: CommunityFeedItems, listener: OnItemClickListener, postLike: (Int) -> Unit, deletePostLike: (Int) -> Unit) {
             binding.communityfeedProfileIv.setImageResource(item.profile)
             binding.communityfeedNameTv.text = item.name
             binding.communityfeedDateTv.text = item.date
@@ -40,19 +41,22 @@ class CommunityFeedFragmentAdapter(
                 listener.onCommentClick(item)
             }
             binding.communityfeedLikeBtn.setOnClickListener {
-                toggleLike(item, postLike)
+                toggleLike(item, postLike, deletePostLike)
             }
         }
 
-        private fun toggleLike(item: CommunityFeedItems, postLike: (Int) -> Unit) {
+
+        private fun toggleLike(item: CommunityFeedItems, postLike: (Int) -> Unit, deletePostLike: (Int) -> Unit) {
             if (isLiked) {
                 binding.communityfeedLikeIv.setImageResource(R.drawable.icon_like)
+                deletePostLike(item.postId) // Use the deletePostLike function passed as a parameter
             } else {
                 binding.communityfeedLikeIv.setImageResource(R.drawable.icon_liked)
                 postLike(item.postId) // Pass the post ID to the like API call
             }
             isLiked = !isLiked
         }
+
     }
 
 
@@ -64,7 +68,7 @@ class CommunityFeedFragmentAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(feedItems[position], listener, postLike)
+        holder.bind(feedItems[position], listener, postLike, deletePostLike)
     }
 
     override fun getItemCount() = feedItems.size

@@ -33,10 +33,10 @@
                 android:textStyle="bold"
                 android:gravity="center" />
 
-            <ImageView
+            <View
                 android:id="@+id/community_search_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/icon_search" />
         </LinearLayout>
 
@@ -135,6 +135,7 @@
                         android:src="@drawable/icon_like"/>
 
                     <TextView
+                        android:id="@+id/feedwrite_likecount_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6"
@@ -150,6 +151,7 @@
                         android:src="@drawable/icon_comment"/>
 
                     <TextView
+                        android:id="@+id/feedwrite_commentcount_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4"
@@ -191,6 +193,7 @@
                 android:src="@drawable/icon_profile"/>
 
             <EditText
+                android:id="@+id/communityfeedwrite_content_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

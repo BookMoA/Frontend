@@ -24,17 +24,18 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/icon_float" />
 
-            <TextView
-                android:id="@+id/communitymember_float_tv"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_gravity="top"
-                android:gravity="center"
-                android:text="gdgdgdgdgdgdgdgd"
-                android:textColor="@color/black"
-                android:textSize="9sp"
-                android:padding="4dp"/>
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/communitymember_float_tv"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_gravity="top"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="gdgdgdgdgdgdgdgd"
+            android:textColor="@color/black"
+            android:textSize="9sp" />
     </FrameLayout>
 
     <ImageView

@@ -16,6 +16,8 @@ import com.bookmoa.android.adapter.CommunityFeedFragmentAdapter
 import com.bookmoa.android.adapter.CommunityFeedItems
 import com.bookmoa.android.databinding.FragmentCommunityfeedvpBinding
 import com.bookmoa.android.services.CreatePostLikeRequest
+import com.bookmoa.android.services.DeleteClubsPostsLikes
+import com.bookmoa.android.services.DeletePostLikeRequest
 import com.bookmoa.android.services.GetClubsMembers
 import com.bookmoa.android.services.GetClubsPostsList
 import com.bookmoa.android.services.PostClubsPostsLikes
@@ -57,9 +59,12 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
         Log.d("CommunityFeedFragment", "Club Name: $clubName, Club Intro: $clubIntro")
 
         binding.communityfeedRv.layoutManager = LinearLayoutManager(context)
-        feedAdapter = CommunityFeedFragmentAdapter(emptyList(), this) { postId ->
+        feedAdapter = CommunityFeedFragmentAdapter(emptyList(), this, { postId ->
             postLike(postId)
-        }
+        }, { postId ->
+            deletePostLike(postId)
+        })
+
         binding.communityfeedRv.adapter = feedAdapter
 
         fetchMembersData() // Fetch members data first
@@ -124,6 +129,37 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
             }
         }
     }
+    private fun deletePostLike(postId: Int) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bookmoa.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val deleteLikeApi = retrofit.create(DeleteClubsPostsLikes::class.java)
+        val token = tokenManager.getToken()
+        val bearerToken = "Bearer $token"
+        if (token.isNullOrEmpty()) {
+            Log.d("CommunityFeedFragment", "Token is null or empty")
+            return
+        }
+
+        val request = DeletePostLikeRequest(postId)
+
+        lifecycleScope.launch {
+            try {
+                val response = deleteLikeApi.deletePostLike(bearerToken, request).execute()
+                if (response.isSuccessful && response.body()?.result == true) {
+                    Log.d("CommunityFeedFragment", "Post unliked successfully")
+                    // Handle the successful unlike response if needed
+                } else {
+                    Log.d("CommunityFeedFragment", "Failed to unlike post: ${response.body()?.description}")
+                }
+            } catch (e: Exception) {
+                Log.e("CommunityFeedFragment", "Error unliking post", e)
+            }
+        }
+    }
+
 
     private fun fetchFeedData() {
         val retrofit = Retrofit.Builder()
@@ -182,6 +218,10 @@ class CommunityFeedFragment : Fragment(), CommunityFeedFragmentAdapter.OnItemCli
             putExtra("DESCRIPTION", item.description)
             putExtra("TITLE", item.title)
             putExtra("DATE", item.date)
+            putExtra("clubId", clubId) // Pass clubId
+            putExtra("clubName", clubName) // Pass clubName
+            putExtra("clubIntro", clubIntro) // Pass clubIntro
+            putExtra("postId", item.postId)  // Pass postId
         }
         startActivity(intent)
     }
