@@ -32,3 +32,9 @@ data class ListContentBook(
     @SerializedName("number") val number: Int,
 
 )
+data class ErrorResponse(
+    val status: String,
+    val code: String,
+    val result: Boolean,
+    val description: String
+)

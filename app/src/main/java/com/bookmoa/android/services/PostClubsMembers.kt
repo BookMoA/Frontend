@@ -10,7 +10,7 @@ interface PostClubsMembers {
     @POST("/clubs/members")
     @Headers("Content-Type: application/json")
     fun createClubMember(
-        @Header("Authorization") token: String,  // Token parameter added here
+        // @Header("Authorization") token: String,  // Token parameter added here
         @Body request: CreateClubMemberRequest
     ): Call<CreateClubMemberResponse>
 }

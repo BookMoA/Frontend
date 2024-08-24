@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="icon_switch">
+    <item android:state_checked="true">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="43dp"
+            android:height="18dp"
+            android:viewportWidth="43"
+            android:viewportHeight="18">
+            <path
+                android:fillColor="#FFFFFFFF"
+                android:strokeColor="#FFB6B6B6"
+                android:strokeWidth="0.5"
+                android:pathData="M5.97 8.68c0-4.69 2.86-8.5 6.38-8.5h18.75c3.52 0 6.38 3.81 6.38 8.5v0c0 4.69-2.86 8.5-6.38 8.5h-18.75c-3.52 0-6.38-3.81-6.38-8.5z"/>
+        </vector>
+    </item>
+    <item android:state_checked="false">
+        <vector
+            android:width="43dp"
+            android:height="18dp"
+            android:viewportWidth="43"
+            android:viewportHeight="18">
+            <path
+                android:fillColor="#FFEDEDED"
+                android:pathData="M5.97 8.68c0-4.69 2.86-8.5 6.38-8.5h18.75c3.52 0 6.38 3.81 6.38 8.5v0c0 4.69-2.86 8.5-6.38 8.5h-18.75c-3.52 0-6.38-3.81-6.38-8.5z"/>
+        </vector>
+    </item>
+</selector>

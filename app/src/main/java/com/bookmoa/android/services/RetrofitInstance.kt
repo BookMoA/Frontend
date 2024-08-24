@@ -1,6 +1,6 @@
 package com.bookmoa.android.services
 
-
+import com.google.gson.internal.GsonBuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,6 +14,18 @@ object RetrofitInstance {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    val bookCheckApi: BookDBCheckService by lazy {
+        retrofit.create(BookDBCheckService::class.java)
+    }
+
+    val bookEntryApi: BookEntryService by lazy {
+        retrofit.create(BookEntryService::class.java)
+    }
+    val searchListApi: SearchListMemoService by lazy {
+        retrofit.create(SearchListMemoService::class.java)
+    }
+
 
     val listTop10api: ListTop10Api by lazy {
         retrofit.create(ListTop10Api::class.java)
@@ -38,5 +50,4 @@ object RetrofitInstance {
         retrofit.create(AddBookListSelectAnotherService::class.java)
     }
 }
-
 

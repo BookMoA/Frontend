@@ -13,9 +13,13 @@ import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentPasswordBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.CreateClubMemberRequest
 import com.bookmoa.android.services.CreateClubMemberResponse
 import com.bookmoa.android.services.PostClubsMembers
+import com.bookmoa.android.services.UserInfoManager
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,12 +30,15 @@ class PasswordFragment : Fragment() {
     private var _binding: FragmentPasswordBinding? = null
     private val binding get() = _binding!!
     private lateinit var tokenManager: TokenManager
+    private lateinit var userInfoManager: UserInfoManager
 
     private var isInitialInput = true
     private var correctPassword: String? = null
     private var clubId: Int? = null
     private var clubName: String? = null
     private var clubIntro: String? = null
+
+    private lateinit var api: ApiService
 
     companion object {
         private const val ARG_CORRECT_PASSWORD = "correct_password"
@@ -68,12 +75,14 @@ class PasswordFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
+        userInfoManager = UserInfoManager(requireContext())
 
 
         binding.passwordBackIv.setOnClickListener {
@@ -86,6 +95,52 @@ class PasswordFragment : Fragment() {
     }
 
     private fun postClubMember(password: String) {
+
+        val clubId = this.clubId ?: run {
+            Log.d("PasswordFragment", "Club ID is null")
+            return
+        }
+
+        val request = CreateClubMemberRequest(clubId, password)
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+            api.createClubMember(request).enqueue(object :
+                Callback<CreateClubMemberResponse> {
+                override fun onResponse(call: Call<CreateClubMemberResponse>, response: Response<CreateClubMemberResponse>) {
+                    if (response.isSuccessful) {
+                        Log.d("PasswordFragment", "Club member created successfully")
+                        // Switch to CommunityFragment after successful API call
+
+                        GlobalScope.launch {
+                            clubName?.let { userInfoManager.saveGroup(it) }
+                        }
+
+                        // userInfoManager.saveGroup(response.body().)
+                        activity?.runOnUiThread {
+                            val communityFragment = CommunityFragment().apply {
+                                arguments = Bundle().apply {
+                                    putInt("clubId", clubId ?: -1)
+                                    putString("name", clubName)
+                                    putString("intro", clubIntro)
+                                }
+                            }
+                            (activity as MainActivity).switchFragment(communityFragment)
+                        }
+                    } else {
+                        Log.d("PasswordFragment", "Failed to create club member: ${response.errorBody()?.string()}")
+                        // Handle error (e.g., show error message to user)
+                    }
+                }
+
+                override fun onFailure(call: Call<CreateClubMemberResponse>, t: Throwable) {
+                    Log.d("PasswordFragment", "Network error: ${t.message}")
+                    // Handle network error (e.g., show error message to user)
+                }
+            })
+        }
+
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")  // Replace with your actual base URL
             .addConverterFactory(GsonConverterFactory.create())
@@ -132,6 +187,8 @@ class PasswordFragment : Fragment() {
                 // Handle network error (e.g., show error message to user)
             }
         })
+
+         */
     }
 
     private fun setupEditTextAutoMove(correctPassword: String) {

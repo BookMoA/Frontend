@@ -1,16 +1,17 @@
 package com.bookmoa.android.services
 
 import com.google.gson.annotations.SerializedName
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface GetClubsMembers {
     @GET("/clubs/members")
-    suspend fun getClubsMembers(
-        @Header("Authorization") token: String,
+    fun getClubsMembers(
+        // @Header("Authorization") token: String,
         @Query("clubId") clubId: Int
-    ): ClubsMembersResponse
+    ): Call<ClubsMembersResponse>
 }
 
 data class ClubsMembersResponse(

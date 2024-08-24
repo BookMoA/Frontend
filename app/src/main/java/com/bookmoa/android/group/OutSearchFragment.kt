@@ -20,9 +20,15 @@ import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.SearchNameFragmentAdapter
 import com.bookmoa.android.adapter.SearchNameItems
 import com.bookmoa.android.databinding.FragmentOutsearchBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.GetClubsSearch
 import com.bookmoa.android.services.GetClubsSearchClub
+import com.bookmoa.android.services.GetClubsSearchResponse
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -31,6 +37,8 @@ class OutSearchFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var tokenManager: TokenManager
     private var currentSearchQuery: String = ""
+
+    private lateinit var api: ApiService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +53,7 @@ class OutSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         setupSearchView()
         setupRecyclerView()
@@ -136,6 +144,35 @@ class OutSearchFragment : Fragment() {
     }
 
     private fun fetchClubSearch(query: String) {
+
+        currentSearchQuery = query
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+            api.searchClubs(word = query).enqueue(object: Callback<GetClubsSearchResponse> {
+                override fun onResponse(
+                    call: Call<GetClubsSearchResponse>,
+                    response: Response<GetClubsSearchResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseData = response.body()?.data
+                        val searchResults = responseData?.clubList ?: emptyList()
+                        val totalElements = responseData?.totalElements ?: 0
+
+                        currentClubList = searchResults  // 검색 결과 저장
+                        updateRecyclerView(searchResults, totalElements, query)
+                        } else {
+                        Log.e("OutSearchFragment", "API call failed: ${response.code()}")
+                        }
+                    }
+
+                override fun onFailure(call: Call<GetClubsSearchResponse>, t: Throwable) {
+                    Log.e("OutSearchFragment", "Exception during API call")
+                }
+            })
+        }
+
+        /*
         currentSearchQuery = query
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop") // Replace with your actual API base URL
@@ -169,6 +206,7 @@ class OutSearchFragment : Fragment() {
             }
         }
 
+         */
     }
 
 

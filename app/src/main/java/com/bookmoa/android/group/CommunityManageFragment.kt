@@ -19,6 +19,7 @@ import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentCommunitymanagevpBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubDetailData
 import com.bookmoa.android.services.GetClubs
 import com.bookmoa.android.services.GetClubsDetail
@@ -26,6 +27,9 @@ import com.bookmoa.android.services.PatchClubs
 import com.bookmoa.android.services.PatchClubsRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import com.bookmoa.android.services.ClubDetailResponse
+import com.bookmoa.android.services.GetClubsDetail
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,6 +38,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
+
 
 class CommunityManageFragment : Fragment() {
     private var _binding: FragmentCommunitymanagevpBinding? = null
@@ -44,6 +49,8 @@ class CommunityManageFragment : Fragment() {
     private lateinit var tokenManager: TokenManager
     private var isReader = false
     private var myMemberId: Int? = null
+
+    private lateinit var api: ApiService
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +63,7 @@ class CommunityManageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         clubId = arguments?.getInt("clubId", 0)
 
@@ -195,6 +202,36 @@ class CommunityManageFragment : Fragment() {
     private fun fetchClubDetailM(clubId: Int?) {
         if (clubId == null) return
 
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            api.getClubDetail(clubId = clubId.toLong()).enqueue(object: Callback<ClubDetailResponse> {
+                override fun onResponse(
+                    call: Call<ClubDetailResponse>,
+                    response: Response<ClubDetailResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val apiResponse = response.body()
+                        if (apiResponse != null && apiResponse.result) {
+                            updateUIWithClubDetails(apiResponse.data)
+                        } else {
+                            if (apiResponse != null) {
+                                Log.d("GroupFragment", "Failed to get club details: ${apiResponse.description}")
+                            }
+                        }
+                    } else {
+                        Log.d("GroupFragment", "${response.errorBody()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<ClubDetailResponse>, t: Throwable) {
+                    Log.d("GroupFragment", "Error fetching club details")
+                }
+
+            })
+        }
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")
             .addConverterFactory(GsonConverterFactory.create())
@@ -222,6 +259,8 @@ class CommunityManageFragment : Fragment() {
                 Log.e("GroupFragment", "Unexpected error: ${e.localizedMessage}")
             }
         }
+
+         */
     }
 
     private fun updateUIWithClubDetails(data: ClubDetailData) {

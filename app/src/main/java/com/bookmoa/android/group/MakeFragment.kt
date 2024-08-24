@@ -12,9 +12,12 @@ import androidx.fragment.app.Fragment
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentMakeBinding
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.CreateClubRequest
 import com.bookmoa.android.services.CreateClubResponse
 import com.bookmoa.android.services.PostClubs
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +29,8 @@ class MakeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var tokenManager: TokenManager
 
+    private lateinit var api: ApiService
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentMakeBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,13 +38,51 @@ class MakeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tokenManager = TokenManager(requireContext())
+        tokenManager = TokenManager()
 
         setupUI()
         setupListeners()
     }
 
     private fun postClub() {
+
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
+
+            val request = CreateClubRequest(
+                name = binding.makeClubnameEt.text.toString(),
+                intro = binding.makeIntroduceEt.text.toString(),
+                notice = binding.makeNoticeEt.text.toString(),
+                password = binding.makePasswordEt.text.toString()
+            )
+
+            api.createClub(request).enqueue(object : Callback<CreateClubResponse> {
+                override fun onResponse(call: Call<CreateClubResponse>, response: Response<CreateClubResponse>) {
+                    if (response.isSuccessful) {
+                        val clubResponse = response.body()
+                        Log.d("MakeFragment", "Club created successfully: ${clubResponse?.data?.clubId}")
+                        activity?.runOnUiThread {
+                            val communityFragment = CommunityFragment().apply {
+                                arguments = Bundle().apply {
+                                    putInt("clubId", clubResponse?.data?.clubId ?: -1)
+                                    putString("name", binding.makeClubnameEt.text.toString())
+                                    putString("intro", binding.makeIntroduceEt.text.toString())
+                                }
+                            }
+                            (activity as MainActivity).switchFragment(communityFragment)
+                        }
+                    } else {
+                        Log.e("MakeFragment", "Error: ${response.errorBody()?.string()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<CreateClubResponse>, t: Throwable) {
+                    Log.e("MakeFragment", "Failed to create club", t)
+                }
+            })
+        }
+
+        /*
         val retrofit = Retrofit.Builder()
             .baseUrl("https://bookmoa.shop")  // Replace with your actual base URL
             .addConverterFactory(GsonConverterFactory.create())
@@ -83,6 +126,8 @@ class MakeFragment : Fragment() {
                 Log.e("MakeFragment", "Failed to create club", t)
             }
         })
+
+         */
     }
 
     private fun setupUI() {

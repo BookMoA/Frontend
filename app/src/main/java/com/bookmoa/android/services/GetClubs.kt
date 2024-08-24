@@ -6,9 +6,8 @@ import retrofit2.http.Header
 
 interface GetClubs {
     @GET("/clubs")
-    suspend fun getClubs(
-        @Header("Authorization") token: String
-    ): GetClubsResponse
+    fun getClubs(): Call<GetClubsResponse>
+
 }
 
 data class GetClubsResponse(
