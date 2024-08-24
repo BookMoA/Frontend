@@ -15,11 +15,18 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentCommunitymanagevpBinding
 import com.bookmoa.android.databinding.FragmentToastBinding
 import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubDetailData
+import com.bookmoa.android.services.GetClubs
+import com.bookmoa.android.services.GetClubsDetail
+import com.bookmoa.android.services.PatchClubs
+import com.bookmoa.android.services.PatchClubsRequest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import com.bookmoa.android.services.ClubDetailResponse
 import com.bookmoa.android.services.GetClubsDetail
 import kotlinx.coroutines.GlobalScope
@@ -30,6 +37,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.HttpException
 import retrofit2.Response
+import java.io.IOException
+
 
 class CommunityManageFragment : Fragment() {
     private var _binding: FragmentCommunitymanagevpBinding? = null
@@ -38,6 +47,8 @@ class CommunityManageFragment : Fragment() {
     private var isNoticeEditMode = false
     private var clubId: Int? = null
     private lateinit var tokenManager: TokenManager
+    private var isReader = false
+    private var myMemberId: Int? = null
 
     private lateinit var api: ApiService
 
@@ -54,12 +65,22 @@ class CommunityManageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         tokenManager = TokenManager()
 
-        val clubId = arguments?.getInt("clubId", 0)
+        clubId = arguments?.getInt("clubId", 0)
 
         binding.communitymanageQuitTv.setOnClickListener {
-            val dialogQuitFragment = DialogQuitFragment()
-            dialogQuitFragment.show(parentFragmentManager, "DialogQuitFragment")
+            if (isReader) {
+                val nextLeaderFragment = NextLeaderFragment()
+                val bundle = Bundle().apply {
+                    putInt("clubId", clubId ?: 0) // Pass the clubId
+                }
+                nextLeaderFragment.arguments = bundle
+                (activity as MainActivity).switchFragment(nextLeaderFragment)
+            } else {
+                val dialogQuitFragment = DialogQuitFragment()
+                dialogQuitFragment.show(parentFragmentManager, "DialogQuitFragment")
+            }
         }
+
 
         setupInitialState()
         setupIntroduceEditText()
@@ -67,8 +88,115 @@ class CommunityManageFragment : Fragment() {
         setupEditModeToggles()
         setupTouchListener()
         setupCopyFeature()
+        setupTextWatchers()
 
         fetchClubDetailM(clubId)
+        fetchMyClub()
+
+    }
+    private fun setupTextWatchers() {
+        binding.communitymanagevpIntroduceEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                // Call the function to patch data when the text changes
+                patchClubData()
+            }
+        })
+
+        binding.communitymanagevpNoticeEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                // Call the function to patch data when the text changes
+                patchClubData()
+            }
+        })
+    }
+    private fun patchClubData() {
+        val intro = binding.communitymanagevpIntroduceEt.text.toString()
+        val notice = binding.communitymanagevpNoticeEt.text.toString()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bookmoa.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val patchClubsApi = retrofit.create(PatchClubs::class.java)
+        val token = tokenManager.getToken()
+        if (token.isNullOrEmpty()) {
+            Log.e("CommunityManageFragment", "Token is null or empty")
+            showErrorMessage("Authentication error. Please log in again.")
+            return
+        }
+
+        val bearerToken = "Bearer $token"
+        val requestBody = PatchClubsRequest(clubId?:0, intro, notice)
+
+        lifecycleScope.launch {
+            try {
+                Log.d("CommunityManageFragment", "Patching club data...")
+                val response = patchClubsApi.patchClubs(bearerToken, requestBody)
+
+                if (response.result) {
+                    Log.d("CommunityManageFragment", "Club data patched successfully")
+                } else {
+                    Log.e("CommunityManageFragment", "Failed to patch club data: ${response.description}")
+                    showErrorMessage("Failed to update club information: ${response.description}")
+                }
+            } catch (e: Exception) {
+                Log.e("CommunityManageFragment", "Error patching club data", e)
+                when (e) {
+                    is IOException -> showErrorMessage("Network error. Please check your internet connection.")
+                    is HttpException -> {
+                        val errorBody = e.response()?.errorBody()?.string()
+                        Log.e("CommunityManageFragment", "HTTP Error: ${e.code()}, Error Body: $errorBody")
+                        showErrorMessage("Server error: ${e.code()}. Please try again later.")
+                    }
+                    else -> showErrorMessage("An unexpected error occurred. Please try again.")
+                }
+            }
+        }
+    }
+
+    private fun showErrorMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
+    private fun fetchMyClub() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bookmoa.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val clubApi = retrofit.create(GetClubs::class.java)
+        val token = tokenManager.getToken()
+        val bearerToken = "Bearer $token"
+
+        if (token.isNullOrEmpty()) {
+            Log.d("CommunityMemberFragment", "Token is null or empty")
+            return
+        }
+
+        // 코루틴 스코프에서 네트워크 호출을 실행
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = clubApi.getClubs(bearerToken)
+                Log.d("CommunityMemberFragment", "Raw response: $response")
+                if (response.result) {
+                    myMemberId = response.data.memeberId
+                    isReader = response.data.reader
+                    Log.d("CommunityMemberFragment", "Updated Member ID: $myMemberId, Reader: $isReader")
+                } else {
+                    Log.e("CommunityMemberFragment", "Failed to fetch clubs: ${response.description}")
+                }
+            } catch (e: Exception) {
+                Log.e("CommunityMemberFragment", "Error fetching clubs", e)
+            }
+        }
     }
 
     private fun fetchClubDetailM(clubId: Int?) {
@@ -263,6 +391,16 @@ class CommunityManageFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {}
         })
+    }
+
+    private fun toggleEditIconsVisibility(isReader: Boolean) {
+        if (isReader) {
+            binding.communitymanagevpIntroduceIv.visibility = View.VISIBLE
+            binding.communitymanagevpNoticeIv.visibility = View.VISIBLE
+        } else {
+            binding.communitymanagevpIntroduceIv.visibility = View.GONE
+            binding.communitymanagevpNoticeIv.visibility = View.GONE
+        }
     }
 
     private fun setupCopyFeature() {

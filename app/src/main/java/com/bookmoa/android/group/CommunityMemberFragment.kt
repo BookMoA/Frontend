@@ -17,6 +17,10 @@ import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.adapter.CommunityMemberFragmentAdapter
 import com.bookmoa.android.adapter.CommunityMemberItems
 import com.bookmoa.android.databinding.FragmentCommunitymembervpBinding
+import com.bookmoa.android.services.GetClubs
+import com.bookmoa.android.services.GetClubsMembers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubsMembersResponse
 import com.bookmoa.android.services.GetClubsMembers
@@ -36,6 +40,7 @@ class CommunityMemberFragment : Fragment() {
     private var isManagementMode = false
     private var memberList = mutableListOf<CommunityMemberItems>()
     private var isReader = false // 사용자가 리더인지 여부를 저장하는 변수
+    private var myMemberId: Int? = null // Store the user's memberId
     private lateinit var tokenManager: TokenManager
     private var clubId: Int = 0
 
@@ -60,8 +65,45 @@ class CommunityMemberFragment : Fragment() {
         setupRecyclerView()
         setupToggleButton()
         checkLeaderStatus()
+        fetchMyClub()
         fetchMembersData()
     }
+    private fun fetchMyClub() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://bookmoa.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val clubApi = retrofit.create(GetClubs::class.java)
+        val token = tokenManager.getToken()
+        val bearerToken = "Bearer $token"
+
+        if (token.isNullOrEmpty()) {
+            Log.d("CommunityMemberFragment", "Token is null or empty")
+            return
+        }
+
+        // 코루틴 스코프에서 네트워크 호출을 실행
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = clubApi.getClubs(bearerToken)
+
+                if (response.result) {
+                    myMemberId = response.data.memeberId
+                    isReader = response.data.reader
+
+                    Log.d("CommunityMemberFragment", "Member ID: $myMemberId, Reader: $isReader")
+                    // 필요한 다른 작업 수행
+                } else {
+                    Log.e("CommunityMemberFragment", "Failed to fetch clubs: ${response.description}")
+                }
+            } catch (e: Exception) {
+                Log.e("CommunityMemberFragment", "Error fetching clubs", e)
+            }
+        }
+    }
+
+
     private fun fetchMembersData() {
 
         GlobalScope.launch {
@@ -144,12 +186,13 @@ class CommunityMemberFragment : Fragment() {
                 if (response.result) {
                     memberList.clear()
                     memberList.addAll(response.data.map { memberData ->
+                        val floatmsg = memberData.statusMessage ?: ""
                         CommunityMemberItems(
                             memberId = memberData.memberId,
                             name = memberData.nickname,
-                            floatmsg = memberData.statusMessage ?: "",
+                            floatmsg = floatmsg,
                             isLeader = memberData.reader,
-                            float = !memberData.statusMessage.isNullOrEmpty()
+                            float = floatmsg.isNotEmpty() // Set float based on whether floatmsg is empty
                         )
                     })
                     Log.d("CommunityMemberFragment", "Members fetched successfully. Count: ${memberList.size}")
@@ -175,7 +218,6 @@ class CommunityMemberFragment : Fragment() {
 
          */
     }
-
     private fun showErrorMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
@@ -183,15 +225,18 @@ class CommunityMemberFragment : Fragment() {
     private fun setupRecyclerView() {
         adapter = CommunityMemberFragmentAdapter(
             memberList,
+            myMemberId,  // myMemberId를 전달합니다.
             onItemClick = { member ->
-                val fragment = ProfileFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt("memberId", member.memberId)
-                        putString("name", member.name)
-                        putString("floatMsg", member.floatmsg)
+                if (member.memberId == myMemberId) {  // myMemberId와 비교합니다.
+                    val fragment = ProfileFragment().apply {
+                        arguments = Bundle().apply {
+                            putInt("memberId", member.memberId)
+                            putString("name", member.name)
+                            putString("floatMsg", member.floatmsg)
+                        }
                     }
+                    (activity as MainActivity).switchFragment(fragment)
                 }
-                (activity as MainActivity).switchFragment(fragment)
             },
             onCloseClick = { member ->
                 showExpelDialog(member)
@@ -203,6 +248,7 @@ class CommunityMemberFragment : Fragment() {
             this.adapter = this@CommunityMemberFragment.adapter
         }
     }
+
 
     private fun setupToggleButton() {
         val originalBackground = ContextCompat.getDrawable(requireContext(), R.drawable.background_circlesub)
@@ -221,6 +267,7 @@ class CommunityMemberFragment : Fragment() {
         val dialogFragment = DialogExpelFragment().apply {
             arguments = Bundle().apply {
                 putString("memberName", member.name)
+                putInt("memberId", member.memberId) // Pass the memberId to the DialogExpelFragment
             }
             setConfirmClickListener {
                 removeMember(member)
@@ -238,8 +285,8 @@ class CommunityMemberFragment : Fragment() {
     }
 
     private fun checkLeaderStatus() {
-        isReader = memberList.firstOrNull()?.isLeader == true
-
+        // Show the management layout only if the user is a leader
         binding.communitymembervpLl.visibility = if (isReader) View.VISIBLE else View.GONE
     }
+
 }

@@ -1,25 +1,27 @@
 package com.bookmoa.android.services
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 
-interface ClubApi {
+interface GetClubs {
     @GET("/clubs")
-    fun getClubs(): Call<GetClubs>
+    fun getClubs(): Call<GetClubsResponse>
+
 }
 
-data class GetClubs(
+data class GetClubsResponse(
     @SerializedName("status") val status: String,
     @SerializedName("code") val code: String,
     @SerializedName("result") val result: Boolean,
     @SerializedName("description") val description: String,
-    @SerializedName("data") val data: GetClubData
+    @SerializedName("data") val data: GetClubsData
 )
 
-data class GetClubData(
+data class GetClubsData(
+    @SerializedName("memeberId") val memeberId: Int,
     @SerializedName("clubId") val clubId: Int,
     @SerializedName("name") val name: String,
-    @SerializedName("intro") val intro: String
+    @SerializedName("intro") val intro: String,
+    @SerializedName("reader") val reader: Boolean
 )

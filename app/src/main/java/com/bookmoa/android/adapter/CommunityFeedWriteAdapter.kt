@@ -3,22 +3,19 @@ package com.bookmoa.android.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentCommunityfeedwritervBinding
+import com.bookmoa.android.services.Comment
 
-data class CommunityFeedWriteItems(
-    val profile: Int,
-    val name: String,
-    val content: String,
-    val date: String
-)
+class CommunityFeedWriteAdapter(private val commentList: List<Comment>) : RecyclerView.Adapter<CommunityFeedWriteAdapter.ViewHolder>() {
 
-class CommunityFeedWriteAdapter(private val writeItems: List<CommunityFeedWriteItems>) : RecyclerView.Adapter<CommunityFeedWriteAdapter.ViewHolder>() {
     class ViewHolder(private val binding: FragmentCommunityfeedwritervBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: CommunityFeedWriteItems) {
-            binding.communityfeedwriteProfileIv.setImageResource(item.profile)
-            binding.communityfeedwriteNameTv.text = item.name
-            binding.communityfeedwriteContentTv.text = item.content
-            binding.communityfeedwriteDateTv.text = item.date
+        fun bind(comment: Comment) {
+            // Assuming you have a placeholder image for profiles
+            binding.communityfeedwriteProfileIv.setImageResource(R.drawable.icon_profile)
+            binding.communityfeedwriteNameTv.text = comment.nickname
+            binding.communityfeedwriteContentTv.text = comment.context
+            binding.communityfeedwriteDateTv.text = comment.createAt
         }
     }
 
@@ -28,8 +25,8 @@ class CommunityFeedWriteAdapter(private val writeItems: List<CommunityFeedWriteI
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(writeItems[position])
+        holder.bind(commentList[position])
     }
 
-    override fun getItemCount() = writeItems.size
+    override fun getItemCount() = commentList.size
 }
