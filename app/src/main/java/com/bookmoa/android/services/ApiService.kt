@@ -104,7 +104,7 @@ interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
     fun adminInfo(): Call<MemberInfoResponse>
 
     companion object {
-        private const val BASE_URL = BuildConfig.BASE_URL
+        private const val BASE_URL = "https://bookmoa.shop/"
         private val gson: Gson = GsonBuilder().setLenient().create()
         private lateinit var userInfoManager: UserInfoManager
 
@@ -138,7 +138,7 @@ interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
             if (needRefresh) {
                 val tokens = tokens.second ?: ""
                 create().refreshToken(RefreshTokenRequest(tokens))
-                    .enqueue(object :Callback<RefreshTokenResponse> {
+                    .enqueue(object : Callback<RefreshTokenResponse> {
                         override fun onResponse(
                             call: Call<RefreshTokenResponse>,
                             response: Response<RefreshTokenResponse>,
