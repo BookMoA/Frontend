@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.MemoReadFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:text="메모"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/img_line" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:background="@drawable/layout_tv_border"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:paddingLeft="10dp"
+        android:ems="10"
+        android:hint="26p - 메모"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:background="@drawable/layout_tv_border"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="140dp"
+        android:paddingLeft="10dp"
+        android:ems="10"
+        android:hint="26p - 메모"
+        android:inputType="text" />
+
+</FrameLayout>

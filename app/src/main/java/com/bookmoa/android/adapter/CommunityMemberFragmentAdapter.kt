@@ -17,6 +17,7 @@ data class CommunityMemberItems(
 
 class CommunityMemberFragmentAdapter(
     private val members: MutableList<CommunityMemberItems>,
+    private val myMemberId: Int?,
     private val onItemClick: (CommunityMemberItems) -> Unit,
     private val onCloseClick: (CommunityMemberItems) -> Unit
 ) : RecyclerView.Adapter<CommunityMemberFragmentAdapter.BookClubCommunityMemberViewHolder>() {
@@ -47,19 +48,28 @@ class CommunityMemberFragmentAdapter(
             communitymemberFloatTv.text = member.floatmsg
             communitymemberCrownIv.visibility = if (member.isLeader) View.VISIBLE else View.GONE
 
-            communitymemberCloseIv.visibility = if (isManagementMode) View.VISIBLE else View.GONE
-            communitymemberFloatFl.visibility = if (isManagementMode) View.INVISIBLE else View.VISIBLE
+            // Hide the close icon if the member is a leader
+            communitymemberCloseIv.visibility = if (isManagementMode && !member.isLeader) View.VISIBLE else View.GONE
+
+            // Hide or show the float message layout based on the float property
+            communitymemberFloatFl.visibility = if (member.float) View.VISIBLE else View.INVISIBLE
 
             communitymemberCloseIv.setOnClickListener {
                 onCloseClick(member)
             }
-            if (!isManagementMode) {
+
+            // Enable click only if it's not management mode and the memberId matches myMemberId
+            if (!isManagementMode && member.memberId == myMemberId) {
                 root.setOnClickListener { onItemClick(member) }
             } else {
-                root.setOnClickListener(null)
+                root.setOnClickListener(null) // Disable click listener for other cases
             }
         }
     }
+
+
+
+
 
     override fun getItemCount() = members.size
 

@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface BookDBCheckService {
     @GET("library/book/db")
     suspend fun checkBook(
-        @Header("Authorization") token: String,
+       // @Header("Authorization") token: String,
         @Query("isbn") isbn: String
     ): Response<BookCheckResponse>
 }

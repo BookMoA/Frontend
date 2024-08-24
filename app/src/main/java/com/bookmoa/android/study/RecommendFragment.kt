@@ -11,14 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentRecommendBinding
+import com.bookmoa.android.models.BookCheckResponse
+import com.bookmoa.android.models.BookEntryResponse
 import com.bookmoa.android.models.NewBookAladin
 import com.bookmoa.android.services.AladinBookDetailService
+import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.BookDBCheckService
 import com.bookmoa.android.services.BookEntryService
 import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,7 +40,7 @@ class RecommendFragment : Fragment() {
 
     private var _binding: FragmentRecommendBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var api: ApiService
     private lateinit var bookDetailService: AladinBookDetailService
     private lateinit var bookCheckService: BookDBCheckService
     private lateinit var bookEntryService: BookEntryService
@@ -60,8 +66,8 @@ class RecommendFragment : Fragment() {
                 lifecycleScope.launch {
                     val bookId = checkBookExistence(isbn)
                     if (bookId != null) {
-                        goToNextFragment(bookId)
-                    } else {
+                        goToNextFragment(bookId.toInt())
+                    } else  {
                         val newBookId = createNewBook(NewBookAladin(
                             title = binding.recommendBookTitleTv.text.toString(),
                             writer = binding.recommendBookAuthorTv.text.toString(),
@@ -71,7 +77,7 @@ class RecommendFragment : Fragment() {
                             page = binding.recommendBookPageContentTv.text.toString().replace("p", "").toInt(),
                             coverImage = coverImg!!
                         ))
-                        newBookId?.let { goToNextFragment(it) }
+                        newBookId?.let { goToNextFragment(it.toInt()) }
                     }
                 }
             }
@@ -139,66 +145,39 @@ class RecommendFragment : Fragment() {
     }
 
     private suspend fun checkBookExistence(isbn13: String): Long? {
-        val token = tokenManager.getToken()
-        return try {
-            if (token != null) {
-                val response = RetrofitInstance.bookCheckApi.checkBook("Bearer $token", isbn13)
+        return withContext(Dispatchers.IO) {
+            try {
+                api = ApiService.createWithHeader(requireContext())
+                val response = api.checkBook(isbn13)
                 if (response.isSuccessful) {
                     val bookCheckResponse = response.body()
                     if (bookCheckResponse?.result == true) {
-                        Log.d("RecommendFragment", "Book exists in DB with ID: ${bookCheckResponse.data?.bookId}")
-                        return bookCheckResponse.data?.bookId
+                        bookCheckResponse.data?.bookId
                     } else {
-                        Log.d("RecommendFragment", "Book does not exist in DB")
                         null
                     }
                 } else {
-                    Log.e("RecommendFragment", "Failed to check book existence: ${response.errorBody()?.string()}")
                     null
                 }
-            } else {
-                Log.e("RecommendFragment", "Token not found")
+            } catch (e: Exception) {
                 null
             }
-        } catch (e: Exception) {
-            Log.e("RecommendFragment", "Network error", e)
-            null
         }
     }
-
-    fun downloadImage(url: String, outputFile: File): Boolean {
-        return try {
-            val connection = URL(url).openConnection() as HttpURLConnection
-            connection.apply {
-                requestMethod = "GET"
-                connectTimeout = 10000 // 10 seconds
-                readTimeout = 10000 // 10 seconds
-            }
-
-            connection.inputStream.use { input ->
-                FileOutputStream(outputFile).use { output ->
-                    input.copyTo(output)
-                }
-            }
-            true
-        } catch (e: Exception) {
-            e.printStackTrace()
-            false
-        }
-    }
-
     private suspend fun createNewBook(newBook: NewBookAladin): Long? {
-        val token = tokenManager.getToken()
+        return withContext(Dispatchers.IO) {
+            try {
+                // ApiService 인스턴스 생성
+                api = ApiService.createWithHeader(requireContext())
 
-        return try {  // Add return here
-            if (token != null) {
-                val response = RetrofitInstance.bookEntryApi.createBook("Bearer $token", newBook) // Add newBook as argument
+                // API 호출
+                val response: Response<BookEntryResponse> = api.createBook(newBook)
+
                 if (response.isSuccessful) {
-                    Log.d(
-                        "RecommendFragment",
-                        "New book created with ID: ${response.body()?.data?.bookId}"
-                    )
-                    response.body()?.data?.bookId
+                    val bookCreationResponse = response.body()
+                    val bookId = bookCreationResponse?.data?.bookId
+                    Log.d("RecommendFragment", "New book created with ID: $bookId")
+                    bookId
                 } else {
                     Log.e(
                         "RecommendFragment",
@@ -206,27 +185,24 @@ class RecommendFragment : Fragment() {
                     )
                     null
                 }
-            } else {
-                Log.e("RecommendFragment", "Token not found")
+            } catch (e: Exception) {
+                Log.e("RecommendFragment", "Network error", e)
                 null
             }
-        } catch (e: Exception) {
-            Log.e("RecommendFragment", "Network error", e)
-            null
         }
     }
-    private fun goToNextFragment(bookId: Long) {
+    private fun goToNextFragment(bookId: Int) {
         val bundle = Bundle().apply {
-            putLong("bookId", bookId)
+            putIntegerArrayList("selected_ids",  ArrayList(listOf(bookId)))
         }
 
-//        val nextFragment = NextFragment()
-//        nextFragment.arguments = bundle
-//
-//        requireActivity().supportFragmentManager.beginTransaction()
-//            .replace(R.id.main_frm, nextFragment)
-//            .addToBackStack(null)
-//            .commit()
+        val nextFragment = MyListStorageFragment()
+        nextFragment.arguments = bundle
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, nextFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onDestroyView() {

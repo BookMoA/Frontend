@@ -13,7 +13,7 @@ interface BookEntryService {
 
     @POST("books/aladin")
     suspend fun createBook(
-        @Header("Authorization") token: String,
+       // @Header("Authorization") token: String,
         @Body newBook: NewBookAladin
     ): Response<BookEntryResponse>
 

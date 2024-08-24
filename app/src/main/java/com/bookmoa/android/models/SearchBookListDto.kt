@@ -16,7 +16,7 @@ data class SearchBookListResponse (
 @Parcelize
 data class SearchBookListData(
 
-    @SerializedName("bookListId") val id: Long=0,
+    @SerializedName("bookListId") val id: Int=0,
     @SerializedName("title") val title: String="",
     @SerializedName("img") val img: String="",
     @SerializedName("likeCnt") val likeCnt: String="",

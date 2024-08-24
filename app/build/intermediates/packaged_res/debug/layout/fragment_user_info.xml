@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mypage.UserInfoFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/question_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_grey5_r10"
+        android:layout_marginTop="29dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="29dp"
+        android:padding="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/question_tv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Q. 회원탈퇴는 어떻게 하나요?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/arrow_icon4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <ImageView
+            android:id="@+id/arrow_icon4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_down_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/question_tv4"
+            app:layout_constraintBottom_toBottomOf="@id/question_tv4"
+            android:layout_marginEnd="8dp" />
+
+        <View
+            android:id="@+id/question_4_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="19.28dp"
+            android:background="#C6C6C6"
+            android:visibility="gone"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question_tv4" />
+
+        <TextView
+            android:id="@+id/answer_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="18.6dp"
+            android:text="A. 회원탈퇴 방법은 아래를 참고해주세요.\n
+회원탈퇴후에는 모든 기록이 사라지며 절대 되돌릴 수 없습니다."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question_4_guideline" />
+
+        <LinearLayout
+            android:id="@+id/user_quit_guide_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35.37dp"
+            android:background="@drawable/bg_button_color_r10"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/answer_tv4" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10.08dp"
+                android:src="@drawable/ic_faq_question" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3.9dp"
+                android:layout_marginEnd="10.08dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="회원탈퇴 방법"
+                android:textSize="11sp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/user_quit_guide_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="마이페이지 > 프로필 변경 > 하단의 ‘회원탈퇴’"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/user_quit_guide_ic"
+            app:layout_constraintTop_toBottomOf="@id/user_quit_guide_ic" />
+
+        <View
+            android:id="@+id/question_4_guideline_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="19.28dp"
+            android:background="#C6C6C6"
+            android:visibility="gone"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_quit_guide_tv" />
+
+        <TextView
+            android:id="@+id/answer_tv4_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="18.6dp"
+            android:text="회원탈퇴 중 오류가 발생한 경우는 아래를 참고해 이메일을 보내주시면 빠르게 처리를 도와드립니다."
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question_4_guideline_1" />
+
+        <LinearLayout
+            android:id="@+id/user_quit_error_guide_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35.37dp"
+            android:background="@drawable/bg_button_color_r10"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/answer_tv4_1" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10.08dp"
+                android:src="@drawable/ic_faq_question" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3.9dp"
+                android:layout_marginEnd="10.08dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="회원탈퇴 중 오류가 발생했을때"
+                android:textSize="11sp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/user_quit_error_guide_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="마이페이지 > 문의하기 / 의견 보내기"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/user_quit_error_guide_ic"
+            app:layout_constraintTop_toBottomOf="@id/user_quit_error_guide_ic" />
+
+        <TextView
+            android:id="@+id/quit_comment_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22.91dp"
+            android:text="그동안 책모아와 함께 해주셔서 감사합니다!"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/user_quit_error_guide_ic"
+            app:layout_constraintTop_toBottomOf="@id/user_quit_error_guide_tv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

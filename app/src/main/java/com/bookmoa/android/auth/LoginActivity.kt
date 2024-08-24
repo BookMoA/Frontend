@@ -139,6 +139,14 @@ class LoginActivity : AppCompatActivity() {
                                 nickname = loginResponse.data.nickname
                             )
 
+                            userInfoManager.saveGroup(
+                                group = loginResponse.data.myClub.name,
+                            )
+
+                            userInfoManager.saveTotalPage(
+                                totalPage = loginResponse.data.totalPages
+                            )
+
                             val profileUrl = loginResponse.data?.profileURL
                             profileUrl?.let {
                                 GlobalScope.launch {

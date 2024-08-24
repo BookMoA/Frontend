@@ -43,9 +43,13 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 import java.io.IOException
 
+
 interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
     GetClubsRecommend, PostClubs, GetClubsDetail, GetClubsMembers, PostClubsMembers,
-    GetClubsSearch {
+    GetClubsSearch, ListContentApi,addBookListAnother, AddBookListSelectAnotherService,
+    RecommendBookService ,DeleteMyBookListService, SearchListMemoService,BookDBCheckService,
+    BookEntryService{
+
 
     @POST("/users/auth/sign-up")
     fun SignUp(

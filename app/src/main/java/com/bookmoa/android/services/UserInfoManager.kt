@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
@@ -29,6 +30,8 @@ class UserInfoManager(context: Context) {
 
         val emailKey = stringPreferencesKey("email") // user 이메일
         val nicknameKey = stringPreferencesKey("nickname") // user 닉네임
+        val groupKey = stringPreferencesKey("group") // 그룹 이름
+        val totalPageKey = intPreferencesKey("totalPageKey")
         val profileImgKey = stringPreferencesKey("profile_image_uri")
 
     }
@@ -114,6 +117,31 @@ class UserInfoManager(context: Context) {
             prefs[nicknameKey] = nickname
         }
     }
+
+    suspend fun saveGroup(group: String) {
+        dataStore.edit { prefs ->
+            prefs[groupKey] = group
+        }
+    }
+
+    suspend fun saveTotalPage(totalPage: Int) {
+        dataStore.edit { prefs ->
+            prefs[totalPageKey] = totalPage
+        }
+    }
+
+    suspend fun getGroup(): String? {
+        return dataStore.data.map { prefs ->
+            prefs[groupKey]
+        }.first()
+    }
+
+    suspend fun getTotalPage(): Int? {
+        return dataStore.data.map { prefs ->
+            prefs[totalPageKey]
+        }.first()
+    }
+
 
     suspend fun saveProfileImageUri(uri: String) {
         dataStore.edit { prefs ->
