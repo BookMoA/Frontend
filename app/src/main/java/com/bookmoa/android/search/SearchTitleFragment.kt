@@ -1,5 +1,6 @@
 package com.bookmoa.android.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.bookmoa.android.MainActivity
 import com.bookmoa.android.R
 import com.bookmoa.android.adapter.SearchBookAdapter
 import com.bookmoa.android.databinding.FragmentSearchTitleBinding
+import com.bookmoa.android.home.RegisterbookActivity
 import com.bookmoa.android.models.SearchBookData
 import com.bookmoa.android.models.SearchBookResponse
 import com.bookmoa.android.services.AladinBookService
@@ -26,12 +28,19 @@ class SearchTitleFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var searchBookAdapter: SearchBookAdapter
     private lateinit var bookService: AladinBookService
+    private var query: String = "" // Add a property to hold the query
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchTitleBinding.inflate(inflater, container, false)
+
+        binding.searchTitleBtn.setOnClickListener{
+            val intent = Intent(requireContext(), RegisterbookActivity::class.java)
+
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -44,7 +53,7 @@ class SearchTitleFragment : Fragment() {
     private fun setupRecyclerView() {
         searchBookAdapter = SearchBookAdapter(itemClickedListener = { book ->
             (activity as? MainActivity)?.showBookDetail(book.isbn13)
-        })
+        }, query = query) // Pass the query here
         binding.searchTitleRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = searchBookAdapter
@@ -59,15 +68,8 @@ class SearchTitleFragment : Fragment() {
         bookService = retrofitForBooks.create(AladinBookService::class.java)
     }
 
-//    fun loadTitleData(query: String) {
-//        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
-//        searchBooksByName(query, "Title") { results ->
-//            // 결과를 UI에 반영
-//            updateBookList(results)
-//        }
-//    }
-
-     fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
+    fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
+        this.query = query // Update the query property
         bookService.getBooksByName(getString(R.string.ApiKey), query, queryType)
             .enqueue(object : Callback<SearchBookResponse> {
                 override fun onResponse(call: Call<SearchBookResponse>, response: Response<SearchBookResponse>) {
@@ -76,20 +78,19 @@ class SearchTitleFragment : Fragment() {
                             book.copy(isbn13 = if (book.isbn13.isNotEmpty()) book.isbn13 else "0")
                         } ?: emptyList()
                         updateBookList(books)
-                        callback(books)  // 데이터를 콜백으로 전달
+                        callback(books)  // 데이터 콜백
                     } else {
                         Log.e("SearchTitleFragment", "Error: ${response.errorBody()?.string()}")
-                        callback(emptyList())  // 오류 발생 시 빈 리스트 전달
+                        callback(emptyList())  // 오류 발생 시 빈 리스트
                     }
                 }
 
                 override fun onFailure(call: Call<SearchBookResponse>, t: Throwable) {
                     Log.e("SearchTitleFragment", "Failure: ${t.message}")
-                    callback(emptyList())  // 실패 시 빈 리스트 전달
+                    callback(emptyList())  // 실패 시 빈 리스트
                 }
             })
     }
-
 
     fun updateBookList(books: List<SearchBookData>) {
         if (books.isNullOrEmpty()) {

@@ -48,7 +48,7 @@ interface ApiService: StorageListApi, ListTop10Api, StorageBookApi, ClubApi,
     GetClubsRecommend, PostClubs, GetClubsDetail, GetClubsMembers, PostClubsMembers,
     GetClubsSearch, ListContentApi,addBookListAnother, AddBookListSelectAnotherService,
     RecommendBookService ,DeleteMyBookListService, SearchListMemoService,BookDBCheckService,
-    BookEntryService{
+    BookEntryService,RecommendBookDetailService{
 
 
     @POST("/users/auth/sign-up")

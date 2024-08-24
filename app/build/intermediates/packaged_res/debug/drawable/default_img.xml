@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- White Background Layer -->
+    <item>
+        <shape
+            android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- White Background -->
+        </shape>
+    </item>
+
+    <!-- Vector Graphic Layer with Margin -->
+    <item
+        android:left="50dp"
+        android:right="50dp"
+        android:top="50dp"
+        android:bottom="50dp">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="100dp"
+            android:height="75dp"
+            android:viewportWidth="200"
+            android:viewportHeight="145">
+            <path
+                android:pathData="M8.79,61.25C21.24,25.51 43.67,0.15 61.23,0.59C73.53,0.29 88.23,12.64 100.2,32.36C112.18,12.64 126.87,0.29 139.17,0.59C156.73,0.15 179.16,25.51 191.61,61.25C205.29,100.54 201.73,137.49 183.65,143.79C170.35,148.42 152.91,135.19 139.17,112.25C127.26,132.14 112.56,144.73 100.2,144.71C87.84,144.73 73.14,132.14 61.23,112.25C47.49,135.19 30.05,148.42 16.76,143.79C-1.33,137.49 -4.89,100.54 8.79,61.25Z"
+                android:fillColor="#95E6E7"
+                android:fillType="evenOdd"/>
+        </vector>
+    </item>
+</layer-list>

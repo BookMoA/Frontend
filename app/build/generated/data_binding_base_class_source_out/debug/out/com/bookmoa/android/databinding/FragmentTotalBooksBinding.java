@@ -20,11 +20,15 @@ public final class FragmentTotalBooksBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout totalBookNotAvailable;
+
+  @NonNull
   public final RecyclerView totalBookRvList;
 
   private FragmentTotalBooksBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView totalBookRvList) {
+      @NonNull ConstraintLayout totalBookNotAvailable, @NonNull RecyclerView totalBookRvList) {
     this.rootView = rootView;
+    this.totalBookNotAvailable = totalBookNotAvailable;
     this.totalBookRvList = totalBookRvList;
   }
 
@@ -55,13 +59,20 @@ public final class FragmentTotalBooksBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.total_book_not_available;
+      ConstraintLayout totalBookNotAvailable = ViewBindings.findChildViewById(rootView, id);
+      if (totalBookNotAvailable == null) {
+        break missingId;
+      }
+
       id = R.id.total_book_rv_list;
       RecyclerView totalBookRvList = ViewBindings.findChildViewById(rootView, id);
       if (totalBookRvList == null) {
         break missingId;
       }
 
-      return new FragmentTotalBooksBinding((ConstraintLayout) rootView, totalBookRvList);
+      return new FragmentTotalBooksBinding((ConstraintLayout) rootView, totalBookNotAvailable,
+          totalBookRvList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

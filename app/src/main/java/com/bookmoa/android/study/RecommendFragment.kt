@@ -1,39 +1,27 @@
 package com.bookmoa.android.study
 
-import BookDetail
-import BookDetailResponse
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.bookmoa.android.R
 import com.bookmoa.android.databinding.FragmentRecommendBinding
-import com.bookmoa.android.models.BookCheckResponse
-import com.bookmoa.android.models.BookEntryResponse
-import com.bookmoa.android.models.NewBookAladin
+import com.bookmoa.android.models.RecommendBookDetailData
+import com.bookmoa.android.models.RecommendBookDetailResponse
 import com.bookmoa.android.services.AladinBookDetailService
 import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.BookDBCheckService
 import com.bookmoa.android.services.BookEntryService
-import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
-import java.io.FileOutputStream
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 class RecommendFragment : Fragment() {
@@ -45,9 +33,21 @@ class RecommendFragment : Fragment() {
     private lateinit var bookCheckService: BookDBCheckService
     private lateinit var bookEntryService: BookEntryService
     private lateinit var tokenManager: TokenManager
-    private var isbn13: String? = null
-    private var coverImg: String? =null
+    private var bookId: Int? = null
+    private var coverImg: String? = null
 
+    companion object {
+        private const val ARG_BOOK_ID = "book_id"
+
+        fun newInstance(bookId: Int): RecommendFragment {
+            val fragment = RecommendFragment()
+            val args = Bundle().apply {
+                putInt(ARG_BOOK_ID, bookId)  // bookId를 Int로 저장
+            }
+            fragment.arguments = args
+            return fragment
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -57,143 +57,83 @@ class RecommendFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        isbn13 = arguments?.getString("isbn13")
-        setupBookService()
-        isbn13?.let { fetchBookDetails(it) }
+
+        // Fetch the book ID from the arguments
+        arguments?.let {
+            bookId = it.getInt(ARG_BOOK_ID, -1)  // 기본값으로 -1을 사용
+        }
+
+        if (bookId != null && bookId != -1) {
+            fetchBookDetails(bookId!!)  // BookId가 유효한 경우에만 호출
+        } else {
+            Toast.makeText(context, "Book ID가 유효하지 않습니다.", Toast.LENGTH_SHORT).show()
+        }
 
         binding.recommendAddBookBtn.setOnClickListener {
-            isbn13?.let { isbn ->
-                lifecycleScope.launch {
-                    val bookId = checkBookExistence(isbn)
-                    if (bookId != null) {
-                        goToNextFragment(bookId.toInt())
-                    } else  {
-                        val newBookId = createNewBook(NewBookAladin(
-                            title = binding.recommendBookTitleTv.text.toString(),
-                            writer = binding.recommendBookAuthorTv.text.toString(),
-                            //description = binding.recommendBookIntroduceContentTv.text.toString(),
-                            publisher = binding.recommendBookPublisherContentTv.text.toString(),
-                            isbn = isbn,
-                            page = binding.recommendBookPageContentTv.text.toString().replace("p", "").toInt(),
-                            coverImage = coverImg!!
-                        ))
-                        newBookId?.let { goToNextFragment(it.toInt()) }
-                    }
-                }
+            if (bookId != null) {
+                goToNextFragment(bookId!!)
             }
         }
     }
 
-    private fun setupBookService() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.aladin.co.kr/ttb/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    private fun fetchBookDetails(bookId: Int) {
+        GlobalScope.launch {
+            api = ApiService.createWithHeader(requireContext())
 
-        bookDetailService = retrofit.create(AladinBookDetailService::class.java)
-        bookCheckService = retrofit.create(BookDBCheckService::class.java)
-        bookEntryService = retrofit.create(BookEntryService::class.java)
-        tokenManager = TokenManager()
-    }
-
-    private fun fetchBookDetails(isbn13: String) {
-        val apiKey = getString(R.string.ApiKey)
-        Log.d("RecommendFragment", "Fetching details for ISBN13: $isbn13")
-
-        bookDetailService.getBooksByISBN(apiKey, isbn13).enqueue(object : Callback<BookDetailResponse> {
-            override fun onResponse(call: Call<BookDetailResponse>, response: Response<BookDetailResponse>) {
-                if (response.isSuccessful) {
-                    val bookDetail = response.body()!!.items
-                    if (bookDetail != null) {
-                        Log.d("RecommendFragment", "Book details fetched successfully: $bookDetail")
-                        renderView(bookDetail.get(0))
+            // Call the API with the book ID
+            api.RecommendBookDetail(bookId).enqueue(object : Callback<RecommendBookDetailResponse> {
+                override fun onResponse(
+                    call: Call<RecommendBookDetailResponse>,
+                    response: Response<RecommendBookDetailResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val bookDetail = response.body()?.data
+                        if (bookDetail != null) {
+                            Log.d(
+                                "RecommendFragment",
+                                "Book details fetched successfully: $bookDetail"
+                            )
+                            renderView(bookDetail)
+                        } else {
+                            Log.e("RecommendFragment", "No book details found in the response")
+                        }
                     } else {
-                        Log.e("RecommendFragment", "No book details found in the response")
+                        Log.e(
+                            "RecommendFragment",
+                            "API Error: ${response.errorBody()?.string()}"
+                        )
                     }
-                } else {
-                    Log.e("RecommendFragment", "API Error: ${response.errorBody()?.string()}")
                 }
-            }
 
-            override fun onFailure(call: Call<BookDetailResponse>, t: Throwable) {
-                Log.e("RecommendFragment", "API Failure: ${t.message}")
-            }
-        })
+                override fun onFailure(call: Call<RecommendBookDetailResponse>, t: Throwable) {
+                    Log.e("RecommendFragment", "API Failure: ${t.message}")
+                }
+            })
+        }
     }
 
-    private fun renderView(bookDetail: BookDetail) {
+    private fun renderView(bookDetail: RecommendBookDetailData) {
         Log.d("RecommendFragment", "Rendering book details: $bookDetail")
 
         binding.recommendBookTitleTv.text = bookDetail.title
-        binding.recommendBookAuthorTv.text = bookDetail.author
+        binding.recommendBookAuthorTv.text = bookDetail.writer
         binding.recommendBookPublisherContentTv.text = bookDetail.publisher
         Log.d("RecommendFragment", "${bookDetail.description}")
-        if (bookDetail.description.isNullOrEmpty()) {
-            binding.recommendBookIntroduceContentTv.text = "등록된 책 소개가 없습니다."
-        } else {
-            binding.recommendBookIntroduceContentTv.text = bookDetail.description
-        }
+        binding.recommendBookIntroduceContentTv.text = bookDetail.description
+            ?: "등록된 책 소개가 없습니다."
 
+        binding.recommendBookISBNContentTv.text = bookDetail.isbn
+        binding.recommendBookPageContentTv.text = bookDetail.page.toString()
 
-        binding.recommendBookISBNContentTv.text = bookDetail.isbn13
-        binding.recommendBookPageContentTv.text = "${bookDetail.subInfo?.itemPage}p"
-
-        coverImg = bookDetail.img
+        coverImg = bookDetail.coverImage
         Glide.with(binding.recommendBookImg.context)
-            .load(bookDetail.img)
+            .load(bookDetail.coverImage)
             .into(binding.recommendBookImg)
     }
 
-    private suspend fun checkBookExistence(isbn13: String): Long? {
-        return withContext(Dispatchers.IO) {
-            try {
-                api = ApiService.createWithHeader(requireContext())
-                val response = api.checkBook(isbn13)
-                if (response.isSuccessful) {
-                    val bookCheckResponse = response.body()
-                    if (bookCheckResponse?.result == true) {
-                        bookCheckResponse.data?.bookId
-                    } else {
-                        null
-                    }
-                } else {
-                    null
-                }
-            } catch (e: Exception) {
-                null
-            }
-        }
-    }
-    private suspend fun createNewBook(newBook: NewBookAladin): Long? {
-        return withContext(Dispatchers.IO) {
-            try {
-                // ApiService 인스턴스 생성
-                api = ApiService.createWithHeader(requireContext())
-
-                // API 호출
-                val response: Response<BookEntryResponse> = api.createBook(newBook)
-
-                if (response.isSuccessful) {
-                    val bookCreationResponse = response.body()
-                    val bookId = bookCreationResponse?.data?.bookId
-                    Log.d("RecommendFragment", "New book created with ID: $bookId")
-                    bookId
-                } else {
-                    Log.e(
-                        "RecommendFragment",
-                        "Failed to create new book: ${response.errorBody()?.string()}"
-                    )
-                    null
-                }
-            } catch (e: Exception) {
-                Log.e("RecommendFragment", "Network error", e)
-                null
-            }
-        }
-    }
     private fun goToNextFragment(bookId: Int) {
         val bundle = Bundle().apply {
-            putIntegerArrayList("selected_ids",  ArrayList(listOf(bookId)))
+            putIntegerArrayList("selected_ids", ArrayList(listOf(bookId)))
         }
 
         val nextFragment = MyListStorageFragment()

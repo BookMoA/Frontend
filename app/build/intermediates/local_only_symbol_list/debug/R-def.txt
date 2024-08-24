@@ -79,6 +79,7 @@ drawable btm_mypage
 drawable btm_search
 drawable btn_layout_profile
 drawable camera
+drawable default_img
 drawable error
 drawable focusmode_bar
 drawable forward
@@ -188,6 +189,7 @@ drawable toggle_circle_notification
 drawable toggle_notification
 drawable trash
 drawable turnoff_txt
+drawable union
 drawable unlock
 id FAQ_btn
 id FAQ_tl
@@ -225,6 +227,23 @@ id book_background_container
 id book_iv
 id book_register_guide_ic
 id book_register_guide_tv
+id book_result_addBook_btn
+id book_result_book_ISBN_content_tv
+id book_result_book_ISBN_tv
+id book_result_book_author_tv
+id book_result_book_img
+id book_result_book_introduce_content_tv
+id book_result_book_introduce_tv
+id book_result_book_page_content_tv
+id book_result_book_page_tv
+id book_result_book_publisher_content_tv
+id book_result_book_publisher_tv
+id book_result_book_title_tv
+id book_result_go_to_aladdin
+id book_result_header_line
+id book_result_icon
+id book_result_line
+id book_result_title_tv
 id btnCancel
 id btnDone
 id btnOk
@@ -570,7 +589,6 @@ id myStorage_content_vp
 id myStorage_fifithList_img_carview
 id myStorage_list_lock_icon
 id myStorage_list_unlock_icon
-id myStorage_search_icon
 id myStorage_title_tv
 id my_list_container
 id my_list_edit_delete
@@ -658,6 +676,7 @@ id question_tv3
 id question_tv4
 id quit_comment_tv
 id rating_btn
+id reading_books_not_available
 id reading_books_rv_list
 id recommend_addBook_btn
 id recommend_back_icon
@@ -684,18 +703,17 @@ id rtbAfter
 id rtbBefore
 id scrollView
 id search_author_available
+id search_author_btn
 id search_author_not_available
 id search_author_rv
 id search_author_tv
 id search_back_icon
 id search_back_iv
-id search_barcode_ic
 id search_book_list_available
 id search_book_list_not_available
 id search_book_list_rv
 id search_book_list_tv
 id search_carview
-id search_container
 id search_content_tb
 id search_content_vp
 id search_ic
@@ -705,6 +723,7 @@ id search_memo_available
 id search_memo_not_available
 id search_sv
 id search_title_available
+id search_title_btn
 id search_title_not_available
 id search_title_rv
 id search_title_tv
@@ -757,7 +776,6 @@ id study_list_chart_tv
 id study_my_storage_icon
 id study_my_storage_rv
 id study_my_storage_tv
-id study_recommend_icon
 id study_recommend_indicator
 id study_recommend_tv
 id study_recommend_vp
@@ -800,6 +818,7 @@ id textView9
 id toast_tv
 id top_bar_back_ic
 id topbar_guideline
+id total_book_not_available
 id total_book_rv_list
 id tv21
 id tvBookAuthor
@@ -839,6 +858,7 @@ layout fragment_alarm
 layout fragment_alarmrv
 layout fragment_all_f_a_q
 layout fragment_book_memo
+layout fragment_book_result
 layout fragment_change_profile
 layout fragment_community
 layout fragment_communityfeedrv
@@ -868,6 +888,7 @@ layout fragment_insearchtitlevp
 layout fragment_list_content
 layout fragment_list_detail
 layout fragment_list_detail_add
+layout fragment_list_detail_add_done
 layout fragment_list_detail_edit
 layout fragment_list_top10
 layout fragment_make

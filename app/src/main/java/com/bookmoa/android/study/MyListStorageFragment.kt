@@ -63,11 +63,7 @@ class MyListStorageFragment : Fragment() {
         })
 
         binding.myListStorageBackIcon.setOnClickListener {
-            val fragment = ListContentFragment.newInstance(bookListId!!)
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, fragment)
-                .addToBackStack(null)
-                .commit()
+            (activity as MainActivity).switchFragment(StudyFragment())
         }
         val receivedIds = arguments?.getIntegerArrayList("selected_ids") ?: arrayListOf()
         selectedBookIds.addAll(receivedIds) // 이전 프래그먼트에서 넘어온 선택된 ID들 추가

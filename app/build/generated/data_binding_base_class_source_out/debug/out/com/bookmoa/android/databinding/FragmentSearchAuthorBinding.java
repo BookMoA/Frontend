@@ -4,6 +4,7 @@ package com.bookmoa.android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,9 @@ public final class FragmentSearchAuthorBinding implements ViewBinding {
   public final ConstraintLayout searchAuthorAvailable;
 
   @NonNull
+  public final Button searchAuthorBtn;
+
+  @NonNull
   public final ConstraintLayout searchAuthorNotAvailable;
 
   @NonNull
@@ -33,11 +37,12 @@ public final class FragmentSearchAuthorBinding implements ViewBinding {
   public final TextView searchAuthorTv;
 
   private FragmentSearchAuthorBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout searchAuthorAvailable,
+      @NonNull ConstraintLayout searchAuthorAvailable, @NonNull Button searchAuthorBtn,
       @NonNull ConstraintLayout searchAuthorNotAvailable, @NonNull RecyclerView searchAuthorRv,
       @NonNull TextView searchAuthorTv) {
     this.rootView = rootView;
     this.searchAuthorAvailable = searchAuthorAvailable;
+    this.searchAuthorBtn = searchAuthorBtn;
     this.searchAuthorNotAvailable = searchAuthorNotAvailable;
     this.searchAuthorRv = searchAuthorRv;
     this.searchAuthorTv = searchAuthorTv;
@@ -76,6 +81,12 @@ public final class FragmentSearchAuthorBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.search_author_btn;
+      Button searchAuthorBtn = ViewBindings.findChildViewById(rootView, id);
+      if (searchAuthorBtn == null) {
+        break missingId;
+      }
+
       id = R.id.search_author_not_available;
       ConstraintLayout searchAuthorNotAvailable = ViewBindings.findChildViewById(rootView, id);
       if (searchAuthorNotAvailable == null) {
@@ -95,7 +106,7 @@ public final class FragmentSearchAuthorBinding implements ViewBinding {
       }
 
       return new FragmentSearchAuthorBinding((ConstraintLayout) rootView, searchAuthorAvailable,
-          searchAuthorNotAvailable, searchAuthorRv, searchAuthorTv);
+          searchAuthorBtn, searchAuthorNotAvailable, searchAuthorRv, searchAuthorTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

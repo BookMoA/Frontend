@@ -4,6 +4,7 @@ package com.bookmoa.android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,9 @@ public final class FragmentSearchTitleBinding implements ViewBinding {
   public final ConstraintLayout searchTitleAvailable;
 
   @NonNull
+  public final Button searchTitleBtn;
+
+  @NonNull
   public final ConstraintLayout searchTitleNotAvailable;
 
   @NonNull
@@ -33,11 +37,12 @@ public final class FragmentSearchTitleBinding implements ViewBinding {
   public final TextView searchTitleTv;
 
   private FragmentSearchTitleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout searchTitleAvailable,
+      @NonNull ConstraintLayout searchTitleAvailable, @NonNull Button searchTitleBtn,
       @NonNull ConstraintLayout searchTitleNotAvailable, @NonNull RecyclerView searchTitleRv,
       @NonNull TextView searchTitleTv) {
     this.rootView = rootView;
     this.searchTitleAvailable = searchTitleAvailable;
+    this.searchTitleBtn = searchTitleBtn;
     this.searchTitleNotAvailable = searchTitleNotAvailable;
     this.searchTitleRv = searchTitleRv;
     this.searchTitleTv = searchTitleTv;
@@ -76,6 +81,12 @@ public final class FragmentSearchTitleBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.search_title_btn;
+      Button searchTitleBtn = ViewBindings.findChildViewById(rootView, id);
+      if (searchTitleBtn == null) {
+        break missingId;
+      }
+
       id = R.id.search_title_not_available;
       ConstraintLayout searchTitleNotAvailable = ViewBindings.findChildViewById(rootView, id);
       if (searchTitleNotAvailable == null) {
@@ -95,7 +106,7 @@ public final class FragmentSearchTitleBinding implements ViewBinding {
       }
 
       return new FragmentSearchTitleBinding((ConstraintLayout) rootView, searchTitleAvailable,
-          searchTitleNotAvailable, searchTitleRv, searchTitleTv);
+          searchTitleBtn, searchTitleNotAvailable, searchTitleRv, searchTitleTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

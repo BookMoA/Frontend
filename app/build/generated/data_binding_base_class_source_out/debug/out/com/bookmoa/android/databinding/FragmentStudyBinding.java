@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,9 +47,6 @@ public final class FragmentStudyBinding implements ViewBinding {
   public final TextView studyMyStorageTv;
 
   @NonNull
-  public final ImageButton studyRecommendIcon;
-
-  @NonNull
   public final CircleIndicator3 studyRecommendIndicator;
 
   @NonNull
@@ -61,7 +59,7 @@ public final class FragmentStudyBinding implements ViewBinding {
   public final FrameLayout studyRecommendVpContainer;
 
   @NonNull
-  public final ImageButton studySearchIcon;
+  public final ImageView studySearchIcon;
 
   @NonNull
   public final TextView studyTitleTv;
@@ -70,10 +68,9 @@ public final class FragmentStudyBinding implements ViewBinding {
       @NonNull ImageButton studyListChartIcon, @NonNull RecyclerView studyListChartRv,
       @NonNull TextView studyListChartTv, @NonNull ImageButton studyMyStorageIcon,
       @NonNull RecyclerView studyMyStorageRv, @NonNull TextView studyMyStorageTv,
-      @NonNull ImageButton studyRecommendIcon, @NonNull CircleIndicator3 studyRecommendIndicator,
-      @NonNull TextView studyRecommendTv, @NonNull ViewPager2 studyRecommendVp,
-      @NonNull FrameLayout studyRecommendVpContainer, @NonNull ImageButton studySearchIcon,
-      @NonNull TextView studyTitleTv) {
+      @NonNull CircleIndicator3 studyRecommendIndicator, @NonNull TextView studyRecommendTv,
+      @NonNull ViewPager2 studyRecommendVp, @NonNull FrameLayout studyRecommendVpContainer,
+      @NonNull ImageView studySearchIcon, @NonNull TextView studyTitleTv) {
     this.rootView = rootView;
     this.studyLine = studyLine;
     this.studyListChartIcon = studyListChartIcon;
@@ -82,7 +79,6 @@ public final class FragmentStudyBinding implements ViewBinding {
     this.studyMyStorageIcon = studyMyStorageIcon;
     this.studyMyStorageRv = studyMyStorageRv;
     this.studyMyStorageTv = studyMyStorageTv;
-    this.studyRecommendIcon = studyRecommendIcon;
     this.studyRecommendIndicator = studyRecommendIndicator;
     this.studyRecommendTv = studyRecommendTv;
     this.studyRecommendVp = studyRecommendVp;
@@ -160,12 +156,6 @@ public final class FragmentStudyBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.study_recommend_icon;
-      ImageButton studyRecommendIcon = ViewBindings.findChildViewById(rootView, id);
-      if (studyRecommendIcon == null) {
-        break missingId;
-      }
-
       id = R.id.study_recommend_indicator;
       CircleIndicator3 studyRecommendIndicator = ViewBindings.findChildViewById(rootView, id);
       if (studyRecommendIndicator == null) {
@@ -191,7 +181,7 @@ public final class FragmentStudyBinding implements ViewBinding {
       }
 
       id = R.id.study_search_icon;
-      ImageButton studySearchIcon = ViewBindings.findChildViewById(rootView, id);
+      ImageView studySearchIcon = ViewBindings.findChildViewById(rootView, id);
       if (studySearchIcon == null) {
         break missingId;
       }
@@ -204,8 +194,8 @@ public final class FragmentStudyBinding implements ViewBinding {
 
       return new FragmentStudyBinding((ConstraintLayout) rootView, studyLine, studyListChartIcon,
           studyListChartRv, studyListChartTv, studyMyStorageIcon, studyMyStorageRv,
-          studyMyStorageTv, studyRecommendIcon, studyRecommendIndicator, studyRecommendTv,
-          studyRecommendVp, studyRecommendVpContainer, studySearchIcon, studyTitleTv);
+          studyMyStorageTv, studyRecommendIndicator, studyRecommendTv, studyRecommendVp,
+          studyRecommendVpContainer, studySearchIcon, studyTitleTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

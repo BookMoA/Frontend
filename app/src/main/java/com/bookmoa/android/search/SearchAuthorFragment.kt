@@ -1,5 +1,6 @@
 package com.bookmoa.android.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.bookmoa.android.MainActivity
 import com.bookmoa.android.R
 import com.bookmoa.android.adapter.SearchBookAdapter
 import com.bookmoa.android.databinding.FragmentSearchAuthorBinding
+import com.bookmoa.android.home.RegisterbookActivity
 import com.bookmoa.android.models.SearchBookData
 import com.bookmoa.android.models.SearchBookResponse
 import com.bookmoa.android.services.AladinBookService
@@ -20,19 +22,25 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 class SearchAuthorFragment : Fragment() {
 
     private var _binding: FragmentSearchAuthorBinding? = null
     private val binding get() = _binding!!
     private lateinit var searchBookAdapter: SearchBookAdapter
     private lateinit var bookService: AladinBookService
+    private var query: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchAuthorBinding.inflate(inflater, container, false)
+
+        binding.searchAuthorBtn.setOnClickListener{
+            val intent = Intent(requireContext(), RegisterbookActivity::class.java)
+
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -43,14 +51,18 @@ class SearchAuthorFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        searchBookAdapter = SearchBookAdapter(itemClickedListener = { book ->
-            (activity as? MainActivity)?.showBookDetail(book.isbn13)
-        })
+        searchBookAdapter = SearchBookAdapter(
+            itemClickedListener = { book ->
+                (activity as? MainActivity)?.showBookDetail(book.isbn13)
+            },
+            query = query // Pass the query here
+        )
         binding.searchAuthorRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = searchBookAdapter
         }
     }
+
 
     private fun setupBookServices() {
         val retrofitForBooks = Retrofit.Builder()
@@ -60,16 +72,8 @@ class SearchAuthorFragment : Fragment() {
         bookService = retrofitForBooks.create(AladinBookService::class.java)
     }
 
-//    fun loadAuthorData(query: String) {
-//        // `searchBooksByName` 메서드를 호출하여 데이터를 로드합니다.
-//        searchBooksByName(query, "Author") { results ->
-//            // 결과를 UI에 반영
-//            updateBookList(results)
-//        }
-//    }
-
-
     fun searchBooksByName(query: String, queryType: String, callback: (List<SearchBookData>) -> Unit) {
+        this.query = query // Update the query property
         bookService.getBooksByName(getString(R.string.ApiKey), query, queryType)
             .enqueue(object : Callback<SearchBookResponse> {
                 override fun onResponse(call: Call<SearchBookResponse>, response: Response<SearchBookResponse>) {
@@ -78,14 +82,16 @@ class SearchAuthorFragment : Fragment() {
                             book.copy(isbn13 = if (book.isbn13.isNotEmpty()) book.isbn13 else "0")
                         } ?: emptyList()
                         updateBookList(books)
-                        callback(books)  // 데이터를 콜백으로 전달
+                        callback(books)  // 데이터 콜백
                     } else {
-                        Log.e("SearchAuthorFragment", "Error: ${response.errorBody()?.string()}")
+                        Log.e("SearchTitleFragment", "Error: ${response.errorBody()?.string()}")
+                        callback(emptyList())  // 오류 발생 시 빈 리스트
                     }
                 }
 
                 override fun onFailure(call: Call<SearchBookResponse>, t: Throwable) {
-                    Log.e("SearchAuthorFragment", "Failure: ${t.message}")
+                    Log.e("SearchTitleFragment", "Failure: ${t.message}")
+                    callback(emptyList())  // 실패 시 빈 리스트
                 }
             })
     }
@@ -97,7 +103,7 @@ class SearchAuthorFragment : Fragment() {
         } else {
             binding.searchAuthorAvailable.visibility = View.VISIBLE
             binding.searchAuthorNotAvailable.visibility = View.GONE
-            searchBookAdapter.submitList(books)
+            searchBookAdapter.submitList(books) // Update adapter with new list
         }
     }
 
