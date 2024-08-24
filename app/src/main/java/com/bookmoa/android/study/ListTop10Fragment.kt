@@ -30,7 +30,6 @@ class ListTop10Fragment : Fragment() {
     private var _binding: FragmentListTop10Binding? = null
     private val binding get() = _binding!!
     private var listTop10Adapter: ListTop10Adapter? = null
-    private lateinit var tokenManager: TokenManager
 
     private lateinit var api: ApiService
 
@@ -47,7 +46,7 @@ class ListTop10Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TokenManager 초기화
-        tokenManager = TokenManager()
+
 
         // 임시로 토큰 설정 (여기에서 직접 토큰을 설정)
         // RecyclerView 설정
@@ -60,11 +59,11 @@ class ListTop10Fragment : Fragment() {
 
         listTop10Adapter?.setOnItemClickListener(object : ListTop10Adapter.OnItemClickListener {
             override fun onItemClick(view: View, position: Int, data: ListTop10Data) {
-                val fragment = ListContentFragment.newInstance(data.bookListId) // ID만 전달
-                Log.d("FragmentTransaction", "Navigating to ListDetailFragment with ID: ${data.bookListId}")
+                val fragment = ListContentFragment.newInstance(data.bookListId)
+                Log.d("FragmentTransaction", "Navigating to ListContentFragment with ID: ${data.bookListId}")
 
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.main_frm, fragment)  // fragment_container는 MainActivity의 FrameLayout ID입니다.
+                    .replace(R.id.main_frm, fragment)
                     .addToBackStack(null)
                     .commit()
             }
@@ -116,82 +115,9 @@ class ListTop10Fragment : Fragment() {
 
             })
 
-            /*
-            try {
-                val response = RetrofitInstance.listTop10api.getTop10List()
-                withContext(Dispatchers.Main) {
-                    if (response.isSuccessful) {
-                        val apiResponse = response.body()
-                        if (apiResponse != null && apiResponse.result) {
-                            binding.listTop10DataAndtimeTv.text = apiResponse.data?.updatedAt
-                            val top10List = apiResponse.data?.bookLists
-                            if (top10List != null) {
-                                listTop10Adapter?.updateItems(top10List)
-                            } else {
-                                Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
-                            }
-                        } else {
-                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                        Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
-                    }
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                    Log.e("Network Error", "Exception during API call", e)
-                }
-            }
-
-             */
         }
 
-                /*
-        val token = tokenManager.getToken()
-        if (token != null) {
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    val response = RetrofitInstance.listTop10api.getTop10List("Bearer $token")
-                    withContext(Dispatchers.Main) {
-                        if (response.isSuccessful) {
-                            val apiResponse = response.body()
-                            if (apiResponse != null && apiResponse.result) {
-                                binding.listTop10DataAndtimeTv.text = apiResponse.data?.updatedAt
-                                val top10List = apiResponse.data?.bookLists
-                                if (top10List != null) {
-                                    listTop10Adapter?.updateItems(top10List)
-                                } else {
-                                    Toast.makeText(context, "데이터가 없습니다.", Toast.LENGTH_SHORT).show()
-                                }
-                            } else {
-                                Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                            }
-                        } else {
-                            Toast.makeText(context, "데이터를 가져오는 중 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                            Log.e("API Error", "Response code: ${response.code()}, message: ${response.message()}")
-                        }
-                    }
-                } catch (e: Exception) {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(context, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
-                        Log.e("Network Error", "Exception during API call", e)
-                    }
-                }
-            }
-        } else {
-            handleNoToken()
-        }
-
-                 */
     }
-
-    private fun handleNoToken() {
-        Toast.makeText(context, "로그인이 필요합니다. 로그인 화면으로 이동합니다.", Toast.LENGTH_SHORT).show()
-        (activity as MainActivity).switchFragment(StudyFragment())
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

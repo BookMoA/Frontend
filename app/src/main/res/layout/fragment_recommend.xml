@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="이런 책은 어때요?"
+        android:text="책 소개"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:backgroundTint="@color/white"
         android:padding="0dp"
-        android:src="@drawable/back"
+        android:src="@drawable/icon_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/recommend_title_tv" />
 

@@ -23,13 +23,9 @@ import com.bookmoa.android.models.StorageListData
 import com.bookmoa.android.models.StorageListResponse
 import com.bookmoa.android.search.SearchFragment
 import com.bookmoa.android.services.ApiService
-import com.bookmoa.android.services.RetrofitInstance
 import com.bookmoa.android.services.TokenManager
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -147,6 +143,7 @@ class StudyFragment : Fragment() {
 
         GlobalScope.launch {
             api = ApiService.createWithHeader(requireContext())
+
 
             api.getStorageList().enqueue(object: Callback<StorageListResponse> {
                 override fun onResponse(

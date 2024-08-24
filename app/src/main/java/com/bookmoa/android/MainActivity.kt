@@ -1,5 +1,6 @@
 package com.bookmoa.android
 
+import ListContentFragment
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -87,6 +88,9 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+
+
 
     private fun initBottomNavigation() {
         supportFragmentManager.beginTransaction()

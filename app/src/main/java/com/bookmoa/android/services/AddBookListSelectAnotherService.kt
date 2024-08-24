@@ -12,7 +12,7 @@ interface AddBookListSelectAnotherService {
 
     @POST("library/list/book/{bookListId}")
     fun postBookIds(
-    @Header("Authorization") token: String,
+    //@Header("Authorization") token: String,
     @Path("bookListId") bookListId: Int,
     @Body requestBody: BooksRequest
     ): Call<ResponseBody>

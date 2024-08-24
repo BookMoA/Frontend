@@ -11,13 +11,11 @@ interface SearchListMemoService {
 
     @GET("search/list")
     fun getBookList(
-        @Header("Authorization") token: String,
         @Query("title") query: String, // 검색어
     ): Call<SearchBookListResponse>
 
     @GET("search/memo")
     fun getBookMemos(
-        @Header("Authorization") token: String,
         @Query("keyword") query: String, // 검색어
     ): Call<SearchMemoResponse>
 }

@@ -31,17 +31,6 @@
                 android:contentDescription="@string/app_name" />
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tvName5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Page 5"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 
