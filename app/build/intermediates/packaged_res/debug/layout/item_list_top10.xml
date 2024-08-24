@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_list_top10_img_carview"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="13dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/item_list_top10_img_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#D9D9D9"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/item_list_top10_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:text="리스트 제목"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/item_list_top10_img_carview"
+        app:layout_constraintTop_toTopOf="@id/item_list_top10_img_carview" />
+
+    <TextView
+        android:id="@+id/item_list_top10_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:text="N개"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/item_list_top10_img_carview"
+        app:layout_constraintTop_toBottomOf="@id/item_list_top10_title_tv" />
+
+    <ImageView
+        android:id="@+id/item_list_top10_like_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/like"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/item_list_top10_title_tv"
+        app:layout_constraintStart_toEndOf="@id/item_list_top10_title_tv"
+        app:layout_constraintTop_toTopOf="@id/item_list_top10_title_tv" />
+
+    <TextView
+        android:id="@+id/item_list_top10_like_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="0"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/item_list_top10_like_icon"
+        app:layout_constraintTop_toTopOf="@id/item_list_top10_title_tv" />
+
+    <View
+        android:id="@+id/list_top10_line"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="20dp"
+        android:background="@color/grey5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_list_top10_num_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

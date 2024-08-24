@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_options">
+        <item>최신순</item>
+        <item>오래된순</item>
+        <item>정확도순</item>
+        <item>별점 높은순</item>
+        <item>별점 낮은순</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="blue">#064FDE</color>
+    <color name="buttonColor">#B5EDEE</color>
+    <color name="button_color">#B5EDEE</color>
+    <color name="grey">#F5F5F5</color>
+    <color name="grey1">#424242</color>
+    <color name="grey2">#767676</color>
+    <color name="grey3">#B6B6B6</color>
+    <color name="grey4">#999999</color>
+    <color name="grey5">#E2E2E2</color>
+    <color name="grey6">#EDEDED</color>
+    <color name="main">#95E6E7</color>
+    <color name="main30">#DFF7F8</color>
+    <color name="main70">#B5EDEE</color>
+    <color name="mainColor">#95E6E7</color>
+    <color name="main_color">#95E6E7</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="red">#E31919</color>
+    <color name="sub1">#1D003A</color>
+    <color name="sub2">#24DEE0</color>
+    <color name="sub3">#4FE1E2</color>
+    <color name="subColor">#1D003A</color>
+    <color name="sub_color_1">#1D003A</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="card_space">2dp</dimen>
+    <dimen name="frameSize">250dp</dimen>
+    <dimen name="offset">40dp</dimen>
+    <dimen name="pageMargin">20dp</dimen>
+    <dimen name="pageMarginAndOffset">60dp</dimen>
+    <string name="ApiKey">ttbheejae1071926001</string>
+    <string name="app_name">and</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quit"><u>탈퇴하기</u></string>
+    <style name="Base.Theme.BookMoA" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="CustomProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">@color/main</item>
+    </style>
+    <style name="Theme.And" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+    </style>
+    <style name="Theme.Moa" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+    <style name="tabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>
