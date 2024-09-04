@@ -9,5 +9,12 @@ class PassbookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPassbookBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.textView8.text="BB"
+        binding.textView8.text="dafd"
+
+
+
+
     }
 }

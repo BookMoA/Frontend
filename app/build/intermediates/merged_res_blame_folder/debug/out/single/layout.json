@@ -140,10 +140,6 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\item_study_list_top_3.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_search_title.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_title.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_service_terms.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_service_terms.xml"
     },
@@ -256,16 +252,16 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_mypage.xml"
     },
     {
+        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/activity_passbook.xml",
+        "source": "com.bookmoa.android.app-main-6:/layout/activity_passbook.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_groupvp.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_groupvp.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\fragment_alarmrv.xml",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_alarmrv.xml"
-    },
-    {
-        "merged": "com.bookmoa.android.app-mergeDebugResources-3:/layout/fragment_search_author.xml",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_author.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-mergeDebugResources-3:\\layout\\activity_home_memo.xml",

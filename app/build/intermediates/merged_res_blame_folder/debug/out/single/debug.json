@@ -604,10 +604,6 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_member_info.xml"
     },
     {
-        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_search_author.xml.flat",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_author.xml"
-    },
-    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_border_main_color_r10.xml.flat",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\border_main_color_r10.xml"
     },
@@ -1000,6 +996,10 @@
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\drawable\\move_book.xml"
     },
     {
+        "merged": "com.bookmoa.android.app-merged_res-4:/layout_activity_passbook.xml.flat",
+        "source": "com.bookmoa.android.app-main-6:/layout/activity_passbook.xml"
+    },
+    {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\layout_fragment_recommend.xml.flat",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\layout\\fragment_recommend.xml"
     },
@@ -1094,10 +1094,6 @@
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-main-6:\\mipmap-xhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.bookmoa.android.app-merged_res-4:/layout_fragment_search_title.xml.flat",
-        "source": "com.bookmoa.android.app-main-6:/layout/fragment_search_title.xml"
     },
     {
         "merged": "C:\\Users\\김희선\\.gradle\\daemon\\8.7\\com.bookmoa.android.app-merged_res-4:\\drawable_icon_switchtrack.xml.flat",
