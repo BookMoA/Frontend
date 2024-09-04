@@ -12,6 +12,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bookmoa.android.MainActivity
 import com.bookmoa.android.services.TokenManager
 import com.bookmoa.android.databinding.FragmentGroupBinding
+import com.bookmoa.android.services.GetClubsData
+import com.bookmoa.android.services.GetClubs
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.bookmoa.android.services.ApiService
 import com.bookmoa.android.services.ClubApi
 import com.bookmoa.android.services.GetClubData
@@ -32,7 +40,7 @@ class GroupFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var tokenManager: TokenManager
     private var isClubJoined: Boolean = false
-    private var clubData: GetClubData? = null
+    private var clubData: GetClubsData? = null
 
     private lateinit var api: ApiService
 
@@ -105,7 +113,7 @@ class GroupFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val clubApi = retrofit.create(ClubApi::class.java)
+        val clubApi = retrofit.create(GetClubs::class.java)
         val token = tokenManager.getToken()
         val bearerToken = "Bearer $token"
 
@@ -114,28 +122,31 @@ class GroupFragment : Fragment() {
             return
         }
 
-        val call = clubApi.getClubs(bearerToken)
-        call.enqueue(object : Callback<GetClubs> {
-            override fun onResponse(call: Call<GetClubs>, response: Response<GetClubs>) {
-                Log.d("GroupFragment", "Clubs data fetched, Response code: ${response.code()}")
-                if (response.isSuccessful) {
-                    val clubsResponse = response.body()
-                    clubsResponse?.let {
-                        updateUIWithClubData(it.data)
-                        isClubJoined = it.data?.clubId != null && it.data?.name != null && it.data?.intro != null
-                        Log.d("GroupFragment", "Clubs data fetched successfully")
-
-                        // Fetch complete, now update the ViewPager adapter with the new isClubJoined value
-                        setupViewPager()
-                    }
-                } else {
-                    Log.d("GroupFragment", "Clubs data fetch failed: ${response.errorBody()?.string()}")
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                // Perform the network call on the IO dispatcher
+                val clubsResponse = withContext(Dispatchers.IO) {
+                    clubApi.getClubs(bearerToken)
                 }
-            }
 
-            override fun onFailure(call: Call<GetClubs>, t: Throwable) {
-                Log.d("GroupFragment", "Clubs data fetch failed with error: ${t.message}")
+                // Log the response code and handle the response data
+                Log.d("GroupFragment", "Clubs data fetched, status code: ${clubsResponse.code}")
+                updateUIWithClubData(clubsResponse.data)
+
+                // Update the isClubJoined value based on the response
+                isClubJoined = clubsResponse.data.clubId != null
+                        && clubsResponse.data.name.isNotBlank()
+                        && clubsResponse.data.intro.isNotBlank()
+
+                // Log success and update the ViewPager
+                Log.d("GroupFragment", "Clubs data fetched successfully")
+                setupViewPager()
+
+            } catch (e: Exception) {
+                // Handle any exceptions during the network call
+                Log.e("GroupFragment", "Error fetching clubs data: ${e.message}", e)
             }
+        }
         })
 
          */
@@ -158,7 +169,7 @@ class GroupFragment : Fragment() {
         }.attach()
     }
 
-    private fun updateUIWithClubData(clubData: GetClubData?) {
+    private fun updateUIWithClubData(clubData: GetClubsData?) {
         this.clubData = clubData
         if (clubData != null && clubData.name != null && clubData.intro != null) {
             binding.groupMakeCv.visibility = View.GONE

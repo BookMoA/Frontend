@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 class TokenManager() {
 
 
-    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzI0Mzg1NjYyfQ.jIbMoTVOnhzR8O42Nu2fDbtWorhEiUVVNQwiZaDOs9E"
+    private val hardcodedToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCQiIsImF1dGgiOiJST0xFX1VTRVIiLCJuaWNrbmFtZSI6IkJCIiwiZXhwIjoxNzI0NDQ5MDEzfQ.klLlxyLjofyK43tGC7yibS643XHwVmhnTz4tlcpmz38"
     fun getToken(): String {
         return hardcodedToken
     }
